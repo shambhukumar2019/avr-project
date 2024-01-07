@@ -1,1 +1,1 @@
-library for gpio handling of atmega32 microcontroller
+library for general purpose input output(GPIO) handling of atmega32 microcontroller
