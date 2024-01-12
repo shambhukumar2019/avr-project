@@ -6,4 +6,4 @@ bin ->  output executable target file
 build -> compilation output files
 src -> driver code(main)
 lib -> other codes to use with driver code
-include -> header files
+include -> header files for gpio
