@@ -2,7 +2,6 @@
 #define M32_GPIO_H
 
 #include<avr/io.h>
-#include<avr/iom32.h>
 
 #define VCC    1
 #define GND    0
