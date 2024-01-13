@@ -25,22 +25,20 @@ Include dependency graph for m32\+\_\+gpio.\+c\+:\nopagebreak
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{m32__gpio_8c_ac8ac3b82bc6158e338f2036ba1afbf79}{gpio\+\_\+setout}} (volatile uint8\+\_\+t pin, volatile uint8\+\_\+t port)
-\begin{DoxyCompactList}\small\item\em set given pin of a port as output \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{m32__gpio_8c_ad0e01508375c6c0649adf6bb5bed2df1}{gpio\+\_\+setin}} (volatile uint8\+\_\+t pin, volatile uint8\+\_\+t port)
-\begin{DoxyCompactList}\small\item\em set given pin of a port as input \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{m32__gpio_8c_a38625945bf5e9a9993ef270d09f477e0}{gpio\+\_\+mode}} (volatile uint8\+\_\+t pin, volatile uint8\+\_\+t port, volatile uint8\+\_\+t io\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em define \mbox{\hyperlink{m32__gpio_8c_a38625945bf5e9a9993ef270d09f477e0}{gpio\+\_\+mode()}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{m32__gpio_8c_a37e7c6d180292e70793ef09bd44df60e}{gpio\+\_\+set\+\_\+output}} (volatile uint8\+\_\+t pin, volatile uint8\+\_\+t port, volatile uint8\+\_\+t logic)
-\begin{DoxyCompactList}\small\item\em set value for pin (high/low) of the port \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em define \mbox{\hyperlink{m32__gpio_8c_a37e7c6d180292e70793ef09bd44df60e}{gpio\+\_\+set\+\_\+output()}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{m32__gpio_8c_a841c74be541b82389a10f36f7de19010}{gpio\+\_\+pullup\+\_\+on}} (volatile uint8\+\_\+t pin, volatile uint8\+\_\+t port)
-\begin{DoxyCompactList}\small\item\em turn on pull-\/up for given pin of the port \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em define \mbox{\hyperlink{m32__gpio_8c_a841c74be541b82389a10f36f7de19010}{gpio\+\_\+pullup\+\_\+on()}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{m32__gpio_8c_a9d225af50df2e3ea623ab6f4f31db3da}{gpio\+\_\+pullup\+\_\+off}} (volatile uint8\+\_\+t pin, volatile uint8\+\_\+t port)
-\begin{DoxyCompactList}\small\item\em turn off pull-\/up for given pin of the port \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em define \mbox{\hyperlink{m32__gpio_8c_a9d225af50df2e3ea623ab6f4f31db3da}{gpio\+\_\+pullup\+\_\+off()}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{m32__gpio_8c_ad29db772975f0815f1cacfad5c1c820e}{gpio\+\_\+global\+\_\+pullup\+\_\+disable}} (void)
-\begin{DoxyCompactList}\small\item\em disable pull-\/up for all ports \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em define gpio\+\_\+global\+\_\+pullup\+\_\+disable \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{m32__gpio_8c_a83d106e2c55ade3d62b01d5044809a61}{gpio\+\_\+global\+\_\+pullup\+\_\+enable}} (void)
-\begin{DoxyCompactList}\small\item\em enable pull-\/up for all ports \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em define gpio\+\_\+global\+\_\+pullup\+\_\+enable \end{DoxyCompactList}\item 
 volatile uint8\+\_\+t \mbox{\hyperlink{m32__gpio_8c_a25d9b34e8f0f007d326c6ee04048e7bf}{gpio\+\_\+read}} (volatile uint8\+\_\+t pin, volatile uint8\+\_\+t port)
-\begin{DoxyCompactList}\small\item\em read value of the pin of the port \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em define \mbox{\hyperlink{m32__gpio_8c_a25d9b34e8f0f007d326c6ee04048e7bf}{gpio\+\_\+read()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -69,17 +67,9 @@ Copyright (c) 2024
 
 
 
-disable pull-\/up for all ports 
+define gpio\+\_\+global\+\_\+pullup\+\_\+disable 
 
-
-\begin{DoxyParams}{Parameters}
-{\em void} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
-\mbox{\Hypertarget{m32__gpio_8c_a83d106e2c55ade3d62b01d5044809a61}\label{m32__gpio_8c_a83d106e2c55ade3d62b01d5044809a61}} 
+disable pull-\/up for all ports \mbox{\Hypertarget{m32__gpio_8c_a83d106e2c55ade3d62b01d5044809a61}\label{m32__gpio_8c_a83d106e2c55ade3d62b01d5044809a61}} 
 \index{m32\_gpio.c@{m32\_gpio.c}!gpio\_global\_pullup\_enable@{gpio\_global\_pullup\_enable}}
 \index{gpio\_global\_pullup\_enable@{gpio\_global\_pullup\_enable}!m32\_gpio.c@{m32\_gpio.c}}
 \doxysubsubsection{\texorpdfstring{gpio\_global\_pullup\_enable()}{gpio\_global\_pullup\_enable()}}
@@ -87,16 +77,29 @@ void
 
 
 
-enable pull-\/up for all ports 
+define gpio\+\_\+global\+\_\+pullup\+\_\+enable 
+
+enable pull-\/up for all ports \mbox{\Hypertarget{m32__gpio_8c_a38625945bf5e9a9993ef270d09f477e0}\label{m32__gpio_8c_a38625945bf5e9a9993ef270d09f477e0}} 
+\index{m32\_gpio.c@{m32\_gpio.c}!gpio\_mode@{gpio\_mode}}
+\index{gpio\_mode@{gpio\_mode}!m32\_gpio.c@{m32\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_mode()}{gpio\_mode()}}
+{\footnotesize\ttfamily void gpio\+\_\+mode (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t}]{pin,  }\item[{volatile uint8\+\_\+t}]{port,  }\item[{volatile uint8\+\_\+t}]{io\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+define \mbox{\hyperlink{m32__gpio_8c_a38625945bf5e9a9993ef270d09f477e0}{gpio\+\_\+mode()}} 
+
+set given pin of a port as output
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em pin} & \\
+\hline
+{\em port} & \\
+\hline
+{\em io\+\_\+mode} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
 \mbox{\Hypertarget{m32__gpio_8c_a9d225af50df2e3ea623ab6f4f31db3da}\label{m32__gpio_8c_a9d225af50df2e3ea623ab6f4f31db3da}} 
 \index{m32\_gpio.c@{m32\_gpio.c}!gpio\_pullup\_off@{gpio\_pullup\_off}}
 \index{gpio\_pullup\_off@{gpio\_pullup\_off}!m32\_gpio.c@{m32\_gpio.c}}
@@ -105,18 +108,17 @@ void
 
 
 
-turn off pull-\/up for given pin of the port 
+define \mbox{\hyperlink{m32__gpio_8c_a9d225af50df2e3ea623ab6f4f31db3da}{gpio\+\_\+pullup\+\_\+off()}} 
+
+turn off pull-\/up for given pin of the port
 
 
 \begin{DoxyParams}{Parameters}
-{\em uint8\+\_\+t} & store pin number \\
+{\em pin} & \\
 \hline
-{\em uint8\+\_\+t} & store port name\\
+{\em port} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
 \mbox{\Hypertarget{m32__gpio_8c_a841c74be541b82389a10f36f7de19010}\label{m32__gpio_8c_a841c74be541b82389a10f36f7de19010}} 
 \index{m32\_gpio.c@{m32\_gpio.c}!gpio\_pullup\_on@{gpio\_pullup\_on}}
 \index{gpio\_pullup\_on@{gpio\_pullup\_on}!m32\_gpio.c@{m32\_gpio.c}}
@@ -125,18 +127,17 @@ void
 
 
 
-turn on pull-\/up for given pin of the port 
+define \mbox{\hyperlink{m32__gpio_8c_a841c74be541b82389a10f36f7de19010}{gpio\+\_\+pullup\+\_\+on()}} 
+
+turn on pull-\/up for given pin of the port
 
 
 \begin{DoxyParams}{Parameters}
-{\em uint8\+\_\+t} & store pin number \\
+{\em pin} & \\
 \hline
-{\em uint8\+\_\+t} & store port name\\
+{\em port} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
 \mbox{\Hypertarget{m32__gpio_8c_a25d9b34e8f0f007d326c6ee04048e7bf}\label{m32__gpio_8c_a25d9b34e8f0f007d326c6ee04048e7bf}} 
 \index{m32\_gpio.c@{m32\_gpio.c}!gpio\_read@{gpio\_read}}
 \index{gpio\_read@{gpio\_read}!m32\_gpio.c@{m32\_gpio.c}}
@@ -145,17 +146,19 @@ void
 
 
 
-read value of the pin of the port 
+define \mbox{\hyperlink{m32__gpio_8c_a25d9b34e8f0f007d326c6ee04048e7bf}{gpio\+\_\+read()}} 
+
+read value of the pin of the port
 
 
 \begin{DoxyParams}{Parameters}
-{\em uint8\+\_\+t} & set the pin number \\
+{\em pin} & \\
 \hline
-{\em uint8\+\_\+t} & set the port name\\
+{\em port} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-volatile uint8\+\_\+t pin value (VCC/\+GND) 
+volatile uint8\+\_\+t 
 \end{DoxyReturn}
 \mbox{\Hypertarget{m32__gpio_8c_a37e7c6d180292e70793ef09bd44df60e}\label{m32__gpio_8c_a37e7c6d180292e70793ef09bd44df60e}} 
 \index{m32\_gpio.c@{m32\_gpio.c}!gpio\_set\_output@{gpio\_set\_output}}
@@ -165,57 +168,16 @@ volatile uint8\+\_\+t pin value (VCC/\+GND)
 
 
 
-set value for pin (high/low) of the port 
+define \mbox{\hyperlink{m32__gpio_8c_a37e7c6d180292e70793ef09bd44df60e}{gpio\+\_\+set\+\_\+output()}} 
+
+set value for pin (high/low) of the port
 
 
 \begin{DoxyParams}{Parameters}
-{\em uint8\+\_\+t} & store pin number \\
+{\em pin} & \\
 \hline
-{\em uint8\+\_\+t} & store port name \\
+{\em port} & \\
 \hline
-{\em uint8\+\_\+t} & set pin value (VCC/\+GND)\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
-\mbox{\Hypertarget{m32__gpio_8c_ad0e01508375c6c0649adf6bb5bed2df1}\label{m32__gpio_8c_ad0e01508375c6c0649adf6bb5bed2df1}} 
-\index{m32\_gpio.c@{m32\_gpio.c}!gpio\_setin@{gpio\_setin}}
-\index{gpio\_setin@{gpio\_setin}!m32\_gpio.c@{m32\_gpio.c}}
-\doxysubsubsection{\texorpdfstring{gpio\_setin()}{gpio\_setin()}}
-{\footnotesize\ttfamily void gpio\+\_\+setin (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t}]{pin,  }\item[{volatile uint8\+\_\+t}]{port }\end{DoxyParamCaption})}
-
-
-
-set given pin of a port as input 
-
-
-\begin{DoxyParams}{Parameters}
-{\em uint8\+\_\+t} & store pin number \\
-\hline
-{\em uint8\+\_\+t} & store port name\\
+{\em logic} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
-\mbox{\Hypertarget{m32__gpio_8c_ac8ac3b82bc6158e338f2036ba1afbf79}\label{m32__gpio_8c_ac8ac3b82bc6158e338f2036ba1afbf79}} 
-\index{m32\_gpio.c@{m32\_gpio.c}!gpio\_setout@{gpio\_setout}}
-\index{gpio\_setout@{gpio\_setout}!m32\_gpio.c@{m32\_gpio.c}}
-\doxysubsubsection{\texorpdfstring{gpio\_setout()}{gpio\_setout()}}
-{\footnotesize\ttfamily void gpio\+\_\+setout (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t}]{pin,  }\item[{volatile uint8\+\_\+t}]{port }\end{DoxyParamCaption})}
-
-
-
-set given pin of a port as output 
-
-
-\begin{DoxyParams}{Parameters}
-{\em uint8\+\_\+t} & store pin number \\
-\hline
-{\em uint8\+\_\+t} & store port name\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}

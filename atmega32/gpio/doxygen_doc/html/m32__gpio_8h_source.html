@@ -81,73 +81,80 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define VCC    1</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define GND    0</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define IN      0</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define OUT     1</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">typedef unsigned char pin;      // to store pin number</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">typedef unsigned char port;     // to store port name</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">typedef unsigned char logic;    // to store logic level (VCC/GND)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*  compiler treat it as integer,</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">    default pinvalue size = 4 byte</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">    but if we use &quot;packed&quot; attribute</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    then pinvalue will use least size needed.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">    __attribute__ ((__packed__))</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">typedef enum</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">{</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">    pin1,</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">    pin2,</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    pin3,</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">    pin4,</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">    pin5,</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">    pin6,</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">    pin7,</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">    pin8</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">}pinvalue;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">    store variables for pin number,</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    port number and logic level set.</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    to minimize space required bitfields are used.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    only 2 byte space will be occupied.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">    further thinking required...</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">typedef struct</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">{</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">    uint8_t port    :8;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">    uint8_t pin     :4;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">    uint8_t logic   :1;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">}gpio_config;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#ac269597cd4a279df0b5a037393c0d0b0">gpio_setout</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#a64a5e12a524deeb369ef8d46f4133052">gpio_setin</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">gpio_set_output</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#a29cae82aa8088d31561e2256be9d3d31">gpio_pullup_on</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#aa531f791bc78b12d5d9c98e6c52fa719">gpio_pullup_off</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#ad29db772975f0815f1cacfad5c1c820e">gpio_global_pullup_disable</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#a83d106e2c55ade3d62b01d5044809a61">gpio_global_pullup_enable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">typedef unsigned char pin;      // to store pin number</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">typedef unsigned char port;     // to store port name</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">typedef unsigned char logic;    // to store logic level (VCC/GND)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*  compiler treat it as integer,</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    default pinvalue size = 4 byte</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    but if we use &quot;packed&quot; attribute</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">    then pinvalue will use least size needed.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">    __attribute__ ((__packed__))</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">typedef enum</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">{</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">    pin1,</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">    pin2,</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">    pin3,</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">    pin4,</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">    pin5,</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">    pin6,</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">    pin7,</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">    pin8</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">}pinvalue;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    store variables for pin number,</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    port number and logic level set.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">    to minimize space required bitfields are used.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">    only 2 byte space will be occupied.</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    further thinking required...</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">typedef struct</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">{</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">    uint8_t port    :8;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    uint8_t pin     :4;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">    uint8_t logic   :1;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">}gpio_config;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#abe321240136e68c4d56f88cd7e62fece">gpio_mode</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">gpio_set_output</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#a29cae82aa8088d31561e2256be9d3d31">gpio_pullup_on</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#aa531f791bc78b12d5d9c98e6c52fa719">gpio_pullup_off</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#ad29db772975f0815f1cacfad5c1c820e">gpio_global_pullup_disable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m32__gpio_8h.html#a83d106e2c55ade3d62b01d5044809a61">gpio_global_pullup_enable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">volatile</span> uint8_t <a class="code" href="m32__gpio_8h.html#a9c729f0d10993edc33e125e2dba80899">gpio_read</a>(<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
@@ -156,14 +163,13 @@ $(function() {
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="am32__gpio_8h_html_a1fd87f3333284c57b189fa99f78a9bbc"><div class="ttname"><a href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">gpio_set_output</a></div><div class="ttdeci">void gpio_set_output(volatile uint8_t, volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">set value for pin (high/low) of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:58</div></div>
-<div class="ttc" id="am32__gpio_8h_html_a29cae82aa8088d31561e2256be9d3d31"><div class="ttname"><a href="m32__gpio_8h.html#a29cae82aa8088d31561e2256be9d3d31">gpio_pullup_on</a></div><div class="ttdeci">void gpio_pullup_on(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">turn on pull-up for given pin of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:126</div></div>
-<div class="ttc" id="am32__gpio_8h_html_a64a5e12a524deeb369ef8d46f4133052"><div class="ttname"><a href="m32__gpio_8h.html#a64a5e12a524deeb369ef8d46f4133052">gpio_setin</a></div><div class="ttdeci">void gpio_setin(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">set given pin of a port as input</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:39</div></div>
-<div class="ttc" id="am32__gpio_8h_html_a83d106e2c55ade3d62b01d5044809a61"><div class="ttname"><a href="m32__gpio_8h.html#a83d106e2c55ade3d62b01d5044809a61">gpio_global_pullup_enable</a></div><div class="ttdeci">void gpio_global_pullup_enable(void)</div><div class="ttdoc">enable pull-up for all ports</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:171</div></div>
-<div class="ttc" id="am32__gpio_8h_html_a9c729f0d10993edc33e125e2dba80899"><div class="ttname"><a href="m32__gpio_8h.html#a9c729f0d10993edc33e125e2dba80899">gpio_read</a></div><div class="ttdeci">volatile uint8_t gpio_read(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">read value of the pin of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:177</div></div>
-<div class="ttc" id="am32__gpio_8h_html_aa531f791bc78b12d5d9c98e6c52fa719"><div class="ttname"><a href="m32__gpio_8h.html#aa531f791bc78b12d5d9c98e6c52fa719">gpio_pullup_off</a></div><div class="ttdeci">void gpio_pullup_off(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">turn off pull-up for given pin of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:145</div></div>
-<div class="ttc" id="am32__gpio_8h_html_ac269597cd4a279df0b5a037393c0d0b0"><div class="ttname"><a href="m32__gpio_8h.html#ac269597cd4a279df0b5a037393c0d0b0">gpio_setout</a></div><div class="ttdeci">void gpio_setout(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">set given pin of a port as output</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:19</div></div>
-<div class="ttc" id="am32__gpio_8h_html_ad29db772975f0815f1cacfad5c1c820e"><div class="ttname"><a href="m32__gpio_8h.html#ad29db772975f0815f1cacfad5c1c820e">gpio_global_pullup_disable</a></div><div class="ttdeci">void gpio_global_pullup_disable(void)</div><div class="ttdoc">disable pull-up for all ports</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:165</div></div>
+<div class="ttc" id="am32__gpio_8h_html_a1fd87f3333284c57b189fa99f78a9bbc"><div class="ttname"><a href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">gpio_set_output</a></div><div class="ttdeci">void gpio_set_output(volatile uint8_t, volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">set value for pin (high/low) of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:68</div></div>
+<div class="ttc" id="am32__gpio_8h_html_a29cae82aa8088d31561e2256be9d3d31"><div class="ttname"><a href="m32__gpio_8h.html#a29cae82aa8088d31561e2256be9d3d31">gpio_pullup_on</a></div><div class="ttdeci">void gpio_pullup_on(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">turn on pull-up for given pin of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:143</div></div>
+<div class="ttc" id="am32__gpio_8h_html_a83d106e2c55ade3d62b01d5044809a61"><div class="ttname"><a href="m32__gpio_8h.html#a83d106e2c55ade3d62b01d5044809a61">gpio_global_pullup_enable</a></div><div class="ttdeci">void gpio_global_pullup_enable(void)</div><div class="ttdoc">enable pull-up for all ports</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:203</div></div>
+<div class="ttc" id="am32__gpio_8h_html_a9c729f0d10993edc33e125e2dba80899"><div class="ttname"><a href="m32__gpio_8h.html#a9c729f0d10993edc33e125e2dba80899">gpio_read</a></div><div class="ttdeci">volatile uint8_t gpio_read(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">read value of the pin of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:216</div></div>
+<div class="ttc" id="am32__gpio_8h_html_aa531f791bc78b12d5d9c98e6c52fa719"><div class="ttname"><a href="m32__gpio_8h.html#aa531f791bc78b12d5d9c98e6c52fa719">gpio_pullup_off</a></div><div class="ttdeci">void gpio_pullup_off(volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">turn off pull-up for given pin of the port</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:169</div></div>
+<div class="ttc" id="am32__gpio_8h_html_abe321240136e68c4d56f88cd7e62fece"><div class="ttname"><a href="m32__gpio_8h.html#abe321240136e68c4d56f88cd7e62fece">gpio_mode</a></div><div class="ttdeci">void gpio_mode(volatile uint8_t, volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">set given pin of a port as output</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:25</div></div>
+<div class="ttc" id="am32__gpio_8h_html_ad29db772975f0815f1cacfad5c1c820e"><div class="ttname"><a href="m32__gpio_8h.html#ad29db772975f0815f1cacfad5c1c820e">gpio_global_pullup_disable</a></div><div class="ttdeci">void gpio_global_pullup_disable(void)</div><div class="ttdoc">disable pull-up for all ports</div><div class="ttdef"><b>Definition:</b> m32_gpio.c:193</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

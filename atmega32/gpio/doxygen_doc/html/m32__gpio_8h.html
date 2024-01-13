@@ -110,15 +110,18 @@ Macros</h2></td></tr>
 <tr class="memitem:a2c058e9d24bb65c1a6ad2d439b2976ab"><td class="memItemLeft" align="right" valign="top"><a id="a2c058e9d24bb65c1a6ad2d439b2976ab"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>GND</b>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a2c058e9d24bb65c1a6ad2d439b2976ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2bbd6d630a06a980d9a92ddb9a49928"><td class="memItemLeft" align="right" valign="top"><a id="ac2bbd6d630a06a980d9a92ddb9a49928"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>IN</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ac2bbd6d630a06a980d9a92ddb9a49928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec78e7a9e90a406a56f859ee456e8eae"><td class="memItemLeft" align="right" valign="top"><a id="aec78e7a9e90a406a56f859ee456e8eae"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>OUT</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aec78e7a9e90a406a56f859ee456e8eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac269597cd4a279df0b5a037393c0d0b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#ac269597cd4a279df0b5a037393c0d0b0">gpio_setout</a> (volatile uint8_t, volatile uint8_t)</td></tr>
-<tr class="memdesc:ac269597cd4a279df0b5a037393c0d0b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">set given pin of a port as output  <a href="m32__gpio_8h.html#ac269597cd4a279df0b5a037393c0d0b0">More...</a><br /></td></tr>
-<tr class="separator:ac269597cd4a279df0b5a037393c0d0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64a5e12a524deeb369ef8d46f4133052"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#a64a5e12a524deeb369ef8d46f4133052">gpio_setin</a> (volatile uint8_t, volatile uint8_t)</td></tr>
-<tr class="memdesc:a64a5e12a524deeb369ef8d46f4133052"><td class="mdescLeft">&#160;</td><td class="mdescRight">set given pin of a port as input  <a href="m32__gpio_8h.html#a64a5e12a524deeb369ef8d46f4133052">More...</a><br /></td></tr>
-<tr class="separator:a64a5e12a524deeb369ef8d46f4133052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe321240136e68c4d56f88cd7e62fece"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#abe321240136e68c4d56f88cd7e62fece">gpio_mode</a> (volatile uint8_t, volatile uint8_t, volatile uint8_t)</td></tr>
+<tr class="memdesc:abe321240136e68c4d56f88cd7e62fece"><td class="mdescLeft">&#160;</td><td class="mdescRight">set given pin of a port as output  <a href="m32__gpio_8h.html#abe321240136e68c4d56f88cd7e62fece">More...</a><br /></td></tr>
+<tr class="separator:abe321240136e68c4d56f88cd7e62fece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fd87f3333284c57b189fa99f78a9bbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">gpio_set_output</a> (volatile uint8_t, volatile uint8_t, volatile uint8_t)</td></tr>
 <tr class="memdesc:a1fd87f3333284c57b189fa99f78a9bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">set value for pin (high/low) of the port  <a href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">More...</a><br /></td></tr>
 <tr class="separator:a1fd87f3333284c57b189fa99f78a9bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,7 +171,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>disable pull-up for all ports </p>
 
 </div>
 </div>
@@ -195,7 +199,62 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>enable pull-up for all ports </p>
+
+</div>
+</div>
+<a id="abe321240136e68c4d56f88cd7e62fece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe321240136e68c4d56f88cd7e62fece">&#9670;&nbsp;</a></span>gpio_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gpio_mode </td>
+          <td>(</td>
+          <td class="paramtype">volatile uint8_t&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint8_t&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint8_t&#160;</td>
+          <td class="paramname"><em>io_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set given pin of a port as output </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uint8_t</td><td>store pin number </td></tr>
+    <tr><td class="paramname">uint8_t</td><td>store port name </td></tr>
+    <tr><td class="paramname">uint8_t</td><td>set i/o mode (IN/OUT)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>set given pin of a port as output</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td></td></tr>
+    <tr><td class="paramname">port</td><td></td></tr>
+    <tr><td class="paramname">io_mode</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -233,7 +292,15 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>turn off pull-up for given pin of the port</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td></td></tr>
+    <tr><td class="paramname">port</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -271,7 +338,15 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>turn on pull-up for given pin of the port</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td></td></tr>
+    <tr><td class="paramname">port</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -309,7 +384,16 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>volatile uint8_t pin value (VCC/GND) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>volatile uint8_t pin value (VCC/GND)</dd></dl>
+<p>read value of the pin of the port</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td></td></tr>
+    <tr><td class="paramname">port</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>volatile uint8_t </dd></dl>
 
 </div>
 </div>
@@ -354,83 +438,16 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-</div>
-</div>
-<a id="a64a5e12a524deeb369ef8d46f4133052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64a5e12a524deeb369ef8d46f4133052">&#9670;&nbsp;</a></span>gpio_setin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gpio_setin </td>
-          <td>(</td>
-          <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>pin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>port</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>set given pin of a port as input </p>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>set value for pin (high/low) of the port</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uint8_t</td><td>store pin number </td></tr>
-    <tr><td class="paramname">uint8_t</td><td>store port name</td></tr>
+    <tr><td class="paramname">pin</td><td></td></tr>
+    <tr><td class="paramname">port</td><td></td></tr>
+    <tr><td class="paramname">logic</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-</div>
-</div>
-<a id="ac269597cd4a279df0b5a037393c0d0b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac269597cd4a279df0b5a037393c0d0b0">&#9670;&nbsp;</a></span>gpio_setout()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gpio_setout </td>
-          <td>(</td>
-          <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>pin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>port</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>set given pin of a port as output </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">uint8_t</td><td>store pin number </td></tr>
-    <tr><td class="paramname">uint8_t</td><td>store port name</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>

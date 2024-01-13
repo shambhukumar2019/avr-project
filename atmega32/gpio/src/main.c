@@ -11,10 +11,17 @@
 
 #include "m32_gpio.h"
 
+/**
+ * @brief define when using with simavr simulator
+ * 
+ */
 #define SIMAVR
 
 #ifndef F_CPU
-/// define clock frequency for CPU
+/**
+ * @brief set clock frequency for CPU
+ * 
+ */
 #define F_CPU 1000000UL
 #endif
 
@@ -29,7 +36,7 @@ void main(void)
 {
     gpio_mode(PIN0,PORTA,OUT);
 
-    /// never ending loop
+    
     while(1)
     {
         gpio_set_output(PIN0,PORTA,VCC);
