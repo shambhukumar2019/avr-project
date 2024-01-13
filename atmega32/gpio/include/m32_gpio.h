@@ -18,6 +18,9 @@
 #define VCC    1
 #define GND    0
 
+#define IN      0
+#define OUT     1
+
 
 
 
@@ -77,20 +80,12 @@ typedef struct
  * 
  * @param uint8_t store pin number
  * @param uint8_t store port name
+ * @param uint8_t set i/o mode (IN/OUT)
  * 
  * @return void
  */
-void gpio_setout(volatile uint8_t,volatile uint8_t);
+void gpio_mode(volatile uint8_t,volatile uint8_t,volatile uint8_t);
 
-/**
- * @brief set given pin of a port as input
- * 
- * @param uint8_t store pin number
- * @param uint8_t store port name
- * 
- * @return void
- */
-void gpio_setin(volatile uint8_t,volatile uint8_t);
 
 /**
  * @brief set value for pin (high/low) of the port
@@ -103,6 +98,7 @@ void gpio_setin(volatile uint8_t,volatile uint8_t);
  */
 void gpio_set_output(volatile uint8_t,volatile uint8_t,volatile uint8_t);
 
+
 /**
  * @brief turn on pull-up for given pin of the port
  * 
@@ -112,6 +108,7 @@ void gpio_set_output(volatile uint8_t,volatile uint8_t,volatile uint8_t);
  * @return void
  */
 void gpio_pullup_on(volatile uint8_t,volatile uint8_t);
+
 
 /**
  * @brief turn off pull-up for given pin of the port
@@ -123,6 +120,7 @@ void gpio_pullup_on(volatile uint8_t,volatile uint8_t);
  */
 void gpio_pullup_off(volatile uint8_t,volatile uint8_t);
 
+
 /**
  * @brief disable pull-up for all ports
  * 
@@ -132,6 +130,7 @@ void gpio_pullup_off(volatile uint8_t,volatile uint8_t);
  */
 void gpio_global_pullup_disable(void);
 
+
 /**
  * @brief enable pull-up for all ports
  * 
@@ -140,6 +139,7 @@ void gpio_global_pullup_disable(void);
  * @return void
  */
 void gpio_global_pullup_enable(void);
+
 
 /**
  * @brief read value of the pin of the port

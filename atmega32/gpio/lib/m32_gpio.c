@@ -16,44 +16,42 @@
 #define RESET_BIT(r,b)      (r &= ~(1<<b))
 
 
-void gpio_setout(volatile uint8_t pin,volatile uint8_t port)
+void gpio_mode(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t io_mode)
 {
-    if(PORTA == port)
-        SET_BIT(DDRA,pin);
-        //DDRA |= (1<<pin);
+    if (io_mode == OUT)
+    {
+        if(PORTA == port)
+            SET_BIT(DDRA,pin);
+        
 
-    else if(PORTB == port)
-        SET_BIT(DDRB,pin);
-        //DDRB |= (1<<pin);
-    
-    else if(PORTC == port)
-        SET_BIT(DDRC,pin);
-        //DDRC |= (1<<pin);
+        else if(PORTB == port)
+            SET_BIT(DDRB,pin);
+            
+        
+        else if(PORTC == port)
+            SET_BIT(DDRC,pin);
+            
 
-    else if (PORTD == port)    
-        SET_BIT(DDRD,pin);
-        //DDRD |= (1<<pin);
+        else if (PORTD == port)    
+            SET_BIT(DDRD,pin);
+    }
+    else if (io_mode == IN)
+    {
+        if(PORTA == port)
+            RESET_BIT(DDRA,pin);
+
+        else if(PORTB == port)
+            RESET_BIT(DDRB,pin);
+        
+        else if(PORTC == port)
+            RESET_BIT(DDRC,pin);
+
+        else if (PORTD == port)    
+            RESET_BIT(DDRD,pin);
+    }    
 
 }
 
-void gpio_setin(volatile uint8_t pin,volatile uint8_t port)
-{
-    if(PORTA == port)
-        RESET_BIT(DDRA,pin);
-        //DDRA &= ~(1<<pin);
-
-    else if(PORTB == port)
-        RESET_BIT(DDRB,pin);
-        //DDRB &= ~(1<<pin);
-    
-    else if(PORTC == port)
-        RESET_BIT(DDRC,pin);
-        //DDRC &= ~(1<<pin);
-
-    else if (PORTD == port)    
-        RESET_BIT(DDRD,pin);
-        //DDRD &= ~(1<<pin);
-}
 
 void gpio_set_output(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t logic)
 {

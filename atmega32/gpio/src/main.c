@@ -27,7 +27,7 @@
  */
 void main(void)
 {
-    gpio_setout(PIN0,PORTA);
+    gpio_mode(PIN0,PORTA,OUT);
 
     /// never ending loop
     while(1)
