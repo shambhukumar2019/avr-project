@@ -1,56 +1,71 @@
+/**
+ * @file m32_gpio.c
+ * @author shambhu kumar (you@domain.com)
+ * @brief source file for atmega32 gpio operations
+ * @version 1.0
+ * @date 2024-01-13
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "m32_gpio.h"
 
 
-void gpio_setout(uint8_t pin,uint8_t port)
+#define SET_BIT(r,b)        (r |= (1<<b))
+#define RESET_BIT(r,b)      (r &= ~(1<<b))
+
+
+void gpio_setout(volatile uint8_t pin,volatile uint8_t port)
 {
     if(PORTA == port)
-        
-        DDRA |= (1<<pin);
+        SET_BIT(DDRA,pin);
+        //DDRA |= (1<<pin);
 
     else if(PORTB == port)
-
-        DDRB |= (1<<pin);
+        SET_BIT(DDRB,pin);
+        //DDRB |= (1<<pin);
     
     else if(PORTC == port)
-
-        DDRC |= (1<<pin);
+        SET_BIT(DDRC,pin);
+        //DDRC |= (1<<pin);
 
     else if (PORTD == port)    
-
-        DDRD |= (1<<pin);
+        SET_BIT(DDRD,pin);
+        //DDRD |= (1<<pin);
 
 }
 
-void gpio_setin(uint8_t pin,uint8_t port)
+void gpio_setin(volatile uint8_t pin,volatile uint8_t port)
 {
     if(PORTA == port)
-        
-        DDRA &= ~(1<<pin);
+        RESET_BIT(DDRA,pin);
+        //DDRA &= ~(1<<pin);
 
     else if(PORTB == port)
-
-        DDRB &= ~(1<<pin);
+        RESET_BIT(DDRB,pin);
+        //DDRB &= ~(1<<pin);
     
     else if(PORTC == port)
-
-        DDRC &= ~(1<<pin);
+        RESET_BIT(DDRC,pin);
+        //DDRC &= ~(1<<pin);
 
     else if (PORTD == port)    
-
-        DDRD &= ~(1<<pin);
+        RESET_BIT(DDRD,pin);
+        //DDRD &= ~(1<<pin);
 }
 
-void gpio_set_output(uint8_t pin,uint8_t port,uint8_t logic)
+void gpio_set_output(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t logic)
 {
     if(PORTA == port)
     {
         if (logic == VCC)
         {
-            PORTA |= (1<<pin);
+            SET_BIT(PORTA,pin);
         }
         else if(logic == GND)
         {
-            PORTA &= ~(1<<pin);
+            RESET_BIT(PORTA,pin);
         }
         else
         {
@@ -63,11 +78,11 @@ void gpio_set_output(uint8_t pin,uint8_t port,uint8_t logic)
     {
         if (logic == VCC)
         {
-            PORTB |= (1<<pin);
+            SET_BIT(PORTB,pin);
         }
         else if(logic == GND)
         {
-            PORTB &= ~(1<<pin);
+            RESET_BIT(PORTB,pin);
         }
         else
         {
@@ -79,11 +94,11 @@ void gpio_set_output(uint8_t pin,uint8_t port,uint8_t logic)
     {
         if (logic == VCC)
         {
-            PORTC |= (1<<pin);
+            SET_BIT(PORTC,pin);
         }
         else if(logic == GND)
         {
-            PORTC &= ~(1<<pin);
+            RESET_BIT(PORTC,pin);
         }
         else
         {
@@ -95,11 +110,11 @@ void gpio_set_output(uint8_t pin,uint8_t port,uint8_t logic)
     {
         if (logic == VCC)
         {
-            PORTD |= (1<<pin);
+            SET_BIT(PORTD,pin);
         }
         else if(logic == GND)
         {
-            PORTD &= ~(1<<pin);
+            RESET_BIT(PORTD,pin);
         }
         else
         {
@@ -108,58 +123,58 @@ void gpio_set_output(uint8_t pin,uint8_t port,uint8_t logic)
     }
 }
 
-void gpio_pullup_on(uint8_t pin,uint8_t port)
+void gpio_pullup_on(volatile uint8_t pin,volatile uint8_t port)
 {
     if(PORTA == port)
         
-        PORTA |= (1<<pin);
+        SET_BIT(PORTA,pin);
 
     else if(PORTB == port)
 
-        PORTB |= (1<<pin);
+        SET_BIT(PORTB,pin);
     
     else if(PORTC == port)
 
-        PORTC |= (1<<pin);
+        SET_BIT(PORTC,pin);
 
     else if (PORTD == port)    
 
-        PORTD |= (1<<pin);
+        SET_BIT(PORTD,pin);
 }
 
-void gpio_pullup_off(uint8_t pin,uint8_t port)
+void gpio_pullup_off(volatile uint8_t pin,volatile uint8_t port)
 {
     if(PORTA == port)
         
-        PORTA &= ~(1<<pin);
+        RESET_BIT(PORTA,pin);
 
     else if(PORTB == port)
 
-        PORTB &= ~(1<<pin);
+        RESET_BIT(PORTB,pin);
     
     else if(PORTC == port)
 
-        PORTC &= ~(1<<pin);
+        RESET_BIT(PORTC,pin);
 
     else if (PORTD == port)    
 
-        PORTD &= ~(1<<pin);
+        RESET_BIT(PORTD,pin);
 }
 
 
-void gpio_pullup_disable(void)
+void gpio_global_pullup_disable(void)
 {
-    SFIOR |= (1 << PUD);
+    SET_BIT(SFIOR,PUD);
 }
 
 
-void gpio_pullup_enable(void)
+void gpio_global_pullup_enable(void)
 {
-    SFIOR &= ~(1 << PUD);
+    RESET_BIT(SFIOR,PUD);
 }
 
 
-volatile uint8_t gpio_read(uint8_t pin,uint8_t port)
+volatile uint8_t gpio_read(volatile uint8_t pin,volatile uint8_t port)
 {
     if(PORTA == port)
     {

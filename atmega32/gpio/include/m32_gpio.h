@@ -1,7 +1,19 @@
+/**
+ * @file m32_gpio.h
+ * @author shambhu kumar (you@domain.com)
+ * @brief atmega32 gpio header file for m32_gpio.c
+ * @version 1.0
+ * @date 2024-01-13
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #ifndef M32_GPIO_H
 #define M32_GPIO_H
 
 #include<avr/io.h>
+#include<avr/iom32.h>
 
 #define VCC    1
 #define GND    0
@@ -60,47 +72,84 @@ typedef struct
 */
 
 
+/**
+ * @brief set given pin of a port as output
+ * 
+ * @param uint8_t store pin number
+ * @param uint8_t store port name
+ * 
+ * @return void
+ */
+void gpio_setout(volatile uint8_t,volatile uint8_t);
 
-/*     ---functions discription---
+/**
+ * @brief set given pin of a port as input
+ * 
+ * @param uint8_t store pin number
+ * @param uint8_t store port name
+ * 
+ * @return void
+ */
+void gpio_setin(volatile uint8_t,volatile uint8_t);
 
-    param1 -> store pin value
-    param2 -> store port name
-    paran3 -> store logic level (VCC/GND)
+/**
+ * @brief set value for pin (high/low) of the port
+ * 
+ * @param uint8_t store pin number
+ * @param uint8_t store port name
+ * @param uint8_t set pin value (VCC/GND)
+ * 
+ * @return void
+ */
+void gpio_set_output(volatile uint8_t,volatile uint8_t,volatile uint8_t);
 
-    return -> void
+/**
+ * @brief turn on pull-up for given pin of the port
+ * 
+ * @param uint8_t store pin number
+ * @param uint8_t store port name
+ * 
+ * @return void
+ */
+void gpio_pullup_on(volatile uint8_t,volatile uint8_t);
 
-    apply to all below functions
-*/
-// set given pin of a port as output
-void gpio_setout(uint8_t,uint8_t);
+/**
+ * @brief turn off pull-up for given pin of the port
+ * 
+ * @param uint8_t store pin number
+ * @param uint8_t store port name
+ * 
+ * @return void
+ */
+void gpio_pullup_off(volatile uint8_t,volatile uint8_t);
 
-// set given pin of a port as input
-void gpio_setin(uint8_t,uint8_t);
+/**
+ * @brief disable pull-up for all ports
+ * 
+ * @param void
+ * 
+ * @return void
+ */
+void gpio_global_pullup_disable(void);
 
+/**
+ * @brief enable pull-up for all ports
+ * 
+ * @param void
+ * 
+ * @return void
+ */
+void gpio_global_pullup_enable(void);
 
-// set given logic level of a given pin of a port
-// param3 -> VCC/GND
-void gpio_set_output(uint8_t,uint8_t,uint8_t);
-
-// turn on pullup of given pin
-void gpio_pullup_on(uint8_t,uint8_t);
-
-// turn off pullup of given pin
-void gpio_pullup_off(uint8_t,uint8_t);
-
-// disable pullup of all ports
-// return -> void
-// param -> null
-void gpio_pullup_disable(void);
-
-// enable pullup of all ports
-// return -> void
-// param -> null
-void gpio_pullup_enable(void);
-
-// read a given pin on given port
-// return -> read pin logic level (VCC/GND)
-volatile uint8_t gpio_read(uint8_t,uint8_t);
+/**
+ * @brief read value of the pin of the port
+ * 
+ * @param uint8_t set the pin number
+ * @param uint8_t set the port name
+ * 
+ * @return volatile uint8_t  pin value (VCC/GND)
+ */
+volatile uint8_t gpio_read(volatile uint8_t,volatile uint8_t);
 
 
 
