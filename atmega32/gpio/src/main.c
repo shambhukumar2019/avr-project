@@ -11,8 +11,9 @@
 
 #include "m32_gpio.h"
 
+
 /**
- * @brief define when using with simavr simulator
+ * @brief define when debuggind with simavr simulator
  * 
  */
 #define SIMAVR
