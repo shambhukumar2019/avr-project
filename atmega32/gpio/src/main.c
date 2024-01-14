@@ -40,11 +40,11 @@ void main(void)
     
     while(1)
     {
-        gpio_set_output(PIN0,PORTA,VCC);
+        gpio_set_output_value(PIN0,PORTA,VCC);
         #ifndef SIMAVR
         _delay_ms(1000);
         #endif
-        gpio_set_output(PIN0,PORTA,GND);
+        gpio_set_output_value(PIN0,PORTA,GND);
         #ifndef SIMAVR
         _delay_ms(1000);
         #endif

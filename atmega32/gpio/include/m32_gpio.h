@@ -100,7 +100,7 @@ void gpio_mode(volatile uint8_t,volatile uint8_t,volatile uint8_t);
  * 
  * @return void
  */
-void gpio_set_output(volatile uint8_t,volatile uint8_t,volatile uint8_t);
+void gpio_set_output_value(volatile uint8_t,volatile uint8_t,volatile uint8_t);
 
 
 /**
