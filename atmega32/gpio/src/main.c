@@ -38,7 +38,7 @@ void main(void)
     gpio_mode(PIN0,PORTA,OUT);
 
     
-    while(1)
+    for(;;)
     {
         gpio_set_output_value(PIN0,PORTA,VCC);
         #ifndef SIMAVR
