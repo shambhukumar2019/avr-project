@@ -13,17 +13,19 @@
 #define M32_GPIO_H
 
 #include<avr/io.h>
-#include<avr/iom32.h>
+//#include<avr/iom32.h>
 
 #define VCC         1
 #define GND         0
 
 /**
- * @brief   OUT -> to define output logic high
- *          IN  -> to define output logic low
- * 
+ * @brief   IN  -> make a pin as input
  */
 #define IN          0
+
+/**
+ * @brief OUT -> make a pin as output
+ */
 #define OUT         1
 
 
@@ -88,7 +90,7 @@ typedef struct
  * 
  * @return void
  */
-void gpio_mode(volatile uint8_t,volatile uint8_t,volatile uint8_t);
+void gpio_pin_mode(volatile uint8_t,volatile uint8_t,volatile uint8_t);
 
 
 /**
@@ -100,7 +102,7 @@ void gpio_mode(volatile uint8_t,volatile uint8_t,volatile uint8_t);
  * 
  * @return void
  */
-void gpio_set_output_value(volatile uint8_t,volatile uint8_t,volatile uint8_t);
+void gpio_set_output_pin_value(volatile uint8_t,volatile uint8_t,volatile uint8_t);
 
 
 /**

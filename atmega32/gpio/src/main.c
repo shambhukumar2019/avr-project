@@ -16,14 +16,14 @@
  * @brief define when debuggind with simavr simulator
  * 
  */
-#define SIMAVR
+//#define SIMAVR
 
 #ifndef F_CPU
 /**
  * @brief set clock frequency for CPU
  * 
  */
-#define F_CPU 1000000UL
+#define F_CPU 11059200UL
 #endif
 
 #include<util/delay.h>
@@ -35,19 +35,35 @@
  */
 void main(void)
 {
-    gpio_mode(PIN0,PORTA,OUT);
+    gpio_pin_mode(PIN0,PORTA,OUT);
+    gpio_pin_mode(PIN1,PORTA,IN);
+    gpio_pullup_on(PIN1,PORTA);
 
     
     for(;;)
     {
-        gpio_set_output_value(PIN0,PORTA,VCC);
-        #ifndef SIMAVR
-        _delay_ms(1000);
-        #endif
-        gpio_set_output_value(PIN0,PORTA,GND);
-        #ifndef SIMAVR
-        _delay_ms(1000);
-        #endif
+        if (gpio_read(PIN1,PORTA))
+        {
+            gpio_set_output_pin_value(PIN0,PORTA,VCC);
+            #ifndef SIMAVR
+            _delay_ms(1000);
+            #endif
+            gpio_set_output_pin_value(PIN0,PORTA,GND);
+            #ifndef SIMAVR
+            _delay_ms(1000);
+            #endif
+        }
+        else
+        {
+            gpio_set_output_pin_value(PIN0,PORTA,VCC);
+            #ifndef SIMAVR
+            _delay_ms(300);
+            #endif
+            gpio_set_output_pin_value(PIN0,PORTA,GND);
+            #ifndef SIMAVR
+            _delay_ms(300);
+            #endif
+        }
     }
     
 }

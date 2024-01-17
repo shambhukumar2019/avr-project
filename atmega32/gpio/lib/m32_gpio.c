@@ -22,7 +22,7 @@
  * @param port 
  * @param io_mode 
  */
-void gpio_mode(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t io_mode)
+void gpio_pin_mode(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t io_mode)
 {
     if (io_mode == OUT)
     {
@@ -65,7 +65,7 @@ void gpio_mode(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t io_mo
  * @param port 
  * @param logic 
  */
-void gpio_set_output_value(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t logic)
+void gpio_set_output_pin_value(volatile uint8_t pin,volatile uint8_t port,volatile uint8_t logic)
 {
     if(PORTA == port)
     {

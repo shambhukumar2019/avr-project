@@ -78,15 +78,13 @@ $(function() {
 <p>atmega32 gpio header file for <a class="el" href="m32__gpio_8c.html" title="source file for atmega32 gpio operations">m32_gpio.c</a>  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
-<code>#include &lt;avr/iom32.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for m32_gpio.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="m32__gpio_8h__incl.png" border="0" usemap="#ainclude_2m32__gpio_8h" alt=""/></div>
 <map name="ainclude_2m32__gpio_8h" id="ainclude_2m32__gpio_8h">
-<area shape="rect" title="atmega32 gpio header file for m32_gpio.c" alt="" coords="21,5,170,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" title=" " alt="" coords="100,80,200,107"/>
+<area shape="rect" title="atmega32 gpio header file for m32_gpio.c" alt="" coords="5,5,155,32"/>
+<area shape="rect" title=" " alt="" coords="45,80,115,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -111,20 +109,22 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>GND</b>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a2c058e9d24bb65c1a6ad2d439b2976ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2bbd6d630a06a980d9a92ddb9a49928"><td class="memItemLeft" align="right" valign="top"><a id="ac2bbd6d630a06a980d9a92ddb9a49928"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>IN</b>&#160;&#160;&#160;0</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#ac2bbd6d630a06a980d9a92ddb9a49928">IN</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ac2bbd6d630a06a980d9a92ddb9a49928"><td class="mdescLeft">&#160;</td><td class="mdescRight">IN -&gt; make a pin as input. <br /></td></tr>
 <tr class="separator:ac2bbd6d630a06a980d9a92ddb9a49928"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec78e7a9e90a406a56f859ee456e8eae"><td class="memItemLeft" align="right" valign="top"><a id="aec78e7a9e90a406a56f859ee456e8eae"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>OUT</b>&#160;&#160;&#160;1</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#aec78e7a9e90a406a56f859ee456e8eae">OUT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:aec78e7a9e90a406a56f859ee456e8eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">OUT -&gt; make a pin as output. <br /></td></tr>
 <tr class="separator:aec78e7a9e90a406a56f859ee456e8eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abe321240136e68c4d56f88cd7e62fece"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#abe321240136e68c4d56f88cd7e62fece">gpio_mode</a> (volatile uint8_t, volatile uint8_t, volatile uint8_t)</td></tr>
-<tr class="memdesc:abe321240136e68c4d56f88cd7e62fece"><td class="mdescLeft">&#160;</td><td class="mdescRight">set given pin of a port as output  <a href="m32__gpio_8h.html#abe321240136e68c4d56f88cd7e62fece">More...</a><br /></td></tr>
-<tr class="separator:abe321240136e68c4d56f88cd7e62fece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fd87f3333284c57b189fa99f78a9bbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">gpio_set_output</a> (volatile uint8_t, volatile uint8_t, volatile uint8_t)</td></tr>
-<tr class="memdesc:a1fd87f3333284c57b189fa99f78a9bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">set value for pin (high/low) of the port  <a href="m32__gpio_8h.html#a1fd87f3333284c57b189fa99f78a9bbc">More...</a><br /></td></tr>
-<tr class="separator:a1fd87f3333284c57b189fa99f78a9bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaba92ce3a14216b9522b472a5cde3300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#aaba92ce3a14216b9522b472a5cde3300">gpio_pin_mode</a> (volatile uint8_t, volatile uint8_t, volatile uint8_t)</td></tr>
+<tr class="memdesc:aaba92ce3a14216b9522b472a5cde3300"><td class="mdescLeft">&#160;</td><td class="mdescRight">set given pin of a port as output  <a href="m32__gpio_8h.html#aaba92ce3a14216b9522b472a5cde3300">More...</a><br /></td></tr>
+<tr class="separator:aaba92ce3a14216b9522b472a5cde3300"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32fcb2900ab42b923d83b773f4540a5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#a32fcb2900ab42b923d83b773f4540a5f">gpio_set_output_pin_value</a> (volatile uint8_t, volatile uint8_t, volatile uint8_t)</td></tr>
+<tr class="memdesc:a32fcb2900ab42b923d83b773f4540a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">set value for pin (high/low) of the port  <a href="m32__gpio_8h.html#a32fcb2900ab42b923d83b773f4540a5f">More...</a><br /></td></tr>
+<tr class="separator:a32fcb2900ab42b923d83b773f4540a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29cae82aa8088d31561e2256be9d3d31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m32__gpio_8h.html#a29cae82aa8088d31561e2256be9d3d31">gpio_pullup_on</a> (volatile uint8_t, volatile uint8_t)</td></tr>
 <tr class="memdesc:a29cae82aa8088d31561e2256be9d3d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">turn on pull-up for given pin of the port  <a href="m32__gpio_8h.html#a29cae82aa8088d31561e2256be9d3d31">More...</a><br /></td></tr>
 <tr class="separator:a29cae82aa8088d31561e2256be9d3d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,14 +204,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abe321240136e68c4d56f88cd7e62fece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe321240136e68c4d56f88cd7e62fece">&#9670;&nbsp;</a></span>gpio_mode()</h2>
+<a id="aaba92ce3a14216b9522b472a5cde3300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba92ce3a14216b9522b472a5cde3300">&#9670;&nbsp;</a></span>gpio_pin_mode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gpio_mode </td>
+          <td class="memname">void gpio_pin_mode </td>
           <td>(</td>
           <td class="paramtype">volatile uint8_t&#160;</td>
           <td class="paramname"><em>pin</em>, </td>
@@ -397,14 +397,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1fd87f3333284c57b189fa99f78a9bbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fd87f3333284c57b189fa99f78a9bbc">&#9670;&nbsp;</a></span>gpio_set_output()</h2>
+<a id="a32fcb2900ab42b923d83b773f4540a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32fcb2900ab42b923d83b773f4540a5f">&#9670;&nbsp;</a></span>gpio_set_output_pin_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gpio_set_output </td>
+          <td class="memname">void gpio_set_output_pin_value </td>
           <td>(</td>
           <td class="paramtype">volatile uint8_t&#160;</td>
           <td class="paramname"><em>pin</em>, </td>
