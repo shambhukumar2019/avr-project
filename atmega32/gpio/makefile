@@ -33,7 +33,7 @@ OBJCOPY_FLAGS = -O ihex -g	# generate intel hex file, (-g) remove debug info's
 RM_FLAGS = -r -f			# remove all files, sub-directories and directories
 
 
-## ********uploading target file to target MCU*********
+## 		******** uploading target file to target MCU *********
 PROG_TOOL = avrdude			# programming tool 
 PROG_FLAG = -c usbasp		# programmer
 MCU_FLAG = -p $(MCU)		# target microcontroller
