@@ -1,43 +1,72 @@
+##		********** TARGET ZONE **********
 TARGET = app			# output elf/hex filename
 MCU = atmega16			# target microntroller name
 
+
+##		********** FILES PATH ***********
 SRC_PATH = src			# main file (driver code) path
 LIB_PATH = lib			# device driver source file path
 INC_PATH = include		# header file path
 TARGET_PATH = bin		# target file path
 BUILD_PATH = build		# intermediate build files path
 
+
+##		********** AVR TOOLCHAINS ***********
 CC = avr-gcc			# avr cross compiler
 OBJCOPY = avr-objcopy	# avr hex/binary translator
 RM = rm					# file/directory remove tool
 
+
+##		********* FILES *********
 SRC_FILE = $(wildcard $(SRC_PATH)/*.c)	# driver code files
 LIB_FILE = $(wildcard $(LIB_PATH)/*.c)	# device driver source files
 C_FILE = $(SRC_FILE) $(LIB_FILE)		# all .c files
-
 ELF_FILE = $(BUILD_PATH)/$(TARGET).elf	# output elf filename
 HEX_FILE = $(TARGET_PATH)/$(TARGET).hex	# output hex filename
 
+
+## 	 ********** FLAGS **********
 # compiler flags for warnings, optimization and target MCU name
 CC_FLAGS = -Wall -Wextra -Os -mmcu=$(MCU)
-INC_FLAGS = -I $(INC_PATH)				# include header files
-OBJCOPY_FLAGS = -O ihex -g				# generate intel hex file, (-g) remove debug info's
-RM_FLAGS = -r -f						# remove all files, sub-directories and directories
+INC_FLAGS = -I $(INC_PATH)	# include header files
+OBJCOPY_FLAGS = -O ihex -g	# generate intel hex file, (-g) remove debug info's
+RM_FLAGS = -r -f			# remove all files, sub-directories and directories
+
+
+## ********uploading target file to target MCU*********
+PROG_TOOL = avrdude			# programming tool 
+PROG_FLAG = -c usbasp		# programmer
+MCU_FLAG = -p $(MCU)		# target microcontroller
+MEMORY = flash				# memory type
+RW_MODE = w					# read write mode
+# upload hex cmd
+UPLOAD_FLAG = -U $(MEMORY):$(RW_MODE):$(HEX_FILE):i
 
 
 
-hex: $(HEX_FILE)	# make hex
+
+# upload hex code to target microcontroller
+burn:
+	$(PROG_TOOL) $(PROG_FLAG) $(MCU_FLAG) $(UPLOAD_FLAG)
+
+
+
+# make hex
+hex: $(HEX_FILE)
 
 # copy and translate elf file to hex file
 $(HEX_FILE): $(ELF_FILE)
 	$(OBJCOPY) $(OBJCOPY_FLAGS) $^ $@
 
 
-elf: $(ELF_FILE)	# make elf
+
+# make elf
+elf: $(ELF_FILE)
 
 # compile and link, .c and .o files to create elf file with header files dependencies
 $(ELF_FILE): $(C_FILE)
 	$(CC) $(CC_FLAGS) $(INC_FLAGS) -o $@ $^
+
 
 
 .PHONY: clean		# unique clean cmd, not confuse with other "clean" terms
