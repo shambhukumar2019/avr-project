@@ -1,4 +1,4 @@
-#####   space or tab after any command gives error in makefile
+#####	space or tab after any command gives error in makefile	#####
 
 ##		********** TARGET ZONE **********
 # output elf/hex filename
@@ -60,12 +60,16 @@ PROG_TOOL = avrdude
 PROG_FLAG = -c usbasp
 # target microcontroller
 MCU_FLAG = -p $(MCU)
-# memory type
-MEMORY = flash
 # read write mode
 RW_MODE = w
-# upload hex cmd
-UPLOAD_FLAG = -U $(MEMORY):$(RW_MODE):$(HEX_FILE):i
+# upload target to flash
+UPLOAD_FLASH = -U flash:$(RW_MODE):$(HEX_FILE):i
+# update fuse bits
+# m -> write immediate values specified 
+L_FUSE = 0xff
+H_FUSE = 0xff
+E_FUSE = 0xff
+UPDATE_FUSE_BITS = -U lfuse:$(L_FUSE):m hfuse:$(H_FUSE):m efuse:$(E_FUSE):m
 
 
 ##		$@ -> target files 
@@ -74,7 +78,7 @@ UPLOAD_FLAG = -U $(MEMORY):$(RW_MODE):$(HEX_FILE):i
 
 # upload hex code to target microcontroller
 upload:	$(HEX_FILE)
-	$(PROG_TOOL) $(PROG_FLAG) $(MCU_FLAG) $(UPLOAD_FLAG)
+	$(PROG_TOOL) $(PROG_FLAG) $(MCU_FLAG) $(UPLOAD_FLASH)
 
 
 
@@ -93,6 +97,7 @@ elf: $(ELF_FILE)
 # compile and link, .c and .o files to create elf file with header files dependencies
 $(ELF_FILE): $(C_FILE)
 	$(CC) $(CC_FLAGS) $(INC_FLAGS) -o $@ $^
+
 
 
 # unique clean cmd, not confuse with other "clean" terms

@@ -13,7 +13,8 @@
             "compilerPath": "/usr/bin/avr-gcc",
             "browse": {
                 "path": []
-            }
+            },
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4
