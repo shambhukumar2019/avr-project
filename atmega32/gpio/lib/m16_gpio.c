@@ -9,7 +9,7 @@
  * 
  */
 
-#include "m32_gpio.h"
+#include "m16_gpio.h"
 
 
 #define SET_BIT(r,b)        (r |= (1<<b))
