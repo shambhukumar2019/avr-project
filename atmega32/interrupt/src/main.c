@@ -13,6 +13,10 @@
 
 #define F_CPU   11059200UL
 
+/**
+ * @brief main driver code
+ * 
+ */
 void main(void)
 {
 
