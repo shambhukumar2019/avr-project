@@ -12,20 +12,10 @@
 #ifndef M32_GPIO_H
 #define M32_GPIO_H
 
+#include "common.h"
 #include<avr/io.h>
-//#include<avr/iom32.h>
-
-#ifndef F_CPU
-/**
- * @brief set clock frequency for CPU
- * 
- */
-#define F_CPU 11059200UL
-#endif
 
 
-#define VCC         1
-#define GND         0
 
 /**
  * @brief   IN  -> make a pin as input

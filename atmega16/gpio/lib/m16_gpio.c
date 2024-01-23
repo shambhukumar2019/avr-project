@@ -13,9 +13,6 @@
 
 
 
-#define SET_BIT(r,b)        (r |= (1<<b))
-#define RESET_BIT(r,b)      (r &= ~(1<<b))
-
 /**
  * @brief define gpio_mode() 
  * 
@@ -45,16 +42,16 @@ void gpio_pin_mode(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t 
     else if (io_mode == IN)
     {
         if(PORTA == *port)
-            RESET_BIT(DDRA,pin);
+            CLEAR_BIT(DDRA,pin);
 
         else if(PORTB == *port)
-            RESET_BIT(DDRB,pin);
+            CLEAR_BIT(DDRB,pin);
         
         else if(PORTC == *port)
-            RESET_BIT(DDRC,pin);
+            CLEAR_BIT(DDRC,pin);
 
         else if (PORTD == *port)    
-            RESET_BIT(DDRD,pin);
+            CLEAR_BIT(DDRD,pin);
     }    
 
 }
@@ -74,7 +71,7 @@ void gpio_set_output_pin_value(volatile uint8_t pin,volatile uint8_t *port,volat
     }
     else if(logic == GND)
     {
-        RESET_BIT(*port,pin);
+        CLEAR_BIT(*port,pin);
     }
     else
     {
@@ -103,7 +100,7 @@ void gpio_pullup_on(volatile uint8_t pin,volatile uint8_t *port)
  */
 void gpio_pullup_off(volatile uint8_t pin,volatile uint8_t *port)
 {
-    RESET_BIT(*port,pin);
+    CLEAR_BIT(*port,pin);
 }
 
 
@@ -123,7 +120,7 @@ void gpio_global_pullup_disable(void)
  */
 void gpio_global_pullup_enable(void)
 {
-    RESET_BIT(SFIOR,PUD);
+    CLEAR_BIT(SFIOR,PUD);
 }
 
 
