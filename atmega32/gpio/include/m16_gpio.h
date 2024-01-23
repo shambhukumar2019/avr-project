@@ -15,19 +15,27 @@
 #include<avr/io.h>
 //#include<avr/iom32.h>
 
+#ifndef F_CPU
+/**
+ * @brief set clock frequency for CPU
+ * 
+ */
+#define F_CPU 11059200UL
+#endif
+
+
 #define VCC         1
 #define GND         0
 
 /**
  * @brief   IN  -> make a pin as input
  */
-#define IN          0
+#define IN          GND
 
 /**
  * @brief OUT -> make a pin as output
  */
-#define OUT         1
-
+#define OUT         VCC
 
 
 /*
@@ -90,7 +98,7 @@ typedef struct
  * 
  * @return void
  */
-void gpio_pin_mode(volatile uint8_t,volatile uint8_t,volatile uint8_t);
+void gpio_pin_mode(volatile uint8_t,volatile uint8_t *,volatile uint8_t);
 
 
 /**
@@ -102,7 +110,7 @@ void gpio_pin_mode(volatile uint8_t,volatile uint8_t,volatile uint8_t);
  * 
  * @return void
  */
-void gpio_set_output_pin_value(volatile uint8_t,volatile uint8_t,volatile uint8_t);
+void gpio_set_output_pin_value(volatile uint8_t,volatile uint8_t*,volatile uint8_t);
 
 
 /**
@@ -113,7 +121,7 @@ void gpio_set_output_pin_value(volatile uint8_t,volatile uint8_t,volatile uint8_
  * 
  * @return void
  */
-void gpio_pullup_on(volatile uint8_t,volatile uint8_t);
+void gpio_pullup_on(volatile uint8_t,volatile uint8_t *);
 
 
 /**
@@ -124,7 +132,7 @@ void gpio_pullup_on(volatile uint8_t,volatile uint8_t);
  * 
  * @return void
  */
-void gpio_pullup_off(volatile uint8_t,volatile uint8_t);
+void gpio_pullup_off(volatile uint8_t,volatile uint8_t *);
 
 
 /**
@@ -155,7 +163,7 @@ void gpio_global_pullup_enable(void);
  * 
  * @return volatile uint8_t  pin value (VCC/GND)
  */
-volatile uint8_t gpio_read(volatile uint8_t,volatile uint8_t);
+uint8_t gpio_read(volatile uint8_t,volatile uint8_t *);
 
 
 
