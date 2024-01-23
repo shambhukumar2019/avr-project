@@ -11,7 +11,7 @@
 
 #include "m16_interrupt.h"
 
-#define F_CPU   11059200UL
+
 
 /**
  * @brief main driver code

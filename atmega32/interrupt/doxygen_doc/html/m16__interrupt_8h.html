@@ -66,6 +66,10 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">m16_interrupt.h File Reference</div>  </div>
 </div><!--header-->
@@ -73,7 +77,17 @@ $(function() {
 
 <p>interrupt device driver header file  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;avr/io.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for m16_interrupt.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="m16__interrupt_8h__incl.png" border="0" usemap="#ainclude_2m16__interrupt_8h" alt=""/></div>
+<map name="ainclude_2m16__interrupt_8h" id="ainclude_2m16__interrupt_8h">
+<area shape="rect" title="interrupt device driver header file" alt="" coords="5,5,183,32"/>
+<area shape="rect" title=" " alt="" coords="59,80,129,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="m16__interrupt_8h__dep__incl.png" border="0" usemap="#ainclude_2m16__interrupt_8hdep" alt=""/></div>
@@ -85,13 +99,152 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 </div>
 <p><a href="m16__interrupt_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft" align="right" valign="top"><a id="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;11059200UL</td></tr>
+<tr class="memdesc:a43bafb28b29491ec7f871319b5a3b2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">define clock frequency <br /></td></tr>
+<tr class="separator:a43bafb28b29491ec7f871319b5a3b2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a514ad415fb6125ba296793df7d1a468a"><td class="memItemLeft" align="right" valign="top"><a id="a514ad415fb6125ba296793df7d1a468a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ENABLE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a514ad415fb6125ba296793df7d1a468a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99496f7308834e8b220f7894efa0b6ab"><td class="memItemLeft" align="right" valign="top"><a id="a99496f7308834e8b220f7894efa0b6ab"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DISABLE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a99496f7308834e8b220f7894efa0b6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda1122beeb7b0ed9c00744c7783113c"><td class="memItemLeft" align="right" valign="top"><a id="abda1122beeb7b0ed9c00744c7783113c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SET_BIT</b>(register,  bit)&#160;&#160;&#160;(register |= (1&lt;&lt;bit))</td></tr>
+<tr class="separator:abda1122beeb7b0ed9c00744c7783113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a837b4076679beaad4f11dbe1ddbb6686"><td class="memItemLeft" align="right" valign="top"><a id="a837b4076679beaad4f11dbe1ddbb6686"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CLEAR_BIT</b>(register,  bit)&#160;&#160;&#160;(register &amp;= ~(1&lt;&lt;bit))</td></tr>
+<tr class="separator:a837b4076679beaad4f11dbe1ddbb6686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92cdec268239db48e291ef0bfb61ece"><td class="memItemLeft" align="right" valign="top"><a id="af92cdec268239db48e291ef0bfb61ece"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SET_GLOBAL_INTERRUPT</b>&#160;&#160;&#160;SET_BIT(SREG,SREG_I)</td></tr>
+<tr class="separator:af92cdec268239db48e291ef0bfb61ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memItemLeft" align="right" valign="top"><a id="acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CLEAR_GLOBAL_INTERRUPT</b>&#160;&#160;&#160;CLEAR_BIT(SREG,SREG_I)</td></tr>
+<tr class="separator:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:abc28ec92e4ecc64908ee3d33cb3f8215"><td class="memItemLeft" align="right" valign="top"><a id="abc28ec92e4ecc64908ee3d33cb3f8215"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>interrupt_type</b> { <br />
+&#160;&#160;<b>EXTERNAL_INTERRUPT_0</b>
+, <b>EXTERNAL_INTERRUPT_1</b>
+, <b>EXTERNAL_INTERRUPT_2</b>
+, <b>TIMER0_OVERFLOW_INTERRUPT</b>
+, <br />
+&#160;&#160;<b>TIMER0_COMPARE_MATCH_INTERRUPT</b>
+, <b>TIMER1_OVERFLOW_INTERRUPT</b>
+, <b>TIMER1_COMPARE_MATCH_A_INTERRUPT</b>
+, <b>TIMER1_COMPARE_MATCH_B_INTERRUPT</b>
+, <br />
+&#160;&#160;<b>TIMER1_INPUT_CAPTURE_INTERRUPT</b>
+, <b>TIMER2_OVERFLOW_INTERRUPT</b>
+, <b>TIMER2_COMPARE_MATCH_INTERRUPT</b>
+, <b>UART_RXC_INTERRUPT</b>
+, <br />
+&#160;&#160;<b>UART_TXC_INTERRUPT</b>
+, <b>UART_UDRE_INTERRUPT</b>
+, <b>ADC_INTERRUPT</b>
+, <b>COMPARATOR_INTERRUPT</b>
+<br />
+ }</td></tr>
+<tr class="separator:abc28ec92e4ecc64908ee3d33cb3f8215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3ccfcf43caf6fed8b584bd16d37712"><td class="memItemLeft" align="right" valign="top"><a id="a6a3ccfcf43caf6fed8b584bd16d37712"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>trigger_mode</b> { <b>LEVEL</b>
+, <b>RISING_EDGE</b>
+, <b>FALLING_EDGE</b>
+ }</td></tr>
+<tr class="separator:a6a3ccfcf43caf6fed8b584bd16d37712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a707a2ce6c80f4cd794849ecc622dae73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#a707a2ce6c80f4cd794849ecc622dae73">config_interrupt</a> (uint8_t, uint8_t, uint8_t)</td></tr>
+<tr class="memdesc:a707a2ce6c80f4cd794849ecc622dae73"><td class="mdescLeft">&#160;</td><td class="mdescRight">configure given interrupt  <a href="m16__interrupt_8h.html#a707a2ce6c80f4cd794849ecc622dae73">More...</a><br /></td></tr>
+<tr class="separator:a707a2ce6c80f4cd794849ecc622dae73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6adf0408431c2e918d125f40a5bbd148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#a6adf0408431c2e918d125f40a5bbd148">clear_interrupt_flag</a> (uint8_t)</td></tr>
+<tr class="memdesc:a6adf0408431c2e918d125f40a5bbd148"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the flag of given interrupt  <a href="m16__interrupt_8h.html#a6adf0408431c2e918d125f40a5bbd148">More...</a><br /></td></tr>
+<tr class="separator:a6adf0408431c2e918d125f40a5bbd148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>interrupt device driver header file </p>
 <dl class="section author"><dt>Author</dt><dd>shambhu kumar (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span style="display: none;">.nosp@m.</span>omai<span style="display: none;">.nosp@m.</span>n.com</a>) </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2024-01-21</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a6adf0408431c2e918d125f40a5bbd148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6adf0408431c2e918d125f40a5bbd148">&#9670;&nbsp;</a></span>clear_interrupt_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear_interrupt_flag </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>int_type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>clear the flag of given interrupt </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int_type</td><td>type of interrupt from enum "interrupt_type" to clear its flag</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a707a2ce6c80f4cd794849ecc622dae73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a707a2ce6c80f4cd794849ecc622dae73">&#9670;&nbsp;</a></span>config_interrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void config_interrupt </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>int_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>int_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>trig_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>configure given interrupt </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int_type</td><td>type of interrupt from enum "interrupt_type" </td></tr>
+    <tr><td class="paramname">int_mode</td><td>ENABLE or DISABLE the interrupt </td></tr>
+    <tr><td class="paramname">trig_mode</td><td>LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

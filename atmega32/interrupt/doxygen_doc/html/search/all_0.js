@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['m16_5finterrupt_2ec_0',['m16_interrupt.c',['../m16__interrupt_8c.html',1,'']]],
-  ['m16_5finterrupt_2eh_1',['m16_interrupt.h',['../m16__interrupt_8h.html',1,'']]],
-  ['main_2',['main',['../main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667',1,'main.c']]],
-  ['main_2ec_3',['main.c',['../main_8c.html',1,'']]]
+  ['clear_5finterrupt_5fflag_0',['clear_interrupt_flag',['../m16__interrupt_8h.html#a6adf0408431c2e918d125f40a5bbd148',1,'clear_interrupt_flag(uint8_t):&#160;m16_interrupt.c'],['../m16__interrupt_8c.html#ab6cdb0bf0399898b587640d9c610792e',1,'clear_interrupt_flag(uint8_t int_type):&#160;m16_interrupt.c']]],
+  ['config_5finterrupt_1',['config_interrupt',['../m16__interrupt_8h.html#a707a2ce6c80f4cd794849ecc622dae73',1,'config_interrupt(uint8_t, uint8_t, uint8_t):&#160;m16_interrupt.c'],['../m16__interrupt_8c.html#ae6ca1b0c62acb56ddc1764d7c48443c7',1,'config_interrupt(uint8_t int_type, uint8_t int_mode, uint8_t trig_mode):&#160;m16_interrupt.c']]]
 ];

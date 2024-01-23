@@ -11,3 +11,31 @@
 
 #include "m16_interrupt.h"
 
+
+
+/**
+ * @brief configure given interrupt
+ * 
+ * @param int_type type of interrupt from enum "interrupt_type"
+ * @param int_mode ENABLE or DISABLE the interrupt
+ * @param trig_mode LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)
+ * 
+ * @return void
+ */
+void config_interrupt(uint8_t int_type,uint8_t int_mode,uint8_t trig_mode)
+{
+
+}
+
+
+/**
+ * @brief clear the flag of given interrupt
+ * 
+ * @param int_type type of interrupt from enum "interrupt_type" to clear its flag
+ * 
+ * @return void
+ */
+void clear_interrupt_flag(uint8_t int_type)
+{
+    
+}

@@ -13,6 +13,13 @@ Include dependency graph for m16\+\_\+interrupt.\+c\+:\nopagebreak
 \includegraphics[width=189pt]{m16__interrupt_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{m16__interrupt_8c_ae6ca1b0c62acb56ddc1764d7c48443c7}{config\+\_\+interrupt}} (uint8\+\_\+t int\+\_\+type, uint8\+\_\+t int\+\_\+mode, uint8\+\_\+t trig\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em configure given interrupt \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{m16__interrupt_8c_ab6cdb0bf0399898b587640d9c610792e}{clear\+\_\+interrupt\+\_\+flag}} (uint8\+\_\+t int\+\_\+type)
+\begin{DoxyCompactList}\small\item\em clear the flag of given interrupt \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -30,3 +37,46 @@ shambhu kumar (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}})
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2024 
 \end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{m16__interrupt_8c_ab6cdb0bf0399898b587640d9c610792e}\label{m16__interrupt_8c_ab6cdb0bf0399898b587640d9c610792e}} 
+\index{m16\_interrupt.c@{m16\_interrupt.c}!clear\_interrupt\_flag@{clear\_interrupt\_flag}}
+\index{clear\_interrupt\_flag@{clear\_interrupt\_flag}!m16\_interrupt.c@{m16\_interrupt.c}}
+\doxysubsubsection{\texorpdfstring{clear\_interrupt\_flag()}{clear\_interrupt\_flag()}}
+{\footnotesize\ttfamily void clear\+\_\+interrupt\+\_\+flag (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{int\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+clear the flag of given interrupt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int\+\_\+type} & type of interrupt from enum \char`\"{}interrupt\+\_\+type\char`\"{} to clear its flag\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{m16__interrupt_8c_ae6ca1b0c62acb56ddc1764d7c48443c7}\label{m16__interrupt_8c_ae6ca1b0c62acb56ddc1764d7c48443c7}} 
+\index{m16\_interrupt.c@{m16\_interrupt.c}!config\_interrupt@{config\_interrupt}}
+\index{config\_interrupt@{config\_interrupt}!m16\_interrupt.c@{m16\_interrupt.c}}
+\doxysubsubsection{\texorpdfstring{config\_interrupt()}{config\_interrupt()}}
+{\footnotesize\ttfamily void config\+\_\+interrupt (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{int\+\_\+type,  }\item[{uint8\+\_\+t}]{int\+\_\+mode,  }\item[{uint8\+\_\+t}]{trig\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+configure given interrupt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int\+\_\+type} & type of interrupt from enum \char`\"{}interrupt\+\_\+type\char`\"{} \\
+\hline
+{\em int\+\_\+mode} & ENABLE or DISABLE the interrupt \\
+\hline
+{\em trig\+\_\+mode} & LEVEL, RISING\+\_\+\+EDGE, FALLING\+\_\+\+EDGE (only for external interrupts)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
