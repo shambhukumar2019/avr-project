@@ -22,7 +22,7 @@
  * 
  * @return void
  */
-void config_interrupt(uint8_t int_type,uint8_t int_mode,uint8_t trig_mode)
+void config_interrupt(volatile uint8_t int_type,volatile uint8_t int_mode,volatile uint8_t trig_mode)
 {
 
 }
@@ -35,7 +35,7 @@ void config_interrupt(uint8_t int_type,uint8_t int_mode,uint8_t trig_mode)
  * 
  * @return void
  */
-void clear_interrupt_flag(uint8_t int_type)
+void clear_interrupt_flag(volatile uint8_t int_type)
 {
     
 }

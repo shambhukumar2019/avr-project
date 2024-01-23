@@ -12,6 +12,7 @@
 #ifndef M16_INTERRUPT_H
 #define M16_INTERRUPT_H
 
+#include "common.h"
 #include "avr/io.h"
 
 /**
@@ -50,20 +51,18 @@ typedef enum
     FALLING_EDGE
 }trigger_mode;
 
-#define ENABLE      1
-#define DISABLE     0
+#define ENABLE      VCC
+#define DISABLE     GND
 
-#define SET_BIT(register,bit)       (register |= (1<<bit))
-#define CLEAR_BIT(register,bit)     (register &= ~(1<<bit))
 
 #define SET_GLOBAL_INTERRUPT        SET_BIT(SREG,SREG_I)
 #define CLEAR_GLOBAL_INTERRUPT      CLEAR_BIT(SREG,SREG_I)
 
 
-void config_interrupt(uint8_t,uint8_t,uint8_t);
+void config_interrupt(volatile uint8_t,volatile uint8_t,volatile uint8_t);
 
 
-void clear_interrupt_flag(uint8_t);
+void clear_interrupt_flag(volatile uint8_t);
 
 
 #endif
