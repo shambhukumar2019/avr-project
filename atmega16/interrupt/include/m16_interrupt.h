@@ -43,9 +43,10 @@ typedef enum
 typedef enum
 {
     NONE,
-    LEVEL,
+    LOW_LEVEL,
     RISING_EDGE,
-    FALLING_EDGE
+    FALLING_EDGE,
+    ANY_LOGIC_CHANGE
 }trigger_mode;
 
 #define ENABLE      VCC
