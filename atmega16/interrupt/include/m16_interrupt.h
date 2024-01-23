@@ -15,11 +15,6 @@
 #include "common.h"
 #include "avr/io.h"
 
-/**
- * @brief define clock frequency
- * 
- */
-#define F_CPU   11059200UL
 
 
 typedef enum
