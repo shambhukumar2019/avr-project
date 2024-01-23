@@ -53,6 +53,11 @@ OBJCOPY_FLAGS = -O ihex -g
 RM_FLAGS = -rf
 
 
+## 		******** Target file size calculation tool *********
+SIZE_TOOL = avr-size
+SIZE_TOOL_FLAG = --mcu=$(MCU)
+
+
 ## 		******** uploading target file to target MCU *********
 # programming tool
 PROG_TOOL = avrdude
@@ -74,6 +79,11 @@ UPDATE_FUSE_BITS = -U lfuse:$(L_FUSE):m hfuse:$(H_FUSE):m efuse:$(E_FUSE):m
 
 ##		$@ -> target files 
 ##		$^ -> pre-requisites
+
+
+# find elf file size
+size: $(ELF_FILE)
+	$(SIZE_TOOL) $(SIZE_TOOL_FLAG) $^
 
 
 # upload hex code to target microcontroller

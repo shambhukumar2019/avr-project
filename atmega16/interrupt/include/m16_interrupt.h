@@ -14,6 +14,7 @@
 
 #include "common.h"
 #include "avr/io.h"
+#include "avr/iom16.h"
 
 
 
@@ -41,6 +42,7 @@ typedef enum
 
 typedef enum
 {
+    NONE,
     LEVEL,
     RISING_EDGE,
     FALLING_EDGE
@@ -54,10 +56,10 @@ typedef enum
 #define CLEAR_GLOBAL_INTERRUPT      CLEAR_BIT(SREG,SREG_I)
 
 
-void config_interrupt(volatile uint8_t,volatile uint8_t,volatile uint8_t);
+void config_interrupt(interrupt_type,volatile uint8_t,volatile uint8_t);
 
 
-void clear_interrupt_flag(volatile uint8_t);
+void clear_interrupt_flag(interrupt_type);
 
 
 #endif

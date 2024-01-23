@@ -22,9 +22,21 @@
  * 
  * @return void
  */
-void config_interrupt(volatile uint8_t int_type,volatile uint8_t int_mode,volatile uint8_t trig_mode)
+void config_interrupt(interrupt_type int_type,volatile uint8_t int_mode,volatile uint8_t trig_mode)
 {
-
+    #if (int_type == EXTERNAL_INTERRUPT_0)
+    {
+        SET_BIT(GICR,INT0); // enable external interrupt 0
+    }
+    #elif (int_type == EXTERNAL_INTERRUPT_1)
+    {
+        SET_BIT(GICR,INT1); // enable external interrupt 1
+    }
+    #else
+    {
+        SET_BIT(GICR,INT2); // enable external interrupt 2
+    }
+    #endif
 }
 
 
@@ -35,7 +47,7 @@ void config_interrupt(volatile uint8_t int_type,volatile uint8_t int_mode,volati
  * 
  * @return void
  */
-void clear_interrupt_flag(volatile uint8_t int_type)
+void clear_interrupt_flag(interrupt_type int_type)
 {
     
 }
