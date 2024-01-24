@@ -14,7 +14,13 @@
 
 #include "common.h"
 #include "avr/io.h"
+
+#ifndef IOM_16_H
+#define IOM_16_H
+
 #include "avr/iom16.h"
+
+#endif
 
 
 
@@ -37,7 +43,7 @@ typedef enum
     ADC_INTERRUPT,
     COMPARATOR_INTERRUPT
 
-}interrupt_type;
+}interrupt;
 
 
 typedef enum
@@ -57,10 +63,10 @@ typedef enum
 #define CLEAR_GLOBAL_INTERRUPT      CLEAR_BIT(SREG,SREG_I)
 
 
-void config_interrupt(interrupt_type,volatile uint8_t,volatile uint8_t);
+void config_interrupt(interrupt,volatile uint8_t,volatile uint8_t);
 
 
-void clear_interrupt_flag(interrupt_type);
+void clear_interrupt_flag(interrupt);
 
 
 #endif

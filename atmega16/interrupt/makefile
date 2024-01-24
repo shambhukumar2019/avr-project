@@ -55,7 +55,7 @@ RM_FLAGS = -rf
 
 ## 		******** Target file size calculation tool *********
 SIZE_TOOL = avr-size
-SIZE_TOOL_FLAG = --mcu=$(MCU)
+SIZE_FLAG = --mcu=$(MCU)
 
 
 ## 		******** uploading target file to target MCU *********
@@ -69,7 +69,7 @@ MCU_FLAG = -p $(MCU)
 RW_MODE = w
 # upload target to flash
 UPLOAD_FLASH = -U flash:$(RW_MODE):$(HEX_FILE):i
-# update fuse bits
+# upload fuse bits
 # m -> write immediate values specified 
 L_FUSE = 0xff
 H_FUSE = 0xff
@@ -81,9 +81,10 @@ UPDATE_FUSE_BITS = -U lfuse:$(L_FUSE):m hfuse:$(H_FUSE):m efuse:$(E_FUSE):m
 ##		$^ -> pre-requisites
 
 
+
 # find elf file size
 size: $(ELF_FILE)
-	$(SIZE_TOOL) $(SIZE_TOOL_FLAG) $^
+	$(SIZE_TOOL) $(SIZE_FLAG) $^
 
 
 # upload hex code to target microcontroller
