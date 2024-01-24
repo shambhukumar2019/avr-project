@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['f_5fcpu_14',['F_CPU',['../m16__interrupt_8h.html#a43bafb28b29491ec7f871319b5a3b2f8',1,'m16_interrupt.h']]]
+  ['clear_5fglobal_5finterrupt_18',['CLEAR_GLOBAL_INTERRUPT',['../m16__interrupt_8h.html#acfa8623e6ad7bdc66bfd6c9b9ac4c1d6',1,'m16_interrupt.h']]]
 ];

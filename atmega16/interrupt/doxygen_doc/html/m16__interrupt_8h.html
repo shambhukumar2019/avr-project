@@ -77,14 +77,18 @@ $(function() {
 
 <p>interrupt device driver header file  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;avr/io.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
+<code>#include &quot;avr/io.h&quot;</code><br />
+<code>#include &quot;avr/iom16.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for m16_interrupt.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="m16__interrupt_8h__incl.png" border="0" usemap="#ainclude_2m16__interrupt_8h" alt=""/></div>
 <map name="ainclude_2m16__interrupt_8h" id="ainclude_2m16__interrupt_8h">
-<area shape="rect" title="interrupt device driver header file" alt="" coords="5,5,183,32"/>
-<area shape="rect" title=" " alt="" coords="59,80,129,107"/>
+<area shape="rect" title="interrupt device driver header file" alt="" coords="67,5,245,32"/>
+<area shape="rect" href="common_8h.html" title="header file containing all common declarations" alt="" coords="5,80,96,107"/>
+<area shape="rect" title=" " alt="" coords="121,80,191,107"/>
+<area shape="rect" title=" " alt="" coords="215,80,315,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -102,32 +106,23 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft" align="right" valign="top"><a id="a43bafb28b29491ec7f871319b5a3b2f8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;11059200UL</td></tr>
-<tr class="memdesc:a43bafb28b29491ec7f871319b5a3b2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">define clock frequency <br /></td></tr>
-<tr class="separator:a43bafb28b29491ec7f871319b5a3b2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad21fa85ca6c4b815510de93692b48716"><td class="memItemLeft" align="right" valign="top"><a id="ad21fa85ca6c4b815510de93692b48716"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>IOM_16_H</b></td></tr>
+<tr class="separator:ad21fa85ca6c4b815510de93692b48716"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a514ad415fb6125ba296793df7d1a468a"><td class="memItemLeft" align="right" valign="top"><a id="a514ad415fb6125ba296793df7d1a468a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>ENABLE</b>&#160;&#160;&#160;1</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ENABLE</b>&#160;&#160;&#160;VCC</td></tr>
 <tr class="separator:a514ad415fb6125ba296793df7d1a468a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99496f7308834e8b220f7894efa0b6ab"><td class="memItemLeft" align="right" valign="top"><a id="a99496f7308834e8b220f7894efa0b6ab"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DISABLE</b>&#160;&#160;&#160;0</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DISABLE</b>&#160;&#160;&#160;GND</td></tr>
 <tr class="separator:a99496f7308834e8b220f7894efa0b6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abda1122beeb7b0ed9c00744c7783113c"><td class="memItemLeft" align="right" valign="top"><a id="abda1122beeb7b0ed9c00744c7783113c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SET_BIT</b>(register,  bit)&#160;&#160;&#160;(register |= (1&lt;&lt;bit))</td></tr>
-<tr class="separator:abda1122beeb7b0ed9c00744c7783113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a837b4076679beaad4f11dbe1ddbb6686"><td class="memItemLeft" align="right" valign="top"><a id="a837b4076679beaad4f11dbe1ddbb6686"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CLEAR_BIT</b>(register,  bit)&#160;&#160;&#160;(register &amp;= ~(1&lt;&lt;bit))</td></tr>
-<tr class="separator:a837b4076679beaad4f11dbe1ddbb6686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af92cdec268239db48e291ef0bfb61ece"><td class="memItemLeft" align="right" valign="top"><a id="af92cdec268239db48e291ef0bfb61ece"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SET_GLOBAL_INTERRUPT</b>&#160;&#160;&#160;SET_BIT(SREG,SREG_I)</td></tr>
+<tr class="memitem:af92cdec268239db48e291ef0bfb61ece"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#af92cdec268239db48e291ef0bfb61ece">SET_GLOBAL_INTERRUPT</a>&#160;&#160;&#160;SET_BIT(SREG,SREG_I)</td></tr>
 <tr class="separator:af92cdec268239db48e291ef0bfb61ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memItemLeft" align="right" valign="top"><a id="acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CLEAR_GLOBAL_INTERRUPT</b>&#160;&#160;&#160;CLEAR_BIT(SREG,SREG_I)</td></tr>
+<tr class="memitem:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#acfa8623e6ad7bdc66bfd6c9b9ac4c1d6">CLEAR_GLOBAL_INTERRUPT</a>&#160;&#160;&#160;CLEAR_BIT(SREG,SREG_I)</td></tr>
 <tr class="separator:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:abc28ec92e4ecc64908ee3d33cb3f8215"><td class="memItemLeft" align="right" valign="top"><a id="abc28ec92e4ecc64908ee3d33cb3f8215"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>interrupt_type</b> { <br />
+<tr class="memitem:a83e304ff5052947728f95b6e732e25dd"><td class="memItemLeft" align="right" valign="top"><a id="a83e304ff5052947728f95b6e732e25dd"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>interrupt</b> { <br />
 &#160;&#160;<b>EXTERNAL_INTERRUPT_0</b>
 , <b>EXTERNAL_INTERRUPT_1</b>
 , <b>EXTERNAL_INTERRUPT_2</b>
@@ -149,21 +144,26 @@ Enumerations</h2></td></tr>
 , <b>COMPARATOR_INTERRUPT</b>
 <br />
  }</td></tr>
-<tr class="separator:abc28ec92e4ecc64908ee3d33cb3f8215"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a3ccfcf43caf6fed8b584bd16d37712"><td class="memItemLeft" align="right" valign="top"><a id="a6a3ccfcf43caf6fed8b584bd16d37712"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>trigger_mode</b> { <b>LEVEL</b>
+<tr class="separator:a83e304ff5052947728f95b6e732e25dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3ccfcf43caf6fed8b584bd16d37712"><td class="memItemLeft" align="right" valign="top"><a id="a6a3ccfcf43caf6fed8b584bd16d37712"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>trigger_mode</b> { <br />
+&#160;&#160;<b>NONE</b>
+, <b>LOW_LEVEL</b>
 , <b>RISING_EDGE</b>
 , <b>FALLING_EDGE</b>
+, <br />
+&#160;&#160;<b>ANY_LOGIC_CHANGE</b>
+<br />
  }</td></tr>
 <tr class="separator:a6a3ccfcf43caf6fed8b584bd16d37712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a707a2ce6c80f4cd794849ecc622dae73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#a707a2ce6c80f4cd794849ecc622dae73">config_interrupt</a> (uint8_t, uint8_t, uint8_t)</td></tr>
-<tr class="memdesc:a707a2ce6c80f4cd794849ecc622dae73"><td class="mdescLeft">&#160;</td><td class="mdescRight">configure given interrupt  <a href="m16__interrupt_8h.html#a707a2ce6c80f4cd794849ecc622dae73">More...</a><br /></td></tr>
-<tr class="separator:a707a2ce6c80f4cd794849ecc622dae73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6adf0408431c2e918d125f40a5bbd148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#a6adf0408431c2e918d125f40a5bbd148">clear_interrupt_flag</a> (uint8_t)</td></tr>
-<tr class="memdesc:a6adf0408431c2e918d125f40a5bbd148"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the flag of given interrupt  <a href="m16__interrupt_8h.html#a6adf0408431c2e918d125f40a5bbd148">More...</a><br /></td></tr>
-<tr class="separator:a6adf0408431c2e918d125f40a5bbd148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2ec3a75e606d637068889af2aed674f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#ad2ec3a75e606d637068889af2aed674f">config_interrupt</a> (interrupt, volatile uint8_t, volatile uint8_t)</td></tr>
+<tr class="memdesc:ad2ec3a75e606d637068889af2aed674f"><td class="mdescLeft">&#160;</td><td class="mdescRight">configure given interrupt  <a href="m16__interrupt_8h.html#ad2ec3a75e606d637068889af2aed674f">More...</a><br /></td></tr>
+<tr class="separator:ad2ec3a75e606d637068889af2aed674f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24b52a41b1ddb1ca135359bb9f7bea04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#a24b52a41b1ddb1ca135359bb9f7bea04">clear_interrupt_flag</a> (interrupt)</td></tr>
+<tr class="memdesc:a24b52a41b1ddb1ca135359bb9f7bea04"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the flag of given interrupt  <a href="m16__interrupt_8h.html#a24b52a41b1ddb1ca135359bb9f7bea04">More...</a><br /></td></tr>
+<tr class="separator:a24b52a41b1ddb1ca135359bb9f7bea04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>interrupt device driver header file </p>
@@ -171,9 +171,40 @@ Functions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2024-01-21</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6adf0408431c2e918d125f40a5bbd148"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6adf0408431c2e918d125f40a5bbd148">&#9670;&nbsp;</a></span>clear_interrupt_flag()</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa8623e6ad7bdc66bfd6c9b9ac4c1d6">&#9670;&nbsp;</a></span>CLEAR_GLOBAL_INTERRUPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLEAR_GLOBAL_INTERRUPT&#160;&#160;&#160;CLEAR_BIT(SREG,SREG_I)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section attention"><dt>Attention</dt><dd>no any pending interrupt executed </dd></dl>
+
+</div>
+</div>
+<a id="af92cdec268239db48e291ef0bfb61ece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92cdec268239db48e291ef0bfb61ece">&#9670;&nbsp;</a></span>SET_GLOBAL_INTERRUPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SET_GLOBAL_INTERRUPT&#160;&#160;&#160;SET_BIT(SREG,SREG_I)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section attention"><dt>Attention</dt><dd>instructions after this is executed before any pending interrupt </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a24b52a41b1ddb1ca135359bb9f7bea04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24b52a41b1ddb1ca135359bb9f7bea04">&#9670;&nbsp;</a></span>clear_interrupt_flag()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,7 +212,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void clear_interrupt_flag </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">interrupt&#160;</td>
           <td class="paramname"><em>int_type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -195,12 +226,13 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>uart RXC and UDRE are read only flags, auto cleared by isr </dd></dl>
 
 </div>
 </div>
-<a id="a707a2ce6c80f4cd794849ecc622dae73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a707a2ce6c80f4cd794849ecc622dae73">&#9670;&nbsp;</a></span>config_interrupt()</h2>
+<a id="ad2ec3a75e606d637068889af2aed674f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2ec3a75e606d637068889af2aed674f">&#9670;&nbsp;</a></span>config_interrupt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,19 +240,19 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void config_interrupt </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">interrupt&#160;</td>
           <td class="paramname"><em>int_type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">volatile uint8_t&#160;</td>
           <td class="paramname"><em>int_mode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">volatile uint8_t&#160;</td>
           <td class="paramname"><em>trig_mode</em>&#160;</td>
         </tr>
         <tr>
@@ -240,7 +272,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>SREG should be stored and restored on entering and exiting the ISR.</dd>
+<dd>
+After ISR, cpu executes next instruction before any pending instruction</dd>
+<dd>
+When an interrupt occurs, all interrupts are disabled. </dd></dl>
 
 </div>
 </div>

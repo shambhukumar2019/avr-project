@@ -5,12 +5,14 @@
 interrupt device driver header file  
 
 
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}avr/io.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}avr/iom16.\+h\char`\"{}}\newline
 Include dependency graph for m16\+\_\+interrupt.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=213pt]{m16__interrupt_8h__incl}
+\includegraphics[width=313pt]{m16__interrupt_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:\nopagebreak
@@ -23,32 +25,24 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{m16__interrupt_8h_a43bafb28b29491ec7f871319b5a3b2f8}\label{m16__interrupt_8h_a43bafb28b29491ec7f871319b5a3b2f8}} 
-\#define \mbox{\hyperlink{m16__interrupt_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~11059200\+UL
-\begin{DoxyCompactList}\small\item\em define clock frequency \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{m16__interrupt_8h_ad21fa85ca6c4b815510de93692b48716}\label{m16__interrupt_8h_ad21fa85ca6c4b815510de93692b48716}} 
+\#define {\bfseries IOM\+\_\+16\+\_\+H}
+\item 
 \mbox{\Hypertarget{m16__interrupt_8h_a514ad415fb6125ba296793df7d1a468a}\label{m16__interrupt_8h_a514ad415fb6125ba296793df7d1a468a}} 
-\#define {\bfseries ENABLE}~1
+\#define {\bfseries ENABLE}~VCC
 \item 
 \mbox{\Hypertarget{m16__interrupt_8h_a99496f7308834e8b220f7894efa0b6ab}\label{m16__interrupt_8h_a99496f7308834e8b220f7894efa0b6ab}} 
-\#define {\bfseries DISABLE}~0
+\#define {\bfseries DISABLE}~GND
 \item 
-\mbox{\Hypertarget{m16__interrupt_8h_abda1122beeb7b0ed9c00744c7783113c}\label{m16__interrupt_8h_abda1122beeb7b0ed9c00744c7783113c}} 
-\#define {\bfseries SET\+\_\+\+BIT}(register,  bit)~(register $\vert$= (1$<$$<$bit))
+\#define \mbox{\hyperlink{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}{SET\+\_\+\+GLOBAL\+\_\+\+INTERRUPT}}~SET\+\_\+\+BIT(SREG,SREG\+\_\+I)
 \item 
-\mbox{\Hypertarget{m16__interrupt_8h_a837b4076679beaad4f11dbe1ddbb6686}\label{m16__interrupt_8h_a837b4076679beaad4f11dbe1ddbb6686}} 
-\#define {\bfseries CLEAR\+\_\+\+BIT}(register,  bit)~(register \&= $\sim$(1$<$$<$bit))
-\item 
-\mbox{\Hypertarget{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}\label{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}} 
-\#define {\bfseries SET\+\_\+\+GLOBAL\+\_\+\+INTERRUPT}~SET\+\_\+\+BIT(SREG,SREG\+\_\+I)
-\item 
-\mbox{\Hypertarget{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}\label{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}} 
-\#define {\bfseries CLEAR\+\_\+\+GLOBAL\+\_\+\+INTERRUPT}~CLEAR\+\_\+\+BIT(SREG,SREG\+\_\+I)
+\#define \mbox{\hyperlink{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}{CLEAR\+\_\+\+GLOBAL\+\_\+\+INTERRUPT}}~CLEAR\+\_\+\+BIT(SREG,SREG\+\_\+I)
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{m16__interrupt_8h_abc28ec92e4ecc64908ee3d33cb3f8215}\label{m16__interrupt_8h_abc28ec92e4ecc64908ee3d33cb3f8215}} 
-enum {\bfseries interrupt\+\_\+type} \{ \newline
+\mbox{\Hypertarget{m16__interrupt_8h_a83e304ff5052947728f95b6e732e25dd}\label{m16__interrupt_8h_a83e304ff5052947728f95b6e732e25dd}} 
+enum {\bfseries interrupt} \{ \newline
 {\bfseries EXTERNAL\+\_\+\+INTERRUPT\+\_\+0}
 , {\bfseries EXTERNAL\+\_\+\+INTERRUPT\+\_\+1}
 , {\bfseries EXTERNAL\+\_\+\+INTERRUPT\+\_\+2}
@@ -71,17 +65,21 @@ enum {\bfseries interrupt\+\_\+type} \{ \newline
  \}
 \item 
 \mbox{\Hypertarget{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}\label{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}} 
-enum {\bfseries trigger\+\_\+mode} \{ {\bfseries LEVEL}
+enum {\bfseries trigger\+\_\+mode} \{ \newline
+{\bfseries NONE}
+, {\bfseries LOW\+\_\+\+LEVEL}
 , {\bfseries RISING\+\_\+\+EDGE}
 , {\bfseries FALLING\+\_\+\+EDGE}
+, \newline
+{\bfseries ANY\+\_\+\+LOGIC\+\_\+\+CHANGE}
  \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{m16__interrupt_8h_a707a2ce6c80f4cd794849ecc622dae73}{config\+\_\+interrupt}} (uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t)
+void \mbox{\hyperlink{m16__interrupt_8h_ad2ec3a75e606d637068889af2aed674f}{config\+\_\+interrupt}} (interrupt, volatile uint8\+\_\+t, volatile uint8\+\_\+t)
 \begin{DoxyCompactList}\small\item\em configure given interrupt \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{m16__interrupt_8h_a6adf0408431c2e918d125f40a5bbd148}{clear\+\_\+interrupt\+\_\+flag}} (uint8\+\_\+t)
+void \mbox{\hyperlink{m16__interrupt_8h_a24b52a41b1ddb1ca135359bb9f7bea04}{clear\+\_\+interrupt\+\_\+flag}} (interrupt)
 \begin{DoxyCompactList}\small\item\em clear the flag of given interrupt \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -102,12 +100,33 @@ Copyright (c) 2024
 \end{DoxyCopyright}
 
 
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}\label{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!CLEAR\_GLOBAL\_INTERRUPT@{CLEAR\_GLOBAL\_INTERRUPT}}
+\index{CLEAR\_GLOBAL\_INTERRUPT@{CLEAR\_GLOBAL\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_GLOBAL\_INTERRUPT}{CLEAR\_GLOBAL\_INTERRUPT}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+GLOBAL\+\_\+\+INTERRUPT~CLEAR\+\_\+\+BIT(SREG,SREG\+\_\+I)}
+
+\begin{DoxyAttention}{Attention}
+no any pending interrupt executed 
+\end{DoxyAttention}
+\mbox{\Hypertarget{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}\label{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!SET\_GLOBAL\_INTERRUPT@{SET\_GLOBAL\_INTERRUPT}}
+\index{SET\_GLOBAL\_INTERRUPT@{SET\_GLOBAL\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{SET\_GLOBAL\_INTERRUPT}{SET\_GLOBAL\_INTERRUPT}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+GLOBAL\+\_\+\+INTERRUPT~SET\+\_\+\+BIT(SREG,SREG\+\_\+I)}
+
+\begin{DoxyAttention}{Attention}
+instructions after this is executed before any pending interrupt 
+\end{DoxyAttention}
+
+
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{m16__interrupt_8h_a6adf0408431c2e918d125f40a5bbd148}\label{m16__interrupt_8h_a6adf0408431c2e918d125f40a5bbd148}} 
+\mbox{\Hypertarget{m16__interrupt_8h_a24b52a41b1ddb1ca135359bb9f7bea04}\label{m16__interrupt_8h_a24b52a41b1ddb1ca135359bb9f7bea04}} 
 \index{m16\_interrupt.h@{m16\_interrupt.h}!clear\_interrupt\_flag@{clear\_interrupt\_flag}}
 \index{clear\_interrupt\_flag@{clear\_interrupt\_flag}!m16\_interrupt.h@{m16\_interrupt.h}}
 \doxysubsubsection{\texorpdfstring{clear\_interrupt\_flag()}{clear\_interrupt\_flag()}}
-{\footnotesize\ttfamily void clear\+\_\+interrupt\+\_\+flag (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{int\+\_\+type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void clear\+\_\+interrupt\+\_\+flag (\begin{DoxyParamCaption}\item[{interrupt}]{int\+\_\+type }\end{DoxyParamCaption})}
 
 
 
@@ -119,13 +138,16 @@ clear the flag of given interrupt
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+void
 \end{DoxyReturn}
-\mbox{\Hypertarget{m16__interrupt_8h_a707a2ce6c80f4cd794849ecc622dae73}\label{m16__interrupt_8h_a707a2ce6c80f4cd794849ecc622dae73}} 
+\begin{DoxyAttention}{Attention}
+uart RXC and UDRE are read only flags, auto cleared by isr 
+\end{DoxyAttention}
+\mbox{\Hypertarget{m16__interrupt_8h_ad2ec3a75e606d637068889af2aed674f}\label{m16__interrupt_8h_ad2ec3a75e606d637068889af2aed674f}} 
 \index{m16\_interrupt.h@{m16\_interrupt.h}!config\_interrupt@{config\_interrupt}}
 \index{config\_interrupt@{config\_interrupt}!m16\_interrupt.h@{m16\_interrupt.h}}
 \doxysubsubsection{\texorpdfstring{config\_interrupt()}{config\_interrupt()}}
-{\footnotesize\ttfamily void config\+\_\+interrupt (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{int\+\_\+type,  }\item[{uint8\+\_\+t}]{int\+\_\+mode,  }\item[{uint8\+\_\+t}]{trig\+\_\+mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void config\+\_\+interrupt (\begin{DoxyParamCaption}\item[{interrupt}]{int\+\_\+type,  }\item[{volatile uint8\+\_\+t}]{int\+\_\+mode,  }\item[{volatile uint8\+\_\+t}]{trig\+\_\+mode }\end{DoxyParamCaption})}
 
 
 
@@ -141,5 +163,12 @@ configure given interrupt
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+void
 \end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+SREG should be stored and restored on entering and exiting the ISR.
+
+After ISR, cpu executes next instruction before any pending instruction
+
+When an interrupt occurs, all interrupts are disabled. 
+\end{DoxyAttention}

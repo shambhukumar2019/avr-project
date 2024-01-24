@@ -74,59 +74,67 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef M16_INTERRUPT_H</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define M16_INTERRUPT_H</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;avr/io.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="m16__interrupt_8h.html#a43bafb28b29491ec7f871319b5a3b2f8">   21</a></span>&#160;<span class="preprocessor">#define F_CPU   11059200UL</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;avr/io.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef IOM_16_H</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define IOM_16_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;avr/iom16.h&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    EXTERNAL_INTERRUPT_0,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    EXTERNAL_INTERRUPT_1,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    EXTERNAL_INTERRUPT_2,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    TIMER0_OVERFLOW_INTERRUPT,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    TIMER0_COMPARE_MATCH_INTERRUPT,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    TIMER1_OVERFLOW_INTERRUPT,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    TIMER1_COMPARE_MATCH_A_INTERRUPT,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    TIMER1_COMPARE_MATCH_B_INTERRUPT,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    TIMER1_INPUT_CAPTURE_INTERRUPT,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    TIMER2_OVERFLOW_INTERRUPT,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    TIMER2_COMPARE_MATCH_INTERRUPT,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    UART_RXC_INTERRUPT,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    UART_TXC_INTERRUPT,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    UART_UDRE_INTERRUPT,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ADC_INTERRUPT,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    COMPARATOR_INTERRUPT</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}interrupt_type;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    EXTERNAL_INTERRUPT_0,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    EXTERNAL_INTERRUPT_1,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    EXTERNAL_INTERRUPT_2,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    TIMER0_OVERFLOW_INTERRUPT,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    TIMER0_COMPARE_MATCH_INTERRUPT,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    TIMER1_OVERFLOW_INTERRUPT,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    TIMER1_COMPARE_MATCH_A_INTERRUPT,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    TIMER1_COMPARE_MATCH_B_INTERRUPT,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    TIMER1_INPUT_CAPTURE_INTERRUPT,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    TIMER2_OVERFLOW_INTERRUPT,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    TIMER2_COMPARE_MATCH_INTERRUPT,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    UART_RXC_INTERRUPT,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    UART_TXC_INTERRUPT,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    UART_UDRE_INTERRUPT,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ADC_INTERRUPT,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    COMPARATOR_INTERRUPT</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    LEVEL,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    RISING_EDGE,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    FALLING_EDGE</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}trigger_mode;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#define ENABLE      1</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#define DISABLE     0</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#define SET_BIT(register,bit)       (register |= (1&lt;&lt;bit))</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#define CLEAR_BIT(register,bit)     (register &amp;= ~(1&lt;&lt;bit))</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#define SET_GLOBAL_INTERRUPT        SET_BIT(SREG,SREG_I)</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#define CLEAR_GLOBAL_INTERRUPT      CLEAR_BIT(SREG,SREG_I)</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m16__interrupt_8h.html#a707a2ce6c80f4cd794849ecc622dae73">config_interrupt</a>(uint8_t,uint8_t,uint8_t);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m16__interrupt_8h.html#a6adf0408431c2e918d125f40a5bbd148">clear_interrupt_flag</a>(uint8_t);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}interrupt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    NONE,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    LOW_LEVEL,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    RISING_EDGE,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    FALLING_EDGE,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ANY_LOGIC_CHANGE</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}trigger_mode;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#define ENABLE      VCC</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#define DISABLE     GND</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="m16__interrupt_8h.html#af92cdec268239db48e291ef0bfb61ece">   66</a></span>&#160;<span class="preprocessor">#define SET_GLOBAL_INTERRUPT        SET_BIT(SREG,SREG_I)</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="am16__interrupt_8h_html_a6adf0408431c2e918d125f40a5bbd148"><div class="ttname"><a href="m16__interrupt_8h.html#a6adf0408431c2e918d125f40a5bbd148">clear_interrupt_flag</a></div><div class="ttdeci">void clear_interrupt_flag(uint8_t)</div><div class="ttdoc">clear the flag of given interrupt</div><div class="ttdef"><b>Definition:</b> m16_interrupt.c:37</div></div>
-<div class="ttc" id="am16__interrupt_8h_html_a707a2ce6c80f4cd794849ecc622dae73"><div class="ttname"><a href="m16__interrupt_8h.html#a707a2ce6c80f4cd794849ecc622dae73">config_interrupt</a></div><div class="ttdeci">void config_interrupt(uint8_t, uint8_t, uint8_t)</div><div class="ttdoc">configure given interrupt</div><div class="ttdef"><b>Definition:</b> m16_interrupt.c:24</div></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="m16__interrupt_8h.html#acfa8623e6ad7bdc66bfd6c9b9ac4c1d6">   72</a></span>&#160;<span class="preprocessor">#define CLEAR_GLOBAL_INTERRUPT      CLEAR_BIT(SREG,SREG_I)</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m16__interrupt_8h.html#ad2ec3a75e606d637068889af2aed674f">config_interrupt</a>(interrupt,<span class="keyword">volatile</span> uint8_t,<span class="keyword">volatile</span> uint8_t);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m16__interrupt_8h.html#a24b52a41b1ddb1ca135359bb9f7bea04">clear_interrupt_flag</a>(interrupt);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div><div class="ttdoc">header file containing all common declarations</div></div>
+<div class="ttc" id="am16__interrupt_8h_html_a24b52a41b1ddb1ca135359bb9f7bea04"><div class="ttname"><a href="m16__interrupt_8h.html#a24b52a41b1ddb1ca135359bb9f7bea04">clear_interrupt_flag</a></div><div class="ttdeci">void clear_interrupt_flag(interrupt)</div><div class="ttdoc">clear the flag of given interrupt</div><div class="ttdef"><b>Definition:</b> m16_interrupt.c:244</div></div>
+<div class="ttc" id="am16__interrupt_8h_html_ad2ec3a75e606d637068889af2aed674f"><div class="ttname"><a href="m16__interrupt_8h.html#ad2ec3a75e606d637068889af2aed674f">config_interrupt</a></div><div class="ttdeci">void config_interrupt(interrupt, volatile uint8_t, volatile uint8_t)</div><div class="ttdoc">configure given interrupt</div><div class="ttdef"><b>Definition:</b> m16_interrupt.c:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

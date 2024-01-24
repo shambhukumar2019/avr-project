@@ -58,8 +58,17 @@ typedef enum
 #define ENABLE      VCC
 #define DISABLE     GND
 
-
+/**
+ * @attention instructions after this is executed
+ *          before any pending interrupt
+ * 
+ */
 #define SET_GLOBAL_INTERRUPT        SET_BIT(SREG,SREG_I)
+
+/**
+ * @attention no any pending interrupt executed 
+ * 
+ */
 #define CLEAR_GLOBAL_INTERRUPT      CLEAR_BIT(SREG,SREG_I)
 
 
