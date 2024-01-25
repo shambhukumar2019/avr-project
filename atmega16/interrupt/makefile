@@ -25,6 +25,8 @@ BUILD_PATH = build
 CC = avr-gcc
 # avr hex/binary translator
 OBJCOPY = avr-objcopy
+#avr elf file size tool
+SIZE_TOOL = avr-size
 # file/directory remove tool
 RM = rm
 
@@ -51,10 +53,7 @@ INC_FLAGS = -I $(INC_PATH)
 OBJCOPY_FLAGS = -O ihex -g
 # remove all files, sub-directories and directories
 RM_FLAGS = -rf
-
-
-## 		******** Target file size calculation tool *********
-SIZE_TOOL = avr-size
+# avr size tool flags
 SIZE_FLAG = --mcu=$(MCU)
 
 
