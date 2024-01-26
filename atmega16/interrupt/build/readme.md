@@ -1,0 +1,1 @@
+** This folder should have all intermediate compiler, linker, loader, assembler output files like .map, .elf, .s etc.

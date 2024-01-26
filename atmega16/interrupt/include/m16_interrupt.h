@@ -23,8 +23,19 @@
 #endif
 
 
+#define H_NIBBLE(reg)   (reg & (volatile uint8_t)0xF0)
 
-typedef enum
+
+#define EI01_LOW_LEVEL      0U
+#define EI0_ANY_LOGIC       1U
+#define EI0_F_EDGE          2U
+#define EI0_R_EDGE          3U
+#define EI1_ANY_LOGIC       4U
+#define EI1_F_EDGE          8U
+#define EI1_R_EDGE          12U
+
+
+typedef enum interrupt
 {
     EXTERNAL_INTERRUPT_0,
     EXTERNAL_INTERRUPT_1,
@@ -46,7 +57,7 @@ typedef enum
 }interrupt;
 
 
-typedef enum
+typedef enum trigger_mode
 {
     NONE,
     LOW_LEVEL,
@@ -63,13 +74,13 @@ typedef enum
  *          before any pending interrupt
  * 
  */
-#define SET_GLOBAL_INTERRUPT        SET_BIT(SREG,SREG_I)
+#define SET_GLOBAL_INTERRUPT        sei()
 
 /**
  * @attention no any pending interrupt executed 
  * 
  */
-#define CLEAR_GLOBAL_INTERRUPT      CLEAR_BIT(SREG,SREG_I)
+#define CLEAR_GLOBAL_INTERRUPT      cli()
 
 
 void config_interrupt(interrupt,volatile uint8_t,volatile uint8_t);

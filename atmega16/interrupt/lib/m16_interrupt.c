@@ -13,6 +13,7 @@
 
 
 
+
 /**
  * @brief configure given interrupt
  * 
@@ -36,23 +37,21 @@ void config_interrupt(interrupt int_type,volatile uint8_t int_mode,volatile uint
     {
         if (LOW_LEVEL == trig_mode)
         {
-            MCUCR &= ((~(1<<ISC00)) & (~(1<<ISC01)));   // 00 -> low level trigger
+            MCUCR = H_NIBBLE(MCUCR) | EI01_LOW_LEVEL;   // 00 -> low level trigger
         }
         else if (RISING_EDGE == trig_mode)
         {
-            MCUCR |= ((1<<ISC00) | (1<<ISC01)); // 11 -> rising edge
+            MCUCR = H_NIBBLE(MCUCR) | EI0_R_EDGE; // 11 -> rising edge
         }
         else if (FALLING_EDGE == trig_mode)
         {
             // 10 -> falling edge
-            MCUCR &= (~(1<<ISC00));
-            MCUCR |= (1<<ISC01);
+            MCUCR = H_NIBBLE(MCUCR) | EI0_F_EDGE;
         }
         else if (ANY_LOGIC_CHANGE == trig_mode)
         {
             // 01 -> any logic change
-            MCUCR |= (1<<ISC00);
-            MCUCR &= (~(1<<ISC01));
+            MCUCR = H_NIBBLE(MCUCR) | EI0_ANY_LOGIC;
         }
         else
         {
@@ -71,23 +70,21 @@ void config_interrupt(interrupt int_type,volatile uint8_t int_mode,volatile uint
     {
         if (LOW_LEVEL == trig_mode)
         {
-            MCUCR &= ((~(1<<ISC10)) & (~(1<<ISC11)));   // 00 -> low level trigger
+            MCUCR = H_NIBBLE(MCUCR) | EI01_LOW_LEVEL;   // 00 -> low level trigger
         }
         else if (RISING_EDGE == trig_mode)
         {
-            MCUCR |= ((1<<ISC10) | (1<<ISC11)); // 11 -> rising edge
+            MCUCR = H_NIBBLE(MCUCR) | EI1_R_EDGE; // 11 -> rising edge
         }
         else if (FALLING_EDGE == trig_mode)
         {
             // 10 -> falling edge
-            MCUCR &= (~(1<<ISC10));
-            MCUCR |= (1<<ISC11);
+            MCUCR = H_NIBBLE(MCUCR) | EI1_F_EDGE;
         }
         else if (ANY_LOGIC_CHANGE == trig_mode)
         {
             // 01 -> any logic change
-            MCUCR |= (1<<ISC10);
-            MCUCR &= (~(1<<ISC11));
+            MCUCR = H_NIBBLE(MCUCR) | EI1_ANY_LOGIC;
         }
         else
         {
