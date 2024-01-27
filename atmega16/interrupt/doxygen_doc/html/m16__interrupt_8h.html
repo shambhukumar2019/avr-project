@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -79,16 +80,18 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
 <code>#include &quot;avr/io.h&quot;</code><br />
-<code>#include &quot;avr/iom16.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="m16__gpio_8h_source.html">m16_gpio.h</a>&quot;</code><br />
+<code>#include &quot;avr/interrupt.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for m16_interrupt.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="m16__interrupt_8h__incl.png" border="0" usemap="#ainclude_2m16__interrupt_8h" alt=""/></div>
 <map name="ainclude_2m16__interrupt_8h" id="ainclude_2m16__interrupt_8h">
-<area shape="rect" title="interrupt device driver header file" alt="" coords="67,5,245,32"/>
-<area shape="rect" href="common_8h.html" title="header file containing all common declarations" alt="" coords="5,80,96,107"/>
-<area shape="rect" title=" " alt="" coords="121,80,191,107"/>
-<area shape="rect" title=" " alt="" coords="215,80,315,107"/>
+<area shape="rect" title="interrupt device driver header file" alt="" coords="15,5,193,32"/>
+<area shape="rect" href="common_8h.html" title="header file containing all common declarations" alt="" coords="5,155,96,181"/>
+<area shape="rect" title=" " alt="" coords="138,155,209,181"/>
+<area shape="rect" href="m16__gpio_8h.html" title="atmega32 gpio header file for m32_gpio.c" alt="" coords="55,80,153,107"/>
+<area shape="rect" title=" " alt="" coords="228,80,343,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -96,9 +99,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="m16__interrupt_8h__dep__incl.png" border="0" usemap="#ainclude_2m16__interrupt_8hdep" alt=""/></div>
 <map name="ainclude_2m16__interrupt_8hdep" id="ainclude_2m16__interrupt_8hdep">
-<area shape="rect" title="interrupt device driver header file" alt="" coords="60,5,237,32"/>
-<area shape="rect" href="m16__interrupt_8c.html" title="function definitions of interrupt header file" alt="" coords="5,80,151,107"/>
-<area shape="rect" href="main_8c.html" title="driver file for interrupt library" alt="" coords="175,80,264,107"/>
+<area shape="rect" title="interrupt device driver header file" alt="" coords="103,5,281,32"/>
+<area shape="rect" href="m16__gpio_8h.html" title="atmega32 gpio header file for m32_gpio.c" alt="" coords="5,80,155,107"/>
+<area shape="rect" href="main_8c.html" title="driver file for interrupt library" alt="" coords="91,155,181,181"/>
+<area shape="rect" href="m16__interrupt_8c.html" title="function definitions of interrupt header file" alt="" coords="230,80,375,107"/>
+<area shape="rect" href="m16__isr_8c.html" title="define all ISR(interrupt sub&#45;routines) in this file" alt="" coords="400,80,504,107"/>
 </map>
 </div>
 </div>
@@ -106,19 +111,52 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad21fa85ca6c4b815510de93692b48716"><td class="memItemLeft" align="right" valign="top"><a id="ad21fa85ca6c4b815510de93692b48716"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>IOM_16_H</b></td></tr>
-<tr class="separator:ad21fa85ca6c4b815510de93692b48716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b477c47a35a85a40423698b8ec7542d"><td class="memItemLeft" align="right" valign="top"><a id="a8b477c47a35a85a40423698b8ec7542d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>H_NIBBLE</b>(reg)&#160;&#160;&#160;(reg &amp; (volatile uint8_t)0xF0)</td></tr>
+<tr class="separator:a8b477c47a35a85a40423698b8ec7542d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e808319bbfad92ddea5d7f9f43dcc74"><td class="memItemLeft" align="right" valign="top"><a id="a5e808319bbfad92ddea5d7f9f43dcc74"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EI01_LOW_LEVEL</b>&#160;&#160;&#160;0U</td></tr>
+<tr class="separator:a5e808319bbfad92ddea5d7f9f43dcc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a958110cfca4f5b76c124849b74182475"><td class="memItemLeft" align="right" valign="top"><a id="a958110cfca4f5b76c124849b74182475"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EI0_ANY_LOGIC</b>&#160;&#160;&#160;1U</td></tr>
+<tr class="separator:a958110cfca4f5b76c124849b74182475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acae261df71cb63601736802f2fdbc912"><td class="memItemLeft" align="right" valign="top"><a id="acae261df71cb63601736802f2fdbc912"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EI0_F_EDGE</b>&#160;&#160;&#160;2U</td></tr>
+<tr class="separator:acae261df71cb63601736802f2fdbc912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dc18ddcbb51cba350bb12ff49c495f3"><td class="memItemLeft" align="right" valign="top"><a id="a9dc18ddcbb51cba350bb12ff49c495f3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EI0_R_EDGE</b>&#160;&#160;&#160;3U</td></tr>
+<tr class="separator:a9dc18ddcbb51cba350bb12ff49c495f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ede6c3b51720fba1010635c8ae192c"><td class="memItemLeft" align="right" valign="top"><a id="ad4ede6c3b51720fba1010635c8ae192c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EI1_ANY_LOGIC</b>&#160;&#160;&#160;4U</td></tr>
+<tr class="separator:ad4ede6c3b51720fba1010635c8ae192c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35b843966cee5cd7bf00014346ce61b"><td class="memItemLeft" align="right" valign="top"><a id="ab35b843966cee5cd7bf00014346ce61b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EI1_F_EDGE</b>&#160;&#160;&#160;8U</td></tr>
+<tr class="separator:ab35b843966cee5cd7bf00014346ce61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2af4cceeb93ad2c4c10af9c8bce09cd3"><td class="memItemLeft" align="right" valign="top"><a id="a2af4cceeb93ad2c4c10af9c8bce09cd3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EI1_R_EDGE</b>&#160;&#160;&#160;12U</td></tr>
+<tr class="separator:a2af4cceeb93ad2c4c10af9c8bce09cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a514ad415fb6125ba296793df7d1a468a"><td class="memItemLeft" align="right" valign="top"><a id="a514ad415fb6125ba296793df7d1a468a"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ENABLE</b>&#160;&#160;&#160;VCC</td></tr>
 <tr class="separator:a514ad415fb6125ba296793df7d1a468a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99496f7308834e8b220f7894efa0b6ab"><td class="memItemLeft" align="right" valign="top"><a id="a99496f7308834e8b220f7894efa0b6ab"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DISABLE</b>&#160;&#160;&#160;GND</td></tr>
 <tr class="separator:a99496f7308834e8b220f7894efa0b6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af92cdec268239db48e291ef0bfb61ece"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#af92cdec268239db48e291ef0bfb61ece">SET_GLOBAL_INTERRUPT</a>&#160;&#160;&#160;SET_BIT(SREG,SREG_I)</td></tr>
+<tr class="memitem:af92cdec268239db48e291ef0bfb61ece"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#af92cdec268239db48e291ef0bfb61ece">SET_GLOBAL_INTERRUPT</a>&#160;&#160;&#160;sei()</td></tr>
 <tr class="separator:af92cdec268239db48e291ef0bfb61ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#acfa8623e6ad7bdc66bfd6c9b9ac4c1d6">CLEAR_GLOBAL_INTERRUPT</a>&#160;&#160;&#160;CLEAR_BIT(SREG,SREG_I)</td></tr>
+<tr class="memitem:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8h.html#acfa8623e6ad7bdc66bfd6c9b9ac4c1d6">CLEAR_GLOBAL_INTERRUPT</a>&#160;&#160;&#160;cli()</td></tr>
 <tr class="separator:acfa8623e6ad7bdc66bfd6c9b9ac4c1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25dd1ce6f86462f3064bb3a3248d2cbf"><td class="memItemLeft" align="right" valign="top"><a id="a25dd1ce6f86462f3064bb3a3248d2cbf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CLEAR_FLAG</b>(reg,  bit)&#160;&#160;&#160;SET_BIT(reg,bit)</td></tr>
+<tr class="separator:a25dd1ce6f86462f3064bb3a3248d2cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a208a7d01560e1b8dc2b355afb761193c"><td class="memItemLeft" align="right" valign="top"><a id="a208a7d01560e1b8dc2b355afb761193c"></a>
+typedef enum interrupt&#160;</td><td class="memItemRight" valign="bottom"><b>interrupt</b></td></tr>
+<tr class="separator:a208a7d01560e1b8dc2b355afb761193c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a2f2940749bea9b0b0c2e9ab4ed4eb"><td class="memItemLeft" align="right" valign="top"><a id="a74a2f2940749bea9b0b0c2e9ab4ed4eb"></a>
+typedef enum trigger_mode&#160;</td><td class="memItemRight" valign="bottom"><b>trigger_mode</b></td></tr>
+<tr class="separator:a74a2f2940749bea9b0b0c2e9ab4ed4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -142,6 +180,9 @@ Enumerations</h2></td></tr>
 , <b>UART_UDRE_INTERRUPT</b>
 , <b>ADC_INTERRUPT</b>
 , <b>COMPARATOR_INTERRUPT</b>
+, <br />
+&#160;&#160;<b>SPI_INTERRUPT</b>
+, <b>I2C_INTERRUPT</b>
 <br />
  }</td></tr>
 <tr class="separator:a83e304ff5052947728f95b6e732e25dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,7 +220,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CLEAR_GLOBAL_INTERRUPT&#160;&#160;&#160;CLEAR_BIT(SREG,SREG_I)</td>
+          <td class="memname">#define CLEAR_GLOBAL_INTERRUPT&#160;&#160;&#160;cli()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -194,7 +235,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SET_GLOBAL_INTERRUPT&#160;&#160;&#160;SET_BIT(SREG,SREG_I)</td>
+          <td class="memname">#define SET_GLOBAL_INTERRUPT&#160;&#160;&#160;sei()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -213,7 +254,7 @@ Functions</h2></td></tr>
           <td class="memname">void clear_interrupt_flag </td>
           <td>(</td>
           <td class="paramtype">interrupt&#160;</td>
-          <td class="paramname"><em>int_type</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -222,7 +263,7 @@ Functions</h2></td></tr>
 <p>clear the flag of given interrupt </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int_type</td><td>type of interrupt from enum "interrupt_type" to clear its flag</td></tr>
+    <tr><td class="paramname">interrupt</td><td>type of interrupt from enum "interrupt_type" to clear its flag</td></tr>
   </table>
   </dd>
 </dl>
@@ -241,19 +282,19 @@ Functions</h2></td></tr>
           <td class="memname">void config_interrupt </td>
           <td>(</td>
           <td class="paramtype">interrupt&#160;</td>
-          <td class="paramname"><em>int_type</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>int_mode</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>trig_mode</em>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -266,9 +307,9 @@ Functions</h2></td></tr>
 <p>configure given interrupt </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int_type</td><td>type of interrupt from enum "interrupt_type" </td></tr>
-    <tr><td class="paramname">int_mode</td><td>ENABLE or DISABLE the interrupt </td></tr>
-    <tr><td class="paramname">trig_mode</td><td>LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)</td></tr>
+    <tr><td class="paramname">interrupt</td><td>type of interrupt from enum "interrupt_type" </td></tr>
+    <tr><td class="paramname">uint8_t</td><td>ENABLE or DISABLE the interrupt </td></tr>
+    <tr><td class="paramname">uint8_t</td><td>LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)</td></tr>
   </table>
   </dd>
 </dl>

@@ -1,14 +1,13 @@
 /**
- * @file m32_gpio.h
+ * @file m16_gpio.h
  * @author shambhu kumar (you@domain.com)
  * @brief atmega32 gpio header file for m32_gpio.c
- * @version 1.0
- * @date 2024-01-13
+ * @version 0.1
+ * @date 2024-01-27
  * 
  * @copyright Copyright (c) 2024
  * 
  */
-
 #ifndef M32_GPIO_H
 #define M32_GPIO_H
 

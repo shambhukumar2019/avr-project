@@ -6,19 +6,20 @@ function definitions of interrupt header file
 
 
 {\ttfamily \#include \char`\"{}m16\+\_\+interrupt.\+h\char`\"{}}\newline
-Include dependency graph for m16\+\_\+interrupt.\+c\+:\nopagebreak
+Include dependency graph for m16\+\_\+interrupt.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=313pt]{m16__interrupt_8c__incl}
+\includegraphics[width=333pt]{m16__interrupt_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{m16__interrupt_8c_a730c5a97aab4b0fc3dd40b1ff4573a18}{config\+\_\+interrupt}} (interrupt int\+\_\+type, volatile uint8\+\_\+t int\+\_\+mode, volatile uint8\+\_\+t trig\+\_\+mode)
+void \mbox{\hyperlink{m16__interrupt_8c_a8c4087d9282d8241e15baca4689c694d}{config\+\_\+interrupt}} (interrupt int\+\_\+type \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)), volatile uint8\+\_\+t int\+\_\+mode, volatile uint8\+\_\+t trig\+\_\+mode)
 \begin{DoxyCompactList}\small\item\em configure given interrupt \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{m16__interrupt_8c_a848709016d9a0346cffb47360c71c36a}{clear\+\_\+interrupt\+\_\+flag}} (interrupt int\+\_\+type)
+void \mbox{\hyperlink{m16__interrupt_8c_a245cc368ba28c4ca3995328f2b3d6f59}{clear\+\_\+interrupt\+\_\+flag}} (interrupt int\+\_\+type \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)))
 \begin{DoxyCompactList}\small\item\em clear the flag of given interrupt \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -40,11 +41,11 @@ Copyright (c) 2024
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{m16__interrupt_8c_a848709016d9a0346cffb47360c71c36a}\label{m16__interrupt_8c_a848709016d9a0346cffb47360c71c36a}} 
+\mbox{\Hypertarget{m16__interrupt_8c_a245cc368ba28c4ca3995328f2b3d6f59}\label{m16__interrupt_8c_a245cc368ba28c4ca3995328f2b3d6f59}} 
 \index{m16\_interrupt.c@{m16\_interrupt.c}!clear\_interrupt\_flag@{clear\_interrupt\_flag}}
 \index{clear\_interrupt\_flag@{clear\_interrupt\_flag}!m16\_interrupt.c@{m16\_interrupt.c}}
 \doxysubsubsection{\texorpdfstring{clear\_interrupt\_flag()}{clear\_interrupt\_flag()}}
-{\footnotesize\ttfamily void clear\+\_\+interrupt\+\_\+flag (\begin{DoxyParamCaption}\item[{interrupt}]{int\+\_\+type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void clear\+\_\+interrupt\+\_\+flag (\begin{DoxyParamCaption}\item[{interrupt int\+\_\+type }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused) }\end{DoxyParamCaption})}
 
 
 
@@ -52,20 +53,14 @@ clear the flag of given interrupt
 
 
 \begin{DoxyParams}{Parameters}
-{\em int\+\_\+type} & type of interrupt from enum \char`\"{}interrupt\+\_\+type\char`\"{} to clear its flag\\
+{\em int\+\_\+type} & \char`\"{}unused\char`\"{} attribute tells compiler that variable intentionally left unused \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void
-\end{DoxyReturn}
-\begin{DoxyAttention}{Attention}
-uart RXC and UDRE are read only flags, auto cleared by isr 
-\end{DoxyAttention}
-\mbox{\Hypertarget{m16__interrupt_8c_a730c5a97aab4b0fc3dd40b1ff4573a18}\label{m16__interrupt_8c_a730c5a97aab4b0fc3dd40b1ff4573a18}} 
+\mbox{\Hypertarget{m16__interrupt_8c_a8c4087d9282d8241e15baca4689c694d}\label{m16__interrupt_8c_a8c4087d9282d8241e15baca4689c694d}} 
 \index{m16\_interrupt.c@{m16\_interrupt.c}!config\_interrupt@{config\_interrupt}}
 \index{config\_interrupt@{config\_interrupt}!m16\_interrupt.c@{m16\_interrupt.c}}
 \doxysubsubsection{\texorpdfstring{config\_interrupt()}{config\_interrupt()}}
-{\footnotesize\ttfamily void config\+\_\+interrupt (\begin{DoxyParamCaption}\item[{interrupt}]{int\+\_\+type,  }\item[{volatile uint8\+\_\+t}]{int\+\_\+mode,  }\item[{volatile uint8\+\_\+t}]{trig\+\_\+mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void config\+\_\+interrupt (\begin{DoxyParamCaption}\item[{interrupt int\+\_\+type }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused),  }\item[{volatile uint8\+\_\+t}]{int\+\_\+mode,  }\item[{volatile uint8\+\_\+t}]{trig\+\_\+mode }\end{DoxyParamCaption})}
 
 
 
@@ -73,20 +68,10 @@ configure given interrupt
 
 
 \begin{DoxyParams}{Parameters}
-{\em int\+\_\+type} & type of interrupt from enum \char`\"{}interrupt\+\_\+type\char`\"{} \\
+{\em int\+\_\+type} & \\
 \hline
-{\em int\+\_\+mode} & ENABLE or DISABLE the interrupt \\
+{\em int\+\_\+mode} & \\
 \hline
-{\em trig\+\_\+mode} & LEVEL, RISING\+\_\+\+EDGE, FALLING\+\_\+\+EDGE (only for external interrupts)\\
+{\em trig\+\_\+mode} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void
-\end{DoxyReturn}
-\begin{DoxyAttention}{Attention}
-SREG should be stored and restored on entering and exiting the ISR.
-
-After ISR, cpu executes next instruction before any pending instruction
-
-When an interrupt occurs, all interrupts are disabled. 
-\end{DoxyAttention}

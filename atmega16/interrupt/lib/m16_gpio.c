@@ -134,7 +134,7 @@ void gpio_global_pullup_enable(void)
  */
 uint8_t gpio_read(volatile uint8_t pin_number,volatile uint8_t *pin)
 {
-    asm("nop");
-
-    return (*pin & (1<<pin_number));
+    //asm("nop");
+    __asm__("nop");
+    return ((*pin) & (1<<pin_number));
 }

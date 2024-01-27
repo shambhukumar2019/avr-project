@@ -21,7 +21,7 @@
  * @param int_mode 
  * @param trig_mode 
  */
-void config_interrupt(interrupt int_type,volatile uint8_t int_mode,volatile uint8_t trig_mode)
+void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_t int_mode,volatile uint8_t trig_mode)
 {
     #if (int_type == EXTERNAL_INTERRUPT_0)
     {
@@ -326,6 +326,36 @@ void config_interrupt(interrupt int_type,volatile uint8_t int_mode,volatile uint
             // error code
         }
     }
+    #elif (int_type == SPI_INTERRUPT)
+    {
+        if(int_mode == ENABLE)
+        {
+            SET_BIT(SPCR,SPIE); // enable SPI_INTERRUPT
+        }
+        else if (int_mode == DISABLE)
+        {
+            CLEAR_BIT(SPCR,SPIE);   // disable SPI_INTERRUPT
+        }
+        else
+        {
+            // error code
+        }
+    }
+    #elif (int_type == I2C_INTERRUPT)
+    {
+        if(int_mode == ENABLE)
+        {
+            SET_BIT(TWCR,TWIE); // enable I2C_INTERRUPT
+        }
+        else if (int_mode == DISABLE)
+        {
+            CLEAR_BIT(TWCR,TWIE);   // disable I2C_INTERRUPT
+        }
+        else
+        {
+            // error code
+        }
+    }
     #else
     {
         // error code
@@ -338,9 +368,10 @@ void config_interrupt(interrupt int_type,volatile uint8_t int_mode,volatile uint
 /**
  * @brief clear the flag of given interrupt
  * 
- * @param int_type 
+ * @param int_type "unused" attribute tells compiler that variable intentionally
+ *                  left unused
  */
-void clear_interrupt_flag(interrupt int_type)
+void clear_interrupt_flag(interrupt int_type __attribute__((unused)))
 {
     #if (int_type == EXTERNAL_INTERRUPT_0)
     {
@@ -397,6 +428,15 @@ void clear_interrupt_flag(interrupt int_type)
     #elif (int_type == COMPARATOR_INTERRUPT)
     {
         CLEAR_FLAG(ACSR,ACI);    // clear COMPARATOR_INTERRUPT flag
+    }
+    #elif (int_type == SPI_INTERRUPT)
+    {
+        // spi flag is cleared by 1st reading SPIF,
+        // then accessing SPDR (SPI data register)
+    }
+    #elif (int_type == I2C_INTERRUPT)
+    {
+        CLEAR_FLAG(TWCR,TWINT);    // clear COMPARATOR_INTERRUPT flag
     }
     #else
     {
