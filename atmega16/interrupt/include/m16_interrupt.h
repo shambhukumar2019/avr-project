@@ -78,16 +78,16 @@ typedef enum trigger_mode
  *          before any pending interrupt
  * 
  */
-#define SET_GLOBAL_INTERRUPT        SET_BIT(SREG,SREG_I)
+#define SET_GLOBAL_INTERRUPT        sei()
 
 /**
  * @attention no any pending interrupt executed 
  * 
  */
-#define CLEAR_GLOBAL_INTERRUPT      sei()
+#define CLEAR_GLOBAL_INTERRUPT      cli()
 
 
-#define CLEAR_FLAG(reg,bit)         cli()
+#define CLEAR_FLAG(reg,bit)         SET_BIT(reg,bit)
 
 
 void config_interrupt(interrupt,volatile uint8_t,volatile uint8_t);

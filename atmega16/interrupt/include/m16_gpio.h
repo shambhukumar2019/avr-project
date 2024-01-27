@@ -44,7 +44,7 @@
  * @brief set given pin of a port as output
  * 
  * @param uint8_t store pin number
- * @param uint8_t store port name
+ * @param uint8_t store port address
  * @param uint8_t set i/o mode (IN/OUT)
  * 
  * @return void
@@ -56,7 +56,7 @@ void gpio_pin_mode(volatile uint8_t,volatile uint8_t *,volatile uint8_t);
  * @brief set value for pin (high/low) of the port
  * 
  * @param uint8_t store pin number
- * @param uint8_t store port name
+ * @param uint8_t store port address
  * @param uint8_t set pin value (VCC/GND)
  * 
  * @return void
@@ -68,7 +68,7 @@ void gpio_set_output_pin_value(volatile uint8_t,volatile uint8_t*,volatile uint8
  * @brief turn on pull-up for given pin of the port
  * 
  * @param uint8_t store pin number
- * @param uint8_t store port name
+ * @param uint8_t store port address
  * 
  * @return void
  */
@@ -79,7 +79,7 @@ void gpio_pullup_on(volatile uint8_t,volatile uint8_t *);
  * @brief turn off pull-up for given pin of the port
  * 
  * @param uint8_t store pin number
- * @param uint8_t store port name
+ * @param uint8_t store port address
  * 
  * @return void
  */
@@ -110,7 +110,7 @@ void gpio_global_pullup_enable(void);
  * @brief read value of the pin of the port
  * 
  * @param uint8_t set the pin number
- * @param uint8_t set the port name
+ * @param uint8_t set the pin address
  * 
  * @return volatile uint8_t  pin value (VCC/GND)
  */
