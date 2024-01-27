@@ -68,7 +68,7 @@ MCU_FLAG = -p $(MCU)
 # read write mode
 RW_MODE = w
 # upload target to flash
-UPLOAD_FLASH = -U flash:$(RW_MODE):$(HEX_FILE):i
+UPLOAD_FLASH_CODE = -U flash:$(RW_MODE):$(HEX_FILE):i
 # upload fuse bits
 # m -> write immediate values specified 
 L_FUSE = 0xff
@@ -88,8 +88,8 @@ size: $(ELF_FILE)
 
 
 # upload hex code to target microcontroller
-upload:	$(HEX_FILE)
-	$(PROG_TOOL) $(PROG_FLAG) $(MCU_FLAG) $(UPLOAD_FLASH)
+upload_flash:	$(HEX_FILE)
+	$(PROG_TOOL) $(PROG_FLAG) $(MCU_FLAG) $(UPLOAD_FLASH_CODE)
 
 
 

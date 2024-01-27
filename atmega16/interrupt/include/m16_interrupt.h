@@ -14,6 +14,8 @@
 
 #include "common.h"
 #include "avr/io.h"
+#include "m16_gpio.h"
+#include "avr/interrupt.h"
 
 #ifndef IOM_16_H
 #define IOM_16_H
@@ -66,21 +68,26 @@ typedef enum trigger_mode
     ANY_LOGIC_CHANGE
 }trigger_mode;
 
+
 #define ENABLE      VCC
 #define DISABLE     GND
+
 
 /**
  * @attention instructions after this is executed
  *          before any pending interrupt
  * 
  */
-#define SET_GLOBAL_INTERRUPT        sei()
+#define SET_GLOBAL_INTERRUPT        SET_BIT(SREG,SREG_I)
 
 /**
  * @attention no any pending interrupt executed 
  * 
  */
-#define CLEAR_GLOBAL_INTERRUPT      cli()
+#define CLEAR_GLOBAL_INTERRUPT      sei()
+
+
+#define CLEAR_FLAG(reg,bit)         cli()
 
 
 void config_interrupt(interrupt,volatile uint8_t,volatile uint8_t);
