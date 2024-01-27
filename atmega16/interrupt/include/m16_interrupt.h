@@ -90,9 +90,37 @@ typedef enum trigger_mode
 #define CLEAR_FLAG(reg,bit)         SET_BIT(reg,bit)
 
 
+/**
+ * @brief configure given interrupt
+ * 
+ * @param interrupt type of interrupt from enum "interrupt_type"
+ * @param uint8_t ENABLE or DISABLE the interrupt
+ * @param uint8_t LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)
+ * 
+ * @return void
+ * 
+ * 
+ * @attention   SREG should be stored and restored on
+ *              entering and exiting the ISR.
+ * 
+ * @attention   After ISR, cpu executes next instruction
+ *              before any pending instruction
+ * 
+ * @attention   When an interrupt occurs, all interrupts are disabled.
+ */
 void config_interrupt(interrupt,volatile uint8_t,volatile uint8_t);
 
 
+
+/**
+ * @brief clear the flag of given interrupt
+ * 
+ * @param interrupt type of interrupt from enum "interrupt_type" to clear its flag
+ * 
+ * @return void
+ * 
+ * @attention uart RXC and UDRE are read only flags, auto cleared by isr
+ */
 void clear_interrupt_flag(interrupt);
 
 

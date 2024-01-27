@@ -27,8 +27,6 @@ void main(void)
 
     config_interrupt(EXTERNAL_INTERRUPT_0,ENABLE,ANY_LOGIC_CHANGE);
 
-    gpio_output_pin_value(PA0,&PORTA,VCC);
-
     SET_GLOBAL_INTERRUPT;
     
     for(;;)

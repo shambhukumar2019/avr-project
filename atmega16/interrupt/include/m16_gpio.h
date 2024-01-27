@@ -29,7 +29,7 @@
 #define OUT         VCC
 
 
-// PORTA alternate pin functions
+// PORTA pins alternate functions
 #define ADC0_PIN                    PA0
 #define ADC1_PIN                    PA1
 #define ADC2_PIN                    PA2
@@ -39,7 +39,7 @@
 #define ADC6_PIN                    PA6
 #define ADC7_PIN                    PA7
 
-// PORTB alternate pin functions
+// PORTB pins alternate functions
 #define USART_EXT_CLK_IO_PIN        PB0
 #define EXT_COUNTER_IN_0_PIN        PB0
 #define EXT_COUNTER_IN_1_PIN        PB1
@@ -52,7 +52,7 @@
 #define SPI_MISO_PIN                PB6
 #define SPI_SCK_PIN                 PB7
 
-// PORTC alternate pin functions
+// PORTC pins alternate functions
 #define I2C_SCL_PIN                 PC0
 #define I2C_SDA_PIN                 PC1
 #define JTAG_TEST_CLK_PIN           PC2
@@ -62,7 +62,7 @@
 #define TIMER_OSC_1_PIN             PC6
 #define TIMER_OSC_2_PIN             PC7
 
-// PORTD alternate pin functions
+// PORTD pins alternate functions
 #define RXD_PIN                     PD0
 #define TXD_PIN                     PD1
 #define EXT_INTRRUPT_0_PIN          PD2

@@ -17,19 +17,9 @@
 /**
  * @brief configure given interrupt
  * 
- * @param int_type type of interrupt from enum "interrupt_type"
- * @param int_mode ENABLE or DISABLE the interrupt
- * @param trig_mode LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)
- * 
- * @return void
- * 
- * @attention   SREG should be stored and restored on
- *              entering and exiting the ISR.
- * 
- * @attention   After ISR, cpu executes next instruction
- *              before any pending instruction
- * 
- * @attention   When an interrupt occurs, all interrupts are disabled.
+ * @param int_type 
+ * @param int_mode 
+ * @param trig_mode 
  */
 void config_interrupt(interrupt int_type,volatile uint8_t int_mode,volatile uint8_t trig_mode)
 {
@@ -348,11 +338,7 @@ void config_interrupt(interrupt int_type,volatile uint8_t int_mode,volatile uint
 /**
  * @brief clear the flag of given interrupt
  * 
- * @param int_type type of interrupt from enum "interrupt_type" to clear its flag
- * 
- * @return void
- * 
- * @attention uart RXC and UDRE are read only flags, auto cleared by isr
+ * @param int_type 
  */
 void clear_interrupt_flag(interrupt int_type)
 {

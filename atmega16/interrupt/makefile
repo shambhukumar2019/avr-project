@@ -1,10 +1,12 @@
 #####	space or tab after any command gives error in makefile	#####
 
+
 ##		********** TARGET ZONE **********
 # output elf/hex filename
 TARGET = app
 # target microntroller name
 MCU = atmega16
+
 
 
 ##		********** FILES PATH ***********
@@ -20,15 +22,19 @@ TARGET_PATH = bin
 BUILD_PATH = build
 
 
+
 ##		********** AVR TOOLCHAINS ***********
 # avr cross compiler
 CC = avr-gcc
 # avr hex/binary translator
 OBJCOPY = avr-objcopy
+# avr object/elf file reader and convert object to assembly
+OBJDUMP = avr-objdump
 #avr elf file size tool
 SIZE_TOOL = avr-size
 # file/directory remove tool
 RM = rm
+
 
 
 ##		********* FILES *********
@@ -42,6 +48,9 @@ C_FILE = $(SRC_FILE) $(LIB_FILE)
 ELF_FILE = $(BUILD_PATH)/$(TARGET).elf
 # output hex filename
 HEX_FILE = $(TARGET_PATH)/$(TARGET).hex
+# disassembly file of final elf file
+DISASSEMBLY_FILE = $(BUILD_PATH)/disassembly.txt
+
 
 
 ## 	 ********** FLAGS **********
@@ -55,6 +64,8 @@ OBJCOPY_FLAGS = -O ihex -g
 RM_FLAGS = -rf
 # avr size tool flags
 SIZE_FLAG = --mcu=$(MCU)
+# flags to generate dis-assembly of entire object file
+OBJDUMP_FLAGS = -D
 
 
 ## 		******** uploading target file to target MCU *********
@@ -66,8 +77,10 @@ PROG_FLAG = -c usbasp
 MCU_FLAG = -p $(MCU)
 # read write mode
 RW_MODE = w
+
 # upload target to flash
 UPLOAD_FLASH_CODE = -U flash:$(RW_MODE):$(HEX_FILE):i
+
 # upload fuse bits
 # m -> write immediate values specified 
 L_FUSE = 0xff
@@ -76,12 +89,18 @@ E_FUSE = 0xff
 UPDATE_FUSE_BITS = -U lfuse:$(L_FUSE):m hfuse:$(H_FUSE):m efuse:$(E_FUSE):m
 
 
+
 ##		$@ -> target files 
 ##		$^ -> pre-requisites
 
 
 
-# find elf file size
+# generate disassembly code of elf file 
+disassembly: $(ELF_FILE)
+	$(OBJDUMP) $(OBJDUMP_FLAGS) $^ >> $(DISASSEMBLY_FILE)
+
+
+# find elf(linux executable and linkable format) file size
 size: $(ELF_FILE)
 	$(SIZE_TOOL) $(SIZE_FLAG) $^
 
