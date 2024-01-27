@@ -29,6 +29,48 @@
 #define OUT         VCC
 
 
+// PORTA alternate pin functions
+#define ADC0_PIN                    PA0
+#define ADC1_PIN                    PA1
+#define ADC2_PIN                    PA2
+#define ADC3_PIN                    PA3
+#define ADC4_PIN                    PA4
+#define ADC5_PIN                    PA5
+#define ADC6_PIN                    PA6
+#define ADC7_PIN                    PA7
+
+// PORTB alternate pin functions
+#define USART_EXT_CLK_IO_PIN        PB0
+#define EXT_COUNTER_IN_0_PIN        PB0
+#define EXT_COUNTER_IN_1_PIN        PB1
+#define EXT_INTRRUPT_2_PIN          PB2
+#define COMPARATOR_POS_IN_PIN       PB2
+#define TIMER0_CMO_PIN              PB3
+#define COMPARATOR_NEG_IN_PIN       PB3
+#define SPI_SS_PIN                  PB4
+#define SPI_MOSI_PIN                PB5
+#define SPI_MISO_PIN                PB6
+#define SPI_SCK_PIN                 PB7
+
+// PORTC alternate pin functions
+#define I2C_SCL_PIN                 PC0
+#define I2C_SDA_PIN                 PC1
+#define JTAG_TEST_CLK_PIN           PC2
+#define JTAG_TEST_MODE_SEL_PIN      PC3
+#define JTAG_TEST_DATA_OUT_PIN      PC4
+#define JTAG_TEST_DATA_IN_PIN       PC5
+#define TIMER_OSC_1_PIN             PC6
+#define TIMER_OSC_2_PIN             PC7
+
+// PORTD alternate pin functions
+#define RXD_PIN                     PD0
+#define TXD_PIN                     PD1
+#define EXT_INTRRUPT_0_PIN          PD2
+#define EXT_INTRRUPT_1_PIN          PD3
+#define TIMER1_CMO_B_PIN            PD4
+#define TIMER1_CMO_A_PIN            PD5    
+#define TIMER1_IC_PIN               PD6
+#define TIMER2_CMO_PIN              PD7
 
 
 /*  compiler treat it as integer,
@@ -61,7 +103,7 @@ void gpio_pin_mode(volatile uint8_t,volatile uint8_t *,volatile uint8_t);
  * 
  * @return void
  */
-void gpio_set_output_pin_value(volatile uint8_t,volatile uint8_t*,volatile uint8_t);
+void gpio_output_pin_value(volatile uint8_t,volatile uint8_t*,volatile uint8_t);
 
 
 /**

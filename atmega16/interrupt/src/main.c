@@ -22,19 +22,21 @@
  */
 void main(void)
 {
-    gpio_pin_mode(PD2,&PORTD,IN);
+    gpio_pin_mode(EXT_INTRRUPT_0_PIN,&PORTD,IN);
     gpio_pin_mode(PA0,&PORTA,OUT);
-    gpio_pullup_on(PD2,&PORTD);
+
     config_interrupt(EXTERNAL_INTERRUPT_0,ENABLE,ANY_LOGIC_CHANGE);
-    gpio_set_output_pin_value(PA0,&PORTA,VCC);
+
+    gpio_output_pin_value(PA0,&PORTA,VCC);
+
     SET_GLOBAL_INTERRUPT;
     
     for(;;)
     {
         _delay_ms(1000);
-        gpio_set_output_pin_value(PA0,&PORTA,VCC);
+        gpio_output_pin_value(PA0,&PORTA,VCC);
         _delay_ms(1000);
-        gpio_set_output_pin_value(PA0,&PORTA,GND);
+        gpio_output_pin_value(PA0,&PORTA,GND);
     }
 
 }

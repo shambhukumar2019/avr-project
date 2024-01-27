@@ -15,5 +15,6 @@
 
 ISR(INT0_vect)
 {
-    gpio_set_output_pin_value(PA0,&PORTA,GND);
+    gpio_output_pin_value(PA0,&PORTA,GND);
 }
+

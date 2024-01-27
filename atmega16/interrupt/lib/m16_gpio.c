@@ -63,7 +63,7 @@ void gpio_pin_mode(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t 
  * @param port 
  * @param logic 
  */
-void gpio_set_output_pin_value(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t logic)
+void gpio_output_pin_value(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t logic)
 {
     if (logic == VCC)
     {
