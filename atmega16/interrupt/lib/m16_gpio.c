@@ -20,9 +20,9 @@
  * @param port 
  * @param io_mode 
  */
-void gpio_pin_mode(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t io_mode)
+void gpio_pin_mode(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t io_mode __attribute__((unused)))
 {
-    if (io_mode == OUT)
+    #if (io_mode == OUT)
     {
         if(PORTA == *port)
             SET_BIT(DDRA,pin);
@@ -39,7 +39,7 @@ void gpio_pin_mode(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t 
         else if (PORTD == *port)    
             SET_BIT(DDRD,pin);
     }
-    else if (io_mode == IN)
+    #elif (io_mode == IN)
     {
         if(PORTA == *port)
             CLEAR_BIT(DDRA,pin);
@@ -53,30 +53,7 @@ void gpio_pin_mode(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t 
         else if (PORTD == *port)    
             CLEAR_BIT(DDRD,pin);
     }    
-
-}
-
-/**
- * @brief define gpio_set_output()
- * 
- * @param pin 
- * @param port 
- * @param logic 
- */
-void gpio_output_pin_value(volatile uint8_t pin,volatile uint8_t *port,volatile uint8_t logic)
-{
-    if (logic == VCC)
-    {
-        SET_BIT(*port,pin);
-    }
-    else if(logic == GND)
-    {
-        CLEAR_BIT(*port,pin);
-    }
-    else
-    {
-        // through error code
-    }
+    #endif
 }
 
 
@@ -86,7 +63,7 @@ void gpio_output_pin_value(volatile uint8_t pin,volatile uint8_t *port,volatile 
  * @param pin 
  * @param port 
  */
-void gpio_pullup_on(volatile uint8_t pin,volatile uint8_t *port)
+inline void gpio_pullup_on(volatile uint8_t pin,volatile uint8_t *port)
 {
     SET_BIT(*port,pin);
 }
@@ -98,7 +75,7 @@ void gpio_pullup_on(volatile uint8_t pin,volatile uint8_t *port)
  * @param pin 
  * @param port 
  */
-void gpio_pullup_off(volatile uint8_t pin,volatile uint8_t *port)
+inline void gpio_pullup_off(volatile uint8_t pin,volatile uint8_t *port)
 {
     CLEAR_BIT(*port,pin);
 }
@@ -108,7 +85,7 @@ void gpio_pullup_off(volatile uint8_t pin,volatile uint8_t *port)
  * @brief define gpio_global_pullup_disable
  * 
  */
-void gpio_global_pullup_disable(void)
+inline void gpio_global_pullup_disable(void)
 {
     SET_BIT(SFIOR,PUD);
 }
@@ -118,7 +95,7 @@ void gpio_global_pullup_disable(void)
  * @brief define gpio_global_pullup_enable
  * 
  */
-void gpio_global_pullup_enable(void)
+inline void gpio_global_pullup_enable(void)
 {
     CLEAR_BIT(SFIOR,PUD);
 }
@@ -132,7 +109,7 @@ void gpio_global_pullup_enable(void)
  * 
  * @return uint8_t
  */
-uint8_t gpio_read(volatile uint8_t pin_number,volatile uint8_t *pin)
+inline uint8_t gpio_read(volatile uint8_t pin_number,volatile uint8_t *pin)
 {
     //asm("nop");
     __asm__("nop");

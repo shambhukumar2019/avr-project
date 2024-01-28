@@ -32,9 +32,9 @@ void main(void)
     for(;;)
     {
         _delay_ms(1000);
-        gpio_output_pin_value(PA0,&PORTA,VCC);
+        GPIO_OUTPUT_HIGH(PORTA,PA0);
         _delay_ms(1000);
-        gpio_output_pin_value(PA0,&PORTA,GND);
+        GPIO_OUTPUT_LOW(PORTA,PA0);
     }
 
 }

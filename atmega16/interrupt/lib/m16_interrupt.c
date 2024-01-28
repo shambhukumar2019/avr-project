@@ -21,11 +21,11 @@
  * @param int_mode 
  * @param trig_mode 
  */
-void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_t int_mode,volatile uint8_t trig_mode)
+void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_t int_mode __attribute__((unused)),volatile uint8_t trig_mode __attribute__((unused)))
 {
     #if (int_type == EXTERNAL_INTERRUPT_0)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             if (LOW_LEVEL == trig_mode)
             {
@@ -52,19 +52,19 @@ void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_
 
             SET_BIT(GICR,INT0); // enable EXTERNAL_INTERRUPT_0
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(GICR,INT0);   // disable EXTERNAL_INTERRUPT_0
         }
-        else
+        #else
         {
             // error code
         }
-        
+        #endif
     }
     #elif (int_type == EXTERNAL_INTERRUPT_1)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             if (LOW_LEVEL == trig_mode)
             {
@@ -91,18 +91,19 @@ void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_
 
             SET_BIT(GICR,INT1); // enable EXTERNAL_INTERRUPT_1
         }
-        else if(int_mode == DISABLE)
+        #elif(int_mode == DISABLE)
         {
             CLEAR_BIT(GICR,INT1);   // disable EXTERNAL_INTERRUPT_1
         }
-        else
+        #else
         {
             // error code
         }
+        #endif
     }
     #elif (int_type == EXTERNAL_INTERRUPT_2)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             CLEAR_BIT(GICR,INT2);   // disable EXTERNAL_INTERRUPT_2
             if (trig_mode == FALLING_EDGE)
@@ -121,240 +122,195 @@ void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_
             CLEAR_FLAG(GIFR,INTF2);
             SET_BIT(GICR,INT2); // enable external interrupt 2
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(GICR,INT2);   // disable EXTERNAL_INTERRUPT_2
         }
-        else
+        #else
         {
             // error code
         }
-        
+        #endif
     }
     #elif (int_type == TIMER0_OVERFLOW_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,TOIE0);   // enable TIMER0_OVERFLOW_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,TOIE0); // disable TIMER0_OVERFLOW_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == TIMER0_COMPARE_MATCH_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,OCIE0);   // enable TIMER0_COMPARE_MATCH_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,OCIE0); // disable TIMER0_COMPARE_MATCH_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == TIMER1_OVERFLOW_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,TOIE1);   // enable TIMER1_OVERFLOW_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,TOIE1); // disable TIMER1_OVERFLOW_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == TIMER1_COMPARE_MATCH_A_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,OCIE1A);   // enable TIMER1_COMPARE_MATCH_A_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,OCIE1A); // disable TIMER1_COMPARE_MATCH_A_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == TIMER1_COMPARE_MATCH_B_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,OCIE1B);   // enable TIMER1_COMPARE_MATCH_B_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,OCIE1B); // disable TIMER1_COMPARE_MATCH_B_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == TIMER1_INPUT_CAPTURE_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,TICIE1);   // enable TIMER1_INPUT_CAPTURE_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,TICIE1); // disable TIMER1_INPUT_CAPTURE_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == TIMER2_OVERFLOW_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,TOIE2);   // enable TIMER2_OVERFLOW_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,TOIE2); // disable TIMER2_OVERFLOW_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == TIMER2_COMPARE_MATCH_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TIMSK,OCIE2);   // enable TIMER2_COMPARE_MATCH_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TIMSK,OCIE2); // disable TIMER2_COMPARE_MATCH_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == UART_RXC_INTERRUPT)
     {
-        if(int_mode ==ENABLE)
+        #if(int_mode ==ENABLE)
         {
             SET_BIT(UCSRB,RXCIE);   // enable UART_RXC_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(UCSRB,RXCIE); // disable UART_RXC_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == UART_TXC_INTERRUPT)
     {
-        if(int_mode ==ENABLE)
+        #if(int_mode ==ENABLE)
         {
             SET_BIT(UCSRB,TXCIE);   // enable UART_TXC_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(UCSRB,TXCIE); // disable UART_TXC_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == UART_UDRE_INTERRUPT)
     {
-        if(int_mode ==ENABLE)
+        #if(int_mode ==ENABLE)
         {
             SET_BIT(UCSRB,UDRIE);   // enable UART_UDRE_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(UCSRB,UDRIE); // disable UART_UDRE_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == ADC_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(ADCSRA,ADIE);   // enable ADC_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(ADCSRA,ADIE); // disable ADC_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == COMPARATOR_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(ACSR,ACIE); // enable COMPARATOR_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(ACSR,ACIE);   // disable COMPARATOR_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == SPI_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(SPCR,SPIE); // enable SPI_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(SPCR,SPIE);   // disable SPI_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #elif (int_type == I2C_INTERRUPT)
     {
-        if(int_mode == ENABLE)
+        #if(int_mode == ENABLE)
         {
             SET_BIT(TWCR,TWIE); // enable I2C_INTERRUPT
         }
-        else if (int_mode == DISABLE)
+        #elif (int_mode == DISABLE)
         {
             CLEAR_BIT(TWCR,TWIE);   // disable I2C_INTERRUPT
         }
-        else
-        {
-            // error code
-        }
+        #endif
     }
     #else
     {

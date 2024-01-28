@@ -72,6 +72,9 @@
 #define TIMER2_CMO_PIN              PD7
 
 
+#define GPIO_OUTPUT_HIGH(port,pin)      SET_BIT(port,pin)           
+#define GPIO_OUTPUT_LOW(port,pin)       SET_BIT(port,pin)
+
 /*  compiler treat it as integer,
     default pinvalue size = 4 byte
 
@@ -93,16 +96,6 @@
 void gpio_pin_mode(volatile uint8_t,volatile uint8_t *,volatile uint8_t);
 
 
-/**
- * @brief set value for pin (high/low) of the port
- * 
- * @param uint8_t store pin number
- * @param uint8_t store port address
- * @param uint8_t set pin value (VCC/GND)
- * 
- * @return void
- */
-void gpio_output_pin_value(volatile uint8_t,volatile uint8_t*,volatile uint8_t);
 
 
 /**
