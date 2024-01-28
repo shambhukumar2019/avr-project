@@ -71,9 +71,18 @@
 #define TIMER1_IC_PIN               PD6
 #define TIMER2_CMO_PIN              PD7
 
+/**
+ * @brief set an output pin high for given port
+ * 
+ */
+#define GPIO_OUTPUT_HIGH(port,pin)      SET_BIT(port,pin) 
 
-#define GPIO_OUTPUT_HIGH(port,pin)      SET_BIT(port,pin)           
+/**
+ * @brief set an output pin low for given port
+ * 
+ */
 #define GPIO_OUTPUT_LOW(port,pin)       CLEAR_BIT(port,pin)
+
 
 /*  compiler treat it as integer,
     default pinvalue size = 4 byte

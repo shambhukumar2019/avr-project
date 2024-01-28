@@ -23,8 +23,8 @@
 #endif
 
 
-#define VCC     1
-#define GND     0
+#define VCC     1U
+#define GND     0U
 
 #define SET_BIT(register,bit)       (register |= (1<<bit))
 #define CLEAR_BIT(register,bit)     (register &= ~(1<<bit))

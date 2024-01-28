@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "cfgimors",
   1: "cm",
   2: "cgm",
-  3: "cfios",
+  3: "cfgios",
   4: "r"
 };
 

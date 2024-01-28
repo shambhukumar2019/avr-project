@@ -20,6 +20,9 @@
  * @param int_type 
  * @param int_mode 
  * @param trig_mode 
+ * 
+ * @attention "unused" attribute tells compiler that variable intentionally
+ *            left unused so don't give warnings
  */
 void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_t int_mode __attribute__((unused)),volatile uint8_t trig_mode __attribute__((unused)))
 {
@@ -324,8 +327,10 @@ void config_interrupt(interrupt int_type __attribute__((unused)),volatile uint8_
 /**
  * @brief clear the flag of given interrupt
  * 
- * @param int_type "unused" attribute tells compiler that variable intentionally
- *                  left unused
+ * @param int_type 
+ * 
+ * @attention "unused" attribute tells compiler that variable intentionally
+ *                  left unused so don't give warnings
  */
 void clear_interrupt_flag(interrupt int_type __attribute__((unused)))
 {

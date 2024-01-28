@@ -6,8 +6,7 @@ function definitions of interrupt header file
 
 
 {\ttfamily \#include \char`\"{}m16\+\_\+interrupt.\+h\char`\"{}}\newline
-Include dependency graph for m16\+\_\+interrupt.\+c\+:
-\nopagebreak
+Include dependency graph for m16\+\_\+interrupt.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,7 +16,7 @@ Include dependency graph for m16\+\_\+interrupt.\+c\+:
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{m16__interrupt_8c_a8c4087d9282d8241e15baca4689c694d}{config\+\_\+interrupt}} (interrupt int\+\_\+type \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)), volatile uint8\+\_\+t int\+\_\+mode, volatile uint8\+\_\+t trig\+\_\+mode)
+void \mbox{\hyperlink{m16__interrupt_8c_a1e7c2eb32259169a38f102635ad25553}{config\+\_\+interrupt}} (interrupt int\+\_\+type \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)), volatile uint8\+\_\+t int\+\_\+mode \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)), volatile uint8\+\_\+t trig\+\_\+mode \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)))
 \begin{DoxyCompactList}\small\item\em configure given interrupt \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{m16__interrupt_8c_a245cc368ba28c4ca3995328f2b3d6f59}{clear\+\_\+interrupt\+\_\+flag}} (interrupt int\+\_\+type \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)))
 \begin{DoxyCompactList}\small\item\em clear the flag of given interrupt \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -53,14 +52,17 @@ clear the flag of given interrupt
 
 
 \begin{DoxyParams}{Parameters}
-{\em int\+\_\+type} & \char`\"{}unused\char`\"{} attribute tells compiler that variable intentionally left unused \\
+{\em int\+\_\+type} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{m16__interrupt_8c_a8c4087d9282d8241e15baca4689c694d}\label{m16__interrupt_8c_a8c4087d9282d8241e15baca4689c694d}} 
+\begin{DoxyAttention}{Attention}
+\char`\"{}unused\char`\"{} attribute tells compiler that variable intentionally left unused so don\textquotesingle{}t give warnings 
+\end{DoxyAttention}
+\mbox{\Hypertarget{m16__interrupt_8c_a1e7c2eb32259169a38f102635ad25553}\label{m16__interrupt_8c_a1e7c2eb32259169a38f102635ad25553}} 
 \index{m16\_interrupt.c@{m16\_interrupt.c}!config\_interrupt@{config\_interrupt}}
 \index{config\_interrupt@{config\_interrupt}!m16\_interrupt.c@{m16\_interrupt.c}}
 \doxysubsubsection{\texorpdfstring{config\_interrupt()}{config\_interrupt()}}
-{\footnotesize\ttfamily void config\+\_\+interrupt (\begin{DoxyParamCaption}\item[{interrupt int\+\_\+type }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused),  }\item[{volatile uint8\+\_\+t}]{int\+\_\+mode,  }\item[{volatile uint8\+\_\+t}]{trig\+\_\+mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void config\+\_\+interrupt (\begin{DoxyParamCaption}\item[{interrupt int\+\_\+type }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused),  }\item[{volatile uint8\+\_\+t int\+\_\+mode }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused),  }\item[{volatile uint8\+\_\+t trig\+\_\+mode }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused) }\end{DoxyParamCaption})}
 
 
 
@@ -75,3 +77,6 @@ configure given interrupt
 {\em trig\+\_\+mode} & \\
 \hline
 \end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+\char`\"{}unused\char`\"{} attribute tells compiler that variable intentionally left unused so don\textquotesingle{}t give warnings 
+\end{DoxyAttention}

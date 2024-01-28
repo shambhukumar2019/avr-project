@@ -25,7 +25,7 @@
 #endif
 
 
-#define H_NIBBLE(reg)   (reg & (volatile uint8_t)0xF0)
+#define H_NIBBLE(reg)   (reg & ((volatile uint8_t)0xF0))
 
 
 #define EI01_LOW_LEVEL      0U

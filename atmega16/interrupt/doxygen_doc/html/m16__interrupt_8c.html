@@ -92,9 +92,9 @@ Include dependency graph for m16_interrupt.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8c4087d9282d8241e15baca4689c694d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8c.html#a8c4087d9282d8241e15baca4689c694d">config_interrupt</a> (interrupt int_type __attribute__((unused)), volatile uint8_t int_mode, volatile uint8_t trig_mode)</td></tr>
-<tr class="memdesc:a8c4087d9282d8241e15baca4689c694d"><td class="mdescLeft">&#160;</td><td class="mdescRight">configure given interrupt  <a href="m16__interrupt_8c.html#a8c4087d9282d8241e15baca4689c694d">More...</a><br /></td></tr>
-<tr class="separator:a8c4087d9282d8241e15baca4689c694d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e7c2eb32259169a38f102635ad25553"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8c.html#a1e7c2eb32259169a38f102635ad25553">config_interrupt</a> (interrupt int_type __attribute__((unused)), volatile uint8_t int_mode __attribute__((unused)), volatile uint8_t trig_mode __attribute__((unused)))</td></tr>
+<tr class="memdesc:a1e7c2eb32259169a38f102635ad25553"><td class="mdescLeft">&#160;</td><td class="mdescRight">configure given interrupt  <a href="m16__interrupt_8c.html#a1e7c2eb32259169a38f102635ad25553">More...</a><br /></td></tr>
+<tr class="separator:a1e7c2eb32259169a38f102635ad25553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a245cc368ba28c4ca3995328f2b3d6f59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m16__interrupt_8c.html#a245cc368ba28c4ca3995328f2b3d6f59">clear_interrupt_flag</a> (interrupt int_type __attribute__((unused)))</td></tr>
 <tr class="memdesc:a245cc368ba28c4ca3995328f2b3d6f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the flag of given interrupt  <a href="m16__interrupt_8c.html#a245cc368ba28c4ca3995328f2b3d6f59">More...</a><br /></td></tr>
 <tr class="separator:a245cc368ba28c4ca3995328f2b3d6f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,15 +125,16 @@ Functions</h2></td></tr>
 <p>clear the flag of given interrupt </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int_type</td><td>"unused" attribute tells compiler that variable intentionally left unused </td></tr>
+    <tr><td class="paramname">int_type</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section attention"><dt>Attention</dt><dd>"unused" attribute tells compiler that variable intentionally left unused so don't give warnings </dd></dl>
 
 </div>
 </div>
-<a id="a8c4087d9282d8241e15baca4689c694d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c4087d9282d8241e15baca4689c694d">&#9670;&nbsp;</a></span>config_interrupt()</h2>
+<a id="a1e7c2eb32259169a38f102635ad25553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e7c2eb32259169a38f102635ad25553">&#9670;&nbsp;</a></span>config_interrupt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,14 +148,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>int_mode</em>, </td>
+          <td class="paramtype">volatile uint8_t int_mode &#160;</td>
+          <td class="paramname"><em>__attribute__</em>(unused), </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">volatile uint8_t&#160;</td>
-          <td class="paramname"><em>trig_mode</em>&#160;</td>
+          <td class="paramtype">volatile uint8_t trig_mode &#160;</td>
+          <td class="paramname"><em>__attribute__</em>(unused)&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,6 +174,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section attention"><dt>Attention</dt><dd>"unused" attribute tells compiler that variable intentionally left unused so don't give warnings </dd></dl>
 
 </div>
 </div>
