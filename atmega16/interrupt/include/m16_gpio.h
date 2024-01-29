@@ -28,6 +28,13 @@
 #define OUT         VCC
 
 
+#define GPIO_GLOBAL_PULLUP_ENABLE   CLEAR_BIT(SFIOR,PUD)
+#define GPIO_GLOBAL_PULLUP_DISABLE  SET_BIT(SFIOR,PUD)
+
+#define GPIO_PULLUP_ON(port,pin)    SET_BIT(port,pin)
+#define GPIO_PULLUP_OFF(port,pin)   CLEAR_BIT(port,pin)
+
+
 // PORTA pins alternate functions
 #define ADC0_PIN                    PA0
 #define ADC1_PIN                    PA1
@@ -71,6 +78,7 @@
 #define TIMER1_IC_PIN               PD6
 #define TIMER2_CMO_PIN              PD7
 
+
 /**
  * @brief set an output pin high for given port
  * 
@@ -102,51 +110,9 @@
  * 
  * @return void
  */
-void gpio_pin_mode(volatile uint8_t,volatile uint8_t *,volatile uint8_t);
+void gpio_pin_mode(uint8_t,volatile uint8_t *,uint8_t);
 
 
-
-
-/**
- * @brief turn on pull-up for given pin of the port
- * 
- * @param uint8_t store pin number
- * @param uint8_t store port address
- * 
- * @return void
- */
-void gpio_pullup_on(volatile uint8_t,volatile uint8_t *);
-
-
-/**
- * @brief turn off pull-up for given pin of the port
- * 
- * @param uint8_t store pin number
- * @param uint8_t store port address
- * 
- * @return void
- */
-void gpio_pullup_off(volatile uint8_t,volatile uint8_t *);
-
-
-/**
- * @brief disable pull-up for all ports
- * 
- * @param void
- * 
- * @return void
- */
-void gpio_global_pullup_disable(void);
-
-
-/**
- * @brief enable pull-up for all ports
- * 
- * @param void
- * 
- * @return void
- */
-void gpio_global_pullup_enable(void);
 
 
 /**
@@ -157,7 +123,7 @@ void gpio_global_pullup_enable(void);
  * 
  * @return volatile uint8_t  pin value (VCC/GND)
  */
-uint8_t gpio_read(volatile uint8_t,volatile uint8_t *);
+uint8_t gpio_read(uint8_t,volatile uint8_t *);
 
 
 

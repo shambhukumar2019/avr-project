@@ -109,7 +109,7 @@ typedef enum trigger_mode
  * 
  * @attention   When an interrupt occurs, all interrupts are disabled.
  */
-void config_interrupt(interrupt,volatile uint8_t,volatile uint8_t);
+void config_interrupt(interrupt,uint8_t,uint8_t);
 
 
 
