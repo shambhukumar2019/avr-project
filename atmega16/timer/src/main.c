@@ -4,7 +4,7 @@
 
 void main(void)
 {    
-    gpio_pin_mode(TIMER0_OC_PIN,&PORTB,OUT);
+    gpio_pin_mode(TIMER0_OC_PIN,&PORTB,OUT);    //make OC0 as output to toogle 
     //TCCR0 = 0x05;   //normal mode clk/1024
     //TCCR0 = 0x0d;   //ctc mode clk/1024
     TCCR0 = 0x1d;   //ctc mode clk/1024, toggle OC0 on compare match
