@@ -51,7 +51,7 @@
 #define EXT_COUNTER_IN_1_PIN        PB1
 #define EXT_INTRRUPT_2_PIN          PB2
 #define COMPARATOR_POS_IN_PIN       PB2
-#define TIMER0_CMO_PIN              PB3
+#define TIMER0_OC_PIN              PB3
 #define COMPARATOR_NEG_IN_PIN       PB3
 #define SPI_SS_PIN                  PB4
 #define SPI_MOSI_PIN                PB5
@@ -73,10 +73,41 @@
 #define TXD_PIN                     PD1
 #define EXT_INTRRUPT_0_PIN          PD2
 #define EXT_INTRRUPT_1_PIN          PD3
-#define TIMER1_CMO_B_PIN            PD4
-#define TIMER1_CMO_A_PIN            PD5    
+#define TIMER1_OC_B_PIN            PD4
+#define TIMER1_OC_A_PIN            PD5    
 #define TIMER1_IC_PIN               PD6
-#define TIMER2_CMO_PIN              PD7
+#define TIMER2_OC_PIN              PD7
+
+
+
+// peripheral flags macros
+
+#define EI0_FLAG                        INTF0
+#define EI1_FLAG                        INTF1
+#define EI2_FLAG                        INTF2
+#define T0_OVERFLOW_FLAG                TOV0
+#define T0_COMPARE_FLAG                 OCF0
+#define T1_OVERFLOW_FLAG                TOV1
+#define T1_COMPARE_A_FLAG               OCF1A
+#define T1_COMPARE_B_FLAG               OCF1B
+#define T1_INPUT_CAPTURE_FLAG           ICF1
+#define T2_OVERFLOW_FLAG                TOV2
+#define T2_COMPARE_FLAG                 OCF2
+#define UART_TCX_FLAG                   TXC
+#define ADC_FLAG                        ADIF
+#define COMPARATOR_FLAG                 ACI
+#define I2C_FLAG                        TWINT
+
+
+
+// peripherals flag registers macros
+
+#define EI_FLAGS_REG                    GIFR
+#define TIMER_FLAGS_REG                 TIFR
+#define UART_FLAGS_REG                  UCSRA
+#define ADC_FLAGS_REG                   ADCSRA
+#define COMPARATOR_FLAGS_REG            ACSR
+#define I2C_FLAGS_REG                   TWCR
 
 
 /**

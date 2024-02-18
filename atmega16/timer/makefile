@@ -55,7 +55,7 @@ DISASSEMBLY_FILE = $(BUILD_PATH)/disassembly.txt
 
 ## 	 ********** FLAGS **********
 # compiler flags for warnings, optimization and target MCU name
-CC_FLAGS = -Wall -Wextra -Os -mmcu=$(MCU)
+CC_FLAGS = -Wall -Wextra -g -Os -mmcu=$(MCU)
 # include header files
 INC_FLAGS = -I $(INC_PATH)
 # generate intel hex file, (-g) remove debug info's

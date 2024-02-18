@@ -25,11 +25,15 @@
 
 #define VCC     1U
 #define GND     0U
+#define ENABLE      VCC
+#define DISABLE     GND
 
 #define SET_BIT(register,bit)       (register |= (1<<bit))
 #define CLEAR_BIT(register,bit)     (register &= ~(1<<bit))
 #define TOGGLE_BIT(register,bit)    (register ^= (1<<bit))
 
+// extract high nibble from given register value
 
+#define H_NIBBLE(reg)   (reg & ((volatile uint8_t)0xF0))
 
 #endif

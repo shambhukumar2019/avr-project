@@ -33,13 +33,7 @@ ISR(TIMER0_OVF_vect)
 
 ISR(TIMER0_COMP_vect)
 {
-    count++;
-    if(count >= 50)
-    {
-        count = 0;
-        GPIO_PIN_TOGGLE(PORTA,PIN0);
-    } 
-
+    //OCR0 = 250;
 }
 
 ISR(BADISR_vect)

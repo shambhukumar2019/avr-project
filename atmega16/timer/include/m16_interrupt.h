@@ -26,39 +26,6 @@
 
 
 
-// peripheral flags macros
-
-#define EI0_FLAG                        INTF0
-#define EI1_FLAG                        INTF1
-#define EI2_FLAG                        INTF2
-#define T0_OVERFLOW_FLAG                TOV0
-#define T0_COMPARE_FLAG                 OCF0
-#define T1_OVERFLOW_FLAG                TOV1
-#define T1_COMPARE_A_FLAG               OCF1A
-#define T1_COMPARE_B_FLAG               OCF1B
-#define T1_INPUT_CAPTURE_FLAG           ICF1
-#define T2_OVERFLOW_FLAG                TOV2
-#define T2_COMPARE_FLAG                 OCF2
-#define UART_TCX_FLAG                   TXC
-#define ADC_FLAG                        ADIF
-#define COMPARATOR_FLAG                 ACI
-#define I2C_FLAG                        TWINT
-
-
-
-// peripherals flag registers macros
-
-#define EI_FLAGS_REG                    GIFR
-#define TIMER_FLAGS_REG                 TIFR
-#define UART_FLAGS_REG                  UCSRA
-#define ADC_FLAGS_REG                   ADCSRA
-#define COMPARATOR_FLAGS_REG            ACSR
-#define I2C_FLAGS_REG                   TWCR
-
-
-// extract high nibble from given register value
-
-#define H_NIBBLE(reg)   (reg & ((volatile uint8_t)0xF0))
 
 
 
@@ -107,8 +74,7 @@ typedef enum trigger_mode
 }trigger_mode;
 
 
-#define ENABLE      VCC
-#define DISABLE     GND
+
 
 
 /**

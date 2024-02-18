@@ -24,38 +24,38 @@ void gpio_pin_mode(uint8_t pin,volatile uint8_t *port,uint8_t io_mode)
 {
     if (io_mode == OUT)
     {
-        if(PORTA == *port)
+        if(&PORTA == port)
         {
             SET_BIT(DDRA,pin);
         }
-        else if(PORTB == *port)
+        else if(&PORTB == port)
         {
             SET_BIT(DDRB,pin);
         }
-        else if(PORTC == *port)
+        else if(&PORTC == port)
         {
             SET_BIT(DDRC,pin);
         }
-        else if (PORTD == *port)    
+        else if (&PORTD == port)    
         {
             SET_BIT(DDRD,pin);
         }
     }
     else if (io_mode == IN)
     {
-        if(PORTA == *port)
+        if(&PORTA == port)
         {
             CLEAR_BIT(DDRA,pin);
         }
-        else if(PORTB == *port)
+        else if(&PORTB == port)
         {
             CLEAR_BIT(DDRB,pin);
         }
-        else if(PORTC == *port)
+        else if(&PORTC == port)
         {
             CLEAR_BIT(DDRC,pin);
         }
-        else if (PORTD == *port)    
+        else if (&PORTD == port)    
         {
             CLEAR_BIT(DDRD,pin);
         }
