@@ -321,7 +321,7 @@ void config_interrupt(interrupt int_type,uint8_t int_mode,uint8_t trig_mode)
  * @attention "unused" attribute tells compiler that variable intentionally
  *                  left unused so don't give warnings
  */
-void clear_interrupt_flag(interrupt int_type)
+/*void clear_interrupt_flag(interrupt int_type)
 {
     switch (int_type)
     {
@@ -397,7 +397,7 @@ void clear_interrupt_flag(interrupt int_type)
 
         case I2C_INTERRUPT:
         {
-            CLEAR_FLAG(TWCR,TWINT);    // clear COMPARATOR_INTERRUPT flag
+            CLEAR_FLAG(TWCR,TWINT);    // clear I2C_INTERRUPT flag
         }break;
 
         default:
@@ -407,3 +407,4 @@ void clear_interrupt_flag(interrupt int_type)
         }break;
     }
 }
+*/

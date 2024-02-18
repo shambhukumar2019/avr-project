@@ -91,6 +91,12 @@
  */
 #define GPIO_OUTPUT_LOW(port,pin)       CLEAR_BIT(port,pin)
 
+/**
+ * @brief toggle output pin for given port
+ * 
+ */
+#define GPIO_PIN_TOGGLE(port,pin)       TOGGLE_BIT(port,pin)
+
 
 /*  compiler treat it as integer,
     default pinvalue size = 4 byte

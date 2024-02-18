@@ -25,8 +25,44 @@
 #endif
 
 
+
+// peripheral flags macros
+
+#define EI0_FLAG                        INTF0
+#define EI1_FLAG                        INTF1
+#define EI2_FLAG                        INTF2
+#define T0_OVERFLOW_FLAG                TOV0
+#define T0_COMPARE_FLAG                 OCF0
+#define T1_OVERFLOW_FLAG                TOV1
+#define T1_COMPARE_A_FLAG               OCF1A
+#define T1_COMPARE_B_FLAG               OCF1B
+#define T1_INPUT_CAPTURE_FLAG           ICF1
+#define T2_OVERFLOW_FLAG                TOV2
+#define T2_COMPARE_FLAG                 OCF2
+#define UART_TCX_FLAG                   TXC
+#define ADC_FLAG                        ADIF
+#define COMPARATOR_FLAG                 ACI
+#define I2C_FLAG                        TWINT
+
+
+
+// peripherals flag registers macros
+
+#define EI_FLAGS_REG                    GIFR
+#define TIMER_FLAGS_REG                 TIFR
+#define UART_FLAGS_REG                  UCSRA
+#define ADC_FLAGS_REG                   ADCSRA
+#define COMPARATOR_FLAGS_REG            ACSR
+#define I2C_FLAGS_REG                   TWCR
+
+
+// extract high nibble from given register value
+
 #define H_NIBBLE(reg)   (reg & ((volatile uint8_t)0xF0))
 
+
+
+// external interrupts trigger logic level macros
 
 #define EI01_LOW_LEVEL      0U
 #define EI0_ANY_LOGIC       1U
@@ -35,6 +71,7 @@
 #define EI1_ANY_LOGIC       4U
 #define EI1_F_EDGE          8U
 #define EI1_R_EDGE          12U
+
 
 
 typedef enum interrupt
@@ -122,7 +159,7 @@ void config_interrupt(interrupt,uint8_t,uint8_t);
  * 
  * @attention uart RXC and UDRE are read only flags, auto cleared by isr
  */
-void clear_interrupt_flag(interrupt);
+// void clear_interrupt_flag(interrupt);
 
 
 #endif
