@@ -20,12 +20,12 @@
 /**
  * @brief   IN  -> make a pin as input
  */
-#define IN          GND
+#define INPUT          GND
 
 /**
  * @brief OUT -> make a pin as output
  */
-#define OUT         VCC
+#define OUTPUT         VCC
 
 
 #define GPIO_GLOBAL_PULLUP_ENABLE   CLEAR_BIT(SFIOR,PUD)
@@ -47,11 +47,11 @@
 
 // PORTB pins alternate functions
 #define USART_EXT_CLK_IO_PIN        PB0
-#define EXT_COUNTER_IN_0_PIN        PB0
-#define EXT_COUNTER_IN_1_PIN        PB1
+#define EXT_T0_PIN                  PB0
+#define EXT_T1_PIN                  PB1
 #define EXT_INTRRUPT_2_PIN          PB2
 #define COMPARATOR_POS_IN_PIN       PB2
-#define TIMER0_OC_PIN              PB3
+#define TIMER0_OC_PIN               PB3
 #define COMPARATOR_NEG_IN_PIN       PB3
 #define SPI_SS_PIN                  PB4
 #define SPI_MOSI_PIN                PB5
@@ -73,10 +73,10 @@
 #define TXD_PIN                     PD1
 #define EXT_INTRRUPT_0_PIN          PD2
 #define EXT_INTRRUPT_1_PIN          PD3
-#define TIMER1_OC_B_PIN            PD4
-#define TIMER1_OC_A_PIN            PD5    
+#define TIMER1_OC_B_PIN             PD4
+#define TIMER1_OC_A_PIN             PD5    
 #define TIMER1_IC_PIN               PD6
-#define TIMER2_OC_PIN              PD7
+#define TIMER2_OC_PIN               PD7
 
 
 

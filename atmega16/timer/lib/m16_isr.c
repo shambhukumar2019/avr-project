@@ -12,28 +12,36 @@
 #include "m16_interrupt.h"
 
 
-volatile uint8_t count = 0;
+// volatile uint8_t count = 0;
 
 
 ISR(INT0_vect)
 {
-    GPIO_OUTPUT_HIGH(PORTA,PA0);
+    // GPIO_OUTPUT_HIGH(PORTA,PA0);
 }
 
 ISR(TIMER0_OVF_vect)
 {
-    count++;
+    /* count++;
     if(count >= 50)
     {
         count = 0;
         GPIO_PIN_TOGGLE(PORTA,PIN0);
     }
-    TCNT0 = 0x00;
+    TCNT0 = 0x00; */
+    GPIO_PIN_TOGGLE(PORTA,PIN0);
+    TCNT0 = 250;
 }
 
 ISR(TIMER0_COMP_vect)
 {
     //OCR0 = 250;
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+      
+    
 }
 
 ISR(BADISR_vect)

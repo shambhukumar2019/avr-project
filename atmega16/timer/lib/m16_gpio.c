@@ -22,7 +22,7 @@
  */
 void gpio_pin_mode(uint8_t pin,volatile uint8_t *port,uint8_t io_mode)
 {
-    if (io_mode == OUT)
+    if (io_mode == OUTPUT)
     {
         if(&PORTA == port)
         {
@@ -41,7 +41,7 @@ void gpio_pin_mode(uint8_t pin,volatile uint8_t *port,uint8_t io_mode)
             SET_BIT(DDRD,pin);
         }
     }
-    else if (io_mode == IN)
+    else if (io_mode == INPUT)
     {
         if(&PORTA == port)
         {
