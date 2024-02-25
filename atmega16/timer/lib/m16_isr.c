@@ -11,7 +11,9 @@
 
 #include "m16_interrupt.h"
 
-
+volatile uint16_t f1 = 0;
+volatile uint16_t f2 = 0;
+static uint8_t count = 0;
 
 ISR(INT0_vect)
 {
@@ -44,7 +46,7 @@ ISR(TIMER1_COMPA_vect)
 
 ISR(TIMER1_CAPT_vect)
 {
-    /* f1 = ICR1;
+    f1 = ICR1;
     if (count == 0)
     {
         f2 = f1;
@@ -54,7 +56,8 @@ ISR(TIMER1_CAPT_vect)
     {
         count = 0;
         f2 = f1 - f2;
-    } */
+        TIMSK &= ~(1<<TICIE1);
+    }
 }
 
 ISR(BADISR_vect)

@@ -1,6 +1,7 @@
 #include "timer.h"
 
-volatile uint16_t f = 0;
+extern uint16_t f1;
+extern uint16_t f2;
 
 void main(void)
 {
@@ -55,13 +56,13 @@ void main(void)
     //config_interrupt(TIMER1_COMPARE_MATCH_A_INTERRUPT,ENABLE,0);
     // config_interrupt(TIMER0_OVERFLOW_INTERRUPT,ENABLE,0);
 
-    CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
-    // config_interrupt(TIMER1_INPUT_CAPTURE_INTERRUPT,ENABLE,0);
     
     
-    // SET_GLOBAL_INTERRUPT;
+    
+    
+    
 
-    // measure frequency using ICP of timer 1
+    /* // measure frequency using ICP of timer 1
     while ((TIFR & (1<<ICF1)) == 0);
     f = ICR1;
     CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
@@ -70,7 +71,15 @@ void main(void)
     f = ICR1 - f;
     // CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
     
-    PORTA = f>>8;
+    PORTA = f>>8; */
 
-    for(;;);
+    CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+    config_interrupt(TIMER1_INPUT_CAPTURE_INTERRUPT,ENABLE,0);
+
+    SET_GLOBAL_INTERRUPT;
+
+    for(;;)
+    {
+        PORTA = f2>>8;
+    }
 }
