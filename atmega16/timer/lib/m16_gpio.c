@@ -63,6 +63,49 @@ void gpio_pin_mode(uint8_t pin,volatile uint8_t *port,uint8_t io_mode)
 }
 
 
+void gpio_port_mode(volatile uint8_t *port,uint8_t io_mode)
+{
+    if (io_mode == OUTPUT)
+    {
+        if(&PORTA == port)
+        {
+            DDRA = 0xff;
+        }
+        else if(&PORTB == port)
+        {
+            DDRB = 0xff;
+        }
+        else if(&PORTC == port)
+        {
+            DDRC = 0xff;
+        }
+        else if (&PORTD == port)    
+        {
+            DDRD = 0xff;
+        }
+    }
+    else if (io_mode == INPUT)
+    {
+        if(&PORTA == port)
+        {
+            DDRA = 0x00;
+        }
+        else if(&PORTB == port)
+        {
+            DDRB = 0x00;
+        }
+        else if(&PORTC == port)
+        {
+            DDRC = 0x00;
+        }
+        else if (&PORTD == port)    
+        {
+            DDRD = 0x00;
+        }
+    }
+}
+
+
 /**
  * @brief define gpio_read()
  * 

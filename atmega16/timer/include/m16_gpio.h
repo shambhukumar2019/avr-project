@@ -75,7 +75,7 @@
 #define EXT_INTRRUPT_1_PIN          PD3
 #define TIMER1_OC_B_PIN             PD4
 #define TIMER1_OC_A_PIN             PD5    
-#define TIMER1_IC_PIN               PD6
+#define TIMER1_ICP_PIN               PD6
 #define TIMER2_OC_PIN               PD7
 
 
@@ -128,6 +128,9 @@
  */
 #define GPIO_PIN_TOGGLE(port,pin)       TOGGLE_BIT(port,pin)
 
+#define GPIO_SET_OUTPUT(port,value)     (port = value)
+
+
 
 /*  compiler treat it as integer,
     default pinvalue size = 4 byte
@@ -149,6 +152,8 @@
  */
 void gpio_pin_mode(uint8_t,volatile uint8_t *,uint8_t);
 
+
+void gpio_port_mode(volatile uint8_t *,uint8_t);
 
 
 

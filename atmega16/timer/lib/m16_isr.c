@@ -12,8 +12,6 @@
 #include "m16_interrupt.h"
 
 
-// volatile uint8_t count = 0;
-
 
 ISR(INT0_vect)
 {
@@ -29,8 +27,8 @@ ISR(TIMER0_OVF_vect)
         GPIO_PIN_TOGGLE(PORTA,PIN0);
     }
     TCNT0 = 0x00; */
-    GPIO_PIN_TOGGLE(PORTA,PIN0);
-    TCNT0 = 250;
+    // GPIO_PIN_TOGGLE(PORTA,PIN0);
+    // TCNT0 = 250;
 }
 
 ISR(TIMER0_COMP_vect)
@@ -42,6 +40,21 @@ ISR(TIMER1_COMPA_vect)
 {
       
     
+}
+
+ISR(TIMER1_CAPT_vect)
+{
+    /* f1 = ICR1;
+    if (count == 0)
+    {
+        f2 = f1;
+        count++;
+    }
+    else
+    {
+        count = 0;
+        f2 = f1 - f2;
+    } */
 }
 
 ISR(BADISR_vect)
