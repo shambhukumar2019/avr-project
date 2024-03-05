@@ -18,6 +18,7 @@
 #include "avr/interrupt.h"
 #include "m16_interrupt.h"
 #include "m16_uart.h"
+#include "util/delay.h"
 
 
 #ifndef IOM_16_H
@@ -61,7 +62,8 @@
 #define LOW_NIBBLE(reg)             (reg & ((volatile uint8_t)0x0F))
 
 
-volatile uint8_t value[3];
+// volatile uint8_t value[3];
+uint8_t byte,data;
 
 
 #endif
