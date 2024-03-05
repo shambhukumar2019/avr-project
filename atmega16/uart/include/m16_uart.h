@@ -15,16 +15,15 @@
 #include "common.h"
 
 
+
 #define BAUD_9600                       (9600UL)
 #define BAUD_19200                      (19200UL)
 #define BAUD_38400                      (38400UL)
 #define BAUD_115200                     (115200UL)
 
 
-#define UBRR_VALUE(baud)                (uint8_t)(((F_CPU / 16U) / baud) - 1U)
+#define UBRR_VALUE                      (uint8_t)((F_CPU / (16U * baud)) - 1U)
 
-#define SET_UART_BAUD_RATE(baud_rate)   UBRRH = UBRR_VALUE(baud_rate);\
-                                        UBRRL = UBRR_VALUE(baud_rate);
 
 
 #define ENABLE_UART_RX                  SET_BIT(USART_INTERRUPT_REG,RXEN)
