@@ -41,12 +41,16 @@
 
 #define CLEAR_TXC_FLAG                  CLEAR_FLAG(UART_FLAGS_REG,UART_TXC_FLAG)
 
-#define UART_BUFFER_SIZE    20
+#define UART_BUFFER_SIZE    100
 
 typedef struct uart_memory
 {
-    uint8_t uart_rx_buffer[UART_BUFFER_SIZE];
-    uint8_t uart_tx_buffer[UART_BUFFER_SIZE];
+    uint8_t uart_rx_buffer[UART_BUFFER_SIZE + 1];
+    uint8_t uart_tx_buffer[UART_BUFFER_SIZE + 1];
+    uint8_t uart_buffer[UART_BUFFER_SIZE + 1];
+    uint8_t uart_tx_index;
+    uint8_t uart_rx_index;
+    uint8_t uart_rx_complete_flag;
 
 }uart_memory;
 uart_memory uart;
@@ -54,15 +58,17 @@ uart_memory uart;
 
 void uart_init(void);
 
-void uart_send_string(uint8_t*);
+void uart_send_string(uint8_t* );
 
 void uart_send_byte(uint8_t);
 
-void uart_send_integer(void);
+void uart_send_integer(uint16_t);
 
-void uart_receive_string(uint8_t*);
+// uint8_t* uart_receive_string(void);
 
 void string_copy(uint8_t* ,uint8_t* );
+
+void clear_buffer(uint8_t* );
 
 void integer_to_string(uint16_t , uint8_t* );
 

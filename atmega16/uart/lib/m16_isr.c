@@ -13,7 +13,6 @@
 // #include "m16_uart.h"
 
 
-
 ISR(INT0_vect)
 {
     // GPIO_OUTPUT_HIGH(PORTA,PA0);
@@ -61,12 +60,28 @@ ISR(TIMER1_CAPT_vect)
 
 ISR(USART_UDRE_vect)
 {
+   UDR = uart.uart_tx_buffer[uart.uart_tx_index++];
+   if (uart.uart_tx_buffer[uart.uart_tx_index] == '\0')
+   {
+        DISABLE_UART_UDRE_INTERRUPT;
+        uart.uart_tx_index = 0;
+        ENABLE_UART_RX_INTERRUPT;
+   }
    
 }
 
 ISR(USART_RXC_vect)
 {
-    
+    uart.uart_rx_buffer[uart.uart_rx_index] = UDR;
+    uart.uart_rx_index++;
+    if(uart.uart_rx_buffer[uart.uart_rx_index - 1] == '\n')
+    {
+        uart.uart_rx_buffer[uart.uart_rx_index - 1] = '\n';
+        uart.uart_rx_buffer[uart.uart_rx_index] = '\0';
+        string_copy(uart.uart_buffer,uart.uart_rx_buffer);
+        uart.uart_rx_index = 0;
+        uart.uart_rx_complete_flag = 1;
+    }
 }
 
 ISR(BADISR_vect)

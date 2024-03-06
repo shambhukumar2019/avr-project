@@ -21,8 +21,18 @@ void main(void)
     // GPIO_PIN_HIGH(PORTA,PA0);
     SET_GLOBAL_INTERRUPT;
 
+    uart_send_string("my name is shambhu kumar\n");
+    uart_send_string("shambhu kumar\n");
+
     for(;;)
     {
-        
+        uart_send_string("hello this is me into font\n");
+        uart_send_string("one two ka four four two ka one\n");
+        uart_send_string("my name is shambhu kumar\n");
+        uart_send_string("Embedded Firmware Engineer\n");
+        if(uart.uart_rx_complete_flag == 1)
+        {
+            uart_send_string(uart.uart_buffer);
+        }
     }
 }

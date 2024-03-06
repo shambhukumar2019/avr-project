@@ -18,7 +18,6 @@
 #include "avr/interrupt.h"
 #include "m16_interrupt.h"
 #include "m16_uart.h"
-#include "util/delay.h"
 
 
 #ifndef IOM_16_H
@@ -37,6 +36,10 @@
 #define F_CPU 11059200UL
 #endif
 
+
+#include "util/delay.h"
+
+#define NULL        '\0'
 
 #define VCC         1U
 #define GND         0U

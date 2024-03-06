@@ -48,22 +48,27 @@ void uart_init(void)
     }
     #endif
 
-    ENABLE_UART_UDRE_INTERRUPT;
-    ENABLE_UART_RX_INTERRUPT;
+    // ENABLE_UART_UDRE_INTERRUPT;
+    // ENABLE_UART_RX_INTERRUPT;
     CLEAR_TXC_FLAG;
 }
 
-void uart_receive_string(uint8_t* rx_string)
+/*uint8_t * uart_receive_string(void)
 {
-    string_copy(rx_string,uart.uart_rx_buffer);
-
-    clear_buffer(uart.uart_rx_buffer);
-}
+    if(uart.uart_rx_complete_flag == 1)
+	{
+		return uart.uart_buffer;
+	}
+	return NULL;
+} */
 
 void uart_send_string(uint8_t* send_string)
 {
     clear_buffer(uart.uart_tx_buffer);
     string_copy(uart.uart_tx_buffer,send_string);
+	ENABLE_UART_UDRE_INTERRUPT;
+	DISABLE_UART_RX_INTERRUPT;
+	_delay_ms(100);	// delay needed to tranfer string
 }
 
 void uart_send_byte(uint8_t byte)
@@ -99,7 +104,8 @@ void clear_buffer(uint8_t* buffer)
 {	
 	while((*buffer) != '\0')
 	{
-		*(buffer++) = 0;
+		*buffer = 0;
+		buffer++ ;
 	}
 	*buffer = 0;
 }
