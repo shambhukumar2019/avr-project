@@ -62,8 +62,8 @@
 #define LOW_NIBBLE(reg)             (reg & ((volatile uint8_t)0x0F))
 
 
-// volatile uint8_t value[3];
-uint8_t byte,data;
+
+
 
 
 #endif
