@@ -43,8 +43,8 @@
 #define    T1_CAPTURE_INTERRUPT                 TICIE1
 #define    T2_OVERFLOW_INTERRUPT                TOIE2
 #define    T2_COMPARE_INTERRUPT                 OCIE2
-#define    UART_RX_INTERRUPT                   RXCIE
-#define    UART_TX_INTERRUPT                   TXCIE
+#define    UART_RX_INTERRUPT                    RXCIE
+#define    UART_TX_INTERRUPT                    TXCIE
 #define    UART_UDRE_INTERRUPT                  UDRIE
 #define    ADC_INTERRUPT                        ADIE
 #define    COMPARATOR_INTERRUPT                 ACIE
@@ -94,41 +94,9 @@ typedef enum trigger_mode
 #define DISABLE_INTERRUPT(intr_reg,intr_bit)    CLEAR_BIT(intr_reg,intr_bit)
 
 
-#define CLEAR_FLAG(reg,bit)         SET_BIT(reg,bit)
+#define CLEAR_FLAG(reg,bit)                     SET_BIT(reg,bit)
 
 
-/**
- * @brief configure given interrupt
- * 
- * @param interrupt type of interrupt from enum "interrupt_type"
- * @param uint8_t ENABLE or DISABLE the interrupt
- * @param uint8_t LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)
- * 
- * @return void
- * 
- * 
- * @attention   SREG should be stored and restored on
- *              entering and exiting the ISR.
- * 
- * @attention   After ISR, cpu executes next instruction
- *              before any pending instruction
- * 
- * @attention   When an interrupt occurs, all interrupts are disabled.
- */
-// void config_interrupt(interrupt,uint8_t,uint8_t);
-
-
-
-/**
- * @brief clear the flag of given interrupt
- * 
- * @param interrupt type of interrupt from enum "interrupt_type" to clear its flag
- * 
- * @return void
- * 
- * @attention uart RXC and UDRE are read only flags, auto cleared by isr
- */
-// void clear_interrupt_flag(interrupt);
 
 
 #endif

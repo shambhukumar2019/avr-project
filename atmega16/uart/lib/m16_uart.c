@@ -48,19 +48,9 @@ void uart_init(void)
     }
     #endif
 
-    // ENABLE_UART_UDRE_INTERRUPT;
-    // ENABLE_UART_RX_INTERRUPT;
     CLEAR_TXC_FLAG;
 }
 
-/*uint8_t * uart_receive_string(void)
-{
-    if(uart.uart_rx_complete_flag == 1)
-	{
-		return uart.uart_buffer;
-	}
-	return NULL;
-} */
 
 void uart_send_string(uint8_t* send_string)
 {
