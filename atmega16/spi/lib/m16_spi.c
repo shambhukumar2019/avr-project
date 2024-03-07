@@ -20,13 +20,13 @@
  */
 void spi_init(uint8_t mode)
 {
-    #if (mode == MASTER_MODE)
+    if (mode == MASTER_MODE)
     {
         SPI_MASTER_MODE(SPI_F_CPU_BY_16,NORMAL_SPEED)
     }
-    #elif (mode == SLAVE_MODE)
+    else if (mode == SLAVE_MODE)
     {
         SPI_SLAVE_MODE
     }
-    #endif
+    // #endif
 }

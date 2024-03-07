@@ -96,6 +96,7 @@
 #define UART_RXC_FLAG                   RXC
 #define UART_UDRE_FLAG                  UDRE
 #define ADC_FLAG                        ADIF
+#define SPI_FLAG                        SPIF
 #define COMPARATOR_FLAG                 ACI
 #define I2C_FLAG                        TWINT
 

@@ -11,15 +11,21 @@
 
 #include "m16_spi.h"
 
-
+/**
+ * @brief MASTER MODE
+ * 
+ */
 
 void main(void)
 {
+    gpio_pin_mode(PA0,&PORTA,OUTPUT);
     spi_init(MASTER_MODE);  // initiallize spi in master mode
 
-
+    
     for(;;)
     {
-        // eternal loop
+        SPDR = 0x01;
+        POLL_BIT(SPI_FLAGS_REG,SPI_FLAG);
+        _delay_ms(1000);
     }
 }
