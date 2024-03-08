@@ -18,14 +18,26 @@
 
 void main(void)
 {
-    gpio_pin_mode(PA0,&PORTA,OUTPUT);
-    spi_init(MASTER_MODE);  // initiallize spi in master mode
+    uart_init();
 
+    gpio_port_mode(&PORTA,OUTPUT);
+    spi_init(SLAVE_MODE);  // initiallize spi in master mode
+
+    uint8_t v = 0;
+
+    SET_GLOBAL_INTERRUPT;
     
     for(;;)
     {
-        SPDR = 0x01;
         POLL_BIT(SPI_FLAGS_REG,SPI_FLAG);
+        v = SPDR;
+        PORTA = v;
+        if(uart.uart_rx_complete_flag == 1)
+        {
+            uart_send_string(uart.uart_buffer);
+        }
+        uart_send_integer(v);
+        v++;
         _delay_ms(1000);
     }
 }
