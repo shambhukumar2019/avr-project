@@ -70,7 +70,7 @@
  * @brief loop until bit in reg becomes 1
  *        (test for bit in reg to become 1)
  */
-#define POLL_BIT(reg,bit)           while(!(reg & (1<<bit)))
+#define POLL_BIT(reg,bit)           (reg & (1<<bit))
 
 
 #endif

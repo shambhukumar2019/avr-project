@@ -22,11 +22,20 @@ void spi_init(uint8_t mode)
 {
     if (mode == MASTER_MODE)
     {
-        SPI_MASTER_MODE(SPI_F_CPU_BY_16,NORMAL_SPEED)
+        SPI_MASTER_MODE(SPI_F_CPU_BY_16,NORMAL_SPEED);
     }
     else if (mode == SLAVE_MODE)
     {
-        SPI_SLAVE_MODE
+        SPI_SLAVE_MODE;
     }
     // #endif
+}
+
+
+uint8_t spi_send_byte(uint8_t byte)
+{
+    SPDR = byte;   // transmit byte 
+    while(POLL_BIT(SPI_FLAGS_REG,SPI_FLAG) == 0); // wit till data sent
+
+    return SPDR;   // reading SPDR will return received data
 }

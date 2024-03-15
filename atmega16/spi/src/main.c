@@ -16,28 +16,39 @@
  * 
  */
 
+
+
 void main(void)
 {
-    uart_init();
-
-    gpio_port_mode(&PORTA,OUTPUT);
-    spi_init(SLAVE_MODE);  // initiallize spi in master mode
-
-    uint8_t v = 0;
+    uint8_t data_high_byte = 0;
+    uint8_t data_low_byte = 0;
+    uint32_t data = 0;
 
     SET_GLOBAL_INTERRUPT;
+
+    uart_init();
+
+    spi_init(MASTER_MODE);  // initiallize spi in master mode
     
+
     for(;;)
     {
-        POLL_BIT(SPI_FLAGS_REG,SPI_FLAG);
-        v = SPDR;
-        PORTA = v;
-        if(uart.uart_rx_complete_flag == 1)
-        {
-            uart_send_string(uart.uart_buffer);
-        }
-        uart_send_integer(v);
-        v++;
+        SPI_SS_LOW;
+
+        spi_send_byte(0x06);
+        data_high_byte = spi_send_byte(0x40);
+        data_high_byte &= (0x0F);
+        data_low_byte = spi_send_byte(0x00);
+
+        data = (data_high_byte << 8) | data_low_byte;
+
+        SPI_SS_HIGH;
+        uart_send_string("ADC Value: ");
+        data *= 500;
+        data = (data / 4096) * 10;
+        uart_send_integer(data);
+        uart_send_string(" mV\n");
+
         _delay_ms(1000);
     }
 }
