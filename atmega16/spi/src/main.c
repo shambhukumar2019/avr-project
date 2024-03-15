@@ -26,26 +26,26 @@ void main(void)
 
     SET_GLOBAL_INTERRUPT;
 
-    uart_init();
+    uart_init();    // initiallize UART
 
     spi_init(MASTER_MODE);  // initiallize spi in master mode
     
 
     for(;;)
     {
-        SPI_SS_LOW;
+        SPI_SS_LOW; // select the slave
 
-        spi_send_byte(0x06);
-        data_high_byte = spi_send_byte(0x40);
+        spi_send_byte(0x06);    // send start byte
+        data_high_byte = spi_send_byte(0x40);   // send channel select byte, recieve adc high byte
         data_high_byte &= (0x0F);
-        data_low_byte = spi_send_byte(0x00);
+        data_low_byte = spi_send_byte(0x00);    // send xx, recieve adc low byte
 
         data = (data_high_byte << 8) | data_low_byte;
 
         SPI_SS_HIGH;
         uart_send_string("ADC Value: ");
         data *= 500;
-        data = (data / 4096) * 10;
+        data = (data / 4096) * 10;  // convert to milli volts
         uart_send_integer(data);
         uart_send_string(" mV\n");
 
