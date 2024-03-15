@@ -46,7 +46,7 @@ void main(void)
         uart_send_string("ADC digital Value: ");
         uart_send_integer(data);
         uart_send_string("\n");
-        data *= 500;
+        data *= 480;
         data = (data / 4096) * 10;  // convert to milli volts
         uart_send_string("Voltage: ");
         uart_send_integer(data);
