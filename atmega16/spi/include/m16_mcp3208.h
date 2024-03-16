@@ -3,6 +3,9 @@
 
 #include "common.h"
 
+
+#define MCP3208_ADC_INTERRUPT       ENABLE
+
 // 4.8 v
 #define V_REF_MCP3208               480
 
@@ -25,6 +28,12 @@ void adc_init_mcp3208(void);
 static void read_adc_mcp3208(uint8_t);
 
 uint16_t read_millivolt_mcp3208(uint8_t);
+
+
+
+uint16_t read_millivolt(uint8_t);
+
+static void read_adc(uint8_t);
 
 
 

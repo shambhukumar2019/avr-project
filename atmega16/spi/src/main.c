@@ -23,6 +23,9 @@ void main(void)
 
     adc_init_mcp3208(); // initialize MCP3208 ADC
 
+    ENABLE_SPI_INTERRUPT;
+
+    // using spi interrupt now to test adc mcp3208
     for(;;)
     {
         voltage = (uint16_t)read_millivolt_mcp3208(ADC_MCP3208_CHANNEL_0);

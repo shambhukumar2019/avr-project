@@ -9,14 +9,31 @@
  * 
  */
 
-#include "m16_interrupt.h"
+#include "common.h"
 // #include "m16_uart.h"
 
+
+uint8_t counter = 0;
 
 
 ISR(SPI_STC_vect)
 {
     spdr_rx_byte = SPDR;
+
+    #if (MCP3208_ADC_INTERRUPT == ENABLE)
+    {
+        counter++;
+        if (counter == 2)
+        {
+            adc_high_byte = spdr_rx_byte;
+        }
+        else if(counter == 3)
+        {
+            adc_low_byte = spdr_rx_byte;
+            counter = 0;
+        }
+    }
+    #endif
 }
 
 ISR(INT0_vect)

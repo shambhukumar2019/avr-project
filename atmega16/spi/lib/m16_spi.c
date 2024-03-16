@@ -22,7 +22,7 @@ void spi_init(uint8_t mode)
 {
     if (mode == MASTER_MODE)
     {
-        SPI_MASTER_MODE(SPI_F_CPU_BY_16,NORMAL_SPEED);
+        SPI_MASTER_MODE(SPI_F_CPU,NORMAL_SPEED);
     }
     else if (mode == SLAVE_MODE)
     {
@@ -38,4 +38,9 @@ uint8_t spi_send_byte(uint8_t byte)
     while(POLL_BIT(SPI_FLAGS_REG,SPI_FLAG) == 0); // wit till data sent
 
     return SPDR;   // reading SPDR will return received data
+}
+
+void spi_send(uint8_t data)
+{
+    SPDR = data;
 }

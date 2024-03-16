@@ -29,6 +29,14 @@
 #define SPI_F_CPU_BY_64     2
 #define SPI_F_CPU_BY_128    3
 
+
+/**
+ * @brief define clock speed for SPI Master
+ * 
+ */
+#define SPI_F_CPU   SPI_F_CPU_BY_16
+
+
 #define SPI_DOUBLE_SPEED                    SET_BIT(SPI_FLAGS_REG,SPI2X)
 #define SPI_NORMAL_SPEED                    CLEAR_BIT(SPI_FLAGS_REG,SPI2X)
 
@@ -63,6 +71,8 @@
 void spi_init(uint8_t);
 
 uint8_t spi_send_byte(uint8_t);
+
+void spi_send(uint8_t);
 
 
 #endif

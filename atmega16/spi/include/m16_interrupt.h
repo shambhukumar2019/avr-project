@@ -17,9 +17,6 @@
 
 
 
-
-
-
 // external interrupts trigger logic level macros
 
 #define EI01_LOW_LEVEL      0U
@@ -97,6 +94,7 @@ typedef enum trigger_mode
 #define CLEAR_FLAG(reg,bit)                     SET_BIT(reg,bit)
 
 
+uint8_t counter;
 
 
 #endif
