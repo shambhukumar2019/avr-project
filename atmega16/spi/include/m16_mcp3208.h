@@ -3,11 +3,19 @@
 
 #include "common.h"
 
+/**
+ * @brief if using mcp3208 as adc with interrupt then enable this macro
+ * 
+ */
+#define MCP3208_ADC_INTERRUPT       DISABLE
 
-#define MCP3208_ADC_INTERRUPT       ENABLE
-
-// 4.8 v
+/**
+ * @brief set reference voltage for mcp3208
+ *          eg: 4.80v * 100 -> 480
+ * 
+ */
 #define V_REF_MCP3208               480
+
 
 
 #define ADC_MCP3208_CHANNEL_0       0
@@ -21,6 +29,7 @@
 
 //  store digital value from ADC
 uint16_t adc_value_mcp3208;
+uint8_t adc_high_byte,adc_low_byte;
 
 
 void adc_init_mcp3208(void);

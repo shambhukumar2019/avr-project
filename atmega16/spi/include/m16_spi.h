@@ -15,6 +15,11 @@
 
 #include "common.h"
 
+/**
+ * @brief chnage between polling and interrupt methods for SPI
+ * 
+ */
+#define SPI_WITH_INTERRUPT  DISABLE
 
 
 #define NORMAL_SPEED        FALSE
@@ -72,7 +77,7 @@ void spi_init(uint8_t);
 
 uint8_t spi_send_byte(uint8_t);
 
-void spi_send(uint8_t);
+// void spi_send(uint8_t);
 
 
 #endif

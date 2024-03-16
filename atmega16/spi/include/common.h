@@ -75,8 +75,7 @@
 
 
 uint8_t spdr_rx_byte;
-uint8_t adc_high_byte,adc_low_byte;
-uint8_t spi_isr_flag;
+
 
 
 #endif

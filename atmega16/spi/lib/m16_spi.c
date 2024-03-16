@@ -29,18 +29,32 @@ void spi_init(uint8_t mode)
         SPI_SLAVE_MODE;
     }
     // #endif
+    #if (SPI_WITH_INTERRUPT == ENABLE)
+    {
+        ENABLE_SPI_INTERRUPT;
+    }
+    #endif
 }
 
 
 uint8_t spi_send_byte(uint8_t byte)
 {
-    SPDR = byte;   // transmit byte 
-    while(POLL_BIT(SPI_FLAGS_REG,SPI_FLAG) == 0); // wit till data sent
+    #if (SPI_WITH_INTERRUPT == DISABLE)
+    {
+        SPDR = byte;   // transmit byte 
+        while(POLL_BIT(SPI_FLAGS_REG,SPI_FLAG) == 0); // wit till data sent
 
-    return SPDR;   // reading SPDR will return received data
+        return SPDR;   // reading SPDR will return received data
+    }
+    #elif ((SPI_WITH_INTERRUPT == ENABLE))
+    {
+        SPDR = byte;
+        return 0;
+    }
+    #endif
 }
 
-void spi_send(uint8_t data)
-{
-    SPDR = data;
-}
+// void spi_send(uint8_t data)
+// {
+//     SPDR = data;
+// }

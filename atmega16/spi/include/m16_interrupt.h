@@ -94,7 +94,7 @@ typedef enum trigger_mode
 #define CLEAR_FLAG(reg,bit)                     SET_BIT(reg,bit)
 
 
-uint8_t counter;
+uint8_t spi_isr_counter;
 
 
 #endif

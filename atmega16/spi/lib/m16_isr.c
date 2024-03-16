@@ -13,24 +13,26 @@
 // #include "m16_uart.h"
 
 
-uint8_t counter = 0;
+// counter to be used in SPI ISR
+uint8_t spi_isr_counter = 0;
 
 
 ISR(SPI_STC_vect)
 {
-    spdr_rx_byte = SPDR;
+    spdr_rx_byte = SPDR;    // recieved data from SPI device
 
+    // enable "MCP3208_ADC_INTERRUPT" if using mcp3208 for ADC with interrupt
     #if (MCP3208_ADC_INTERRUPT == ENABLE)
     {
-        counter++;
-        if (counter == 2)
+        spi_isr_counter++;
+        if (spi_isr_counter == 2)
         {
             adc_high_byte = spdr_rx_byte;
         }
-        else if(counter == 3)
+        else if(spi_isr_counter == 3)
         {
             adc_low_byte = spdr_rx_byte;
-            counter = 0;
+            spi_isr_counter = 0;
         }
     }
     #endif
