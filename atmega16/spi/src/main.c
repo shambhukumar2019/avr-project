@@ -9,47 +9,29 @@
  * 
  */
 
-#include "m16_spi.h"
-
-/**
- * @brief MASTER MODE
- * 
- */
+#include "common.h"
 
 
 
 void main(void)
 {
-    uint8_t data_high_byte = 0;
-    uint8_t data_low_byte = 0;
-    uint32_t data = 0;
+    uint16_t voltage = 0;   // store voltage read from mcp3208 ADC
 
     SET_GLOBAL_INTERRUPT;
 
     uart_init();    // initiallize UART
 
-    spi_init(MASTER_MODE);  // initiallize spi in master mode
-    
+    adc_init_mcp3208(); // initialize MCP3208 ADC
 
     for(;;)
     {
-        SPI_SS_LOW; // select the slave
-
-        spi_send_byte(0x06);    // send start byte
-        data_high_byte = spi_send_byte(0x40);   // send channel select byte, recieve adc high byte
-        data_high_byte &= (0x0F);
-        data_low_byte = spi_send_byte(0x00);    // send xx, recieve adc low byte
-
-        data = (data_high_byte << 8) | data_low_byte;
-
-        SPI_SS_HIGH;
+        voltage = (uint16_t)read_millivolt_mcp3208(ADC_MCP3208_CHANNEL_0);
         uart_send_string("ADC digital Value: ");
-        uart_send_integer(data);
+        uart_send_integer(adc_value_mcp3208);
         uart_send_string("\n");
-        data *= 480;
-        data = (data / 4096) * 10;  // convert to milli volts
+
         uart_send_string("Voltage: ");
-        uart_send_integer(data);
+        uart_send_integer(voltage);
         uart_send_string("mV\n");
 
         _delay_ms(1000);

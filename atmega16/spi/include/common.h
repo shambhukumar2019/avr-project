@@ -19,6 +19,7 @@
 #include "m16_interrupt.h"
 #include "m16_uart.h"
 #include "m16_spi.h"
+#include "m16_mcp3208.h"
 
 
 #ifndef IOM_16_H
