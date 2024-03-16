@@ -1,6 +1,11 @@
 #include "m16_mcp3208.h"
 
+/**
+ * @brief store digital value from mcp3208 adc read GLOBALLY
+ * 
+ */
 uint16_t adc_value_mcp3208 = 0;
+
 uint8_t adc_high_byte = 0,adc_low_byte = 0;
 
 
