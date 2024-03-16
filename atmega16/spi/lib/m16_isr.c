@@ -13,6 +13,12 @@
 // #include "m16_uart.h"
 
 
+
+ISR(SPI_STC_vect)
+{
+    spdr_rx_byte = SPDR;
+}
+
 ISR(INT0_vect)
 {
     // GPIO_OUTPUT_HIGH(PORTA,PA0);

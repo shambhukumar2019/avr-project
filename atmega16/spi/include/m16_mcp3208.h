@@ -22,7 +22,7 @@ uint16_t adc_value_mcp3208;
 
 void adc_init_mcp3208(void);
 
-void read_adc_mcp3208(uint8_t);
+static void read_adc_mcp3208(uint8_t);
 
 uint16_t read_millivolt_mcp3208(uint8_t);
 

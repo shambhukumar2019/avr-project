@@ -74,4 +74,7 @@
 #define POLL_BIT(reg,bit)           (reg & (1<<bit))
 
 
+uint8_t spdr_rx_byte;
+
+
 #endif

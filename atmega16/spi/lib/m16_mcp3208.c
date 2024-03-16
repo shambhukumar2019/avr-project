@@ -18,7 +18,7 @@ void adc_init_mcp3208(void)
  * 
  * @param channel read voltage from channel
  */
-void read_adc_mcp3208(uint8_t channel)
+static void read_adc_mcp3208(uint8_t channel)
 {
     uint8_t cmd_byte = 0;
     uint8_t data_high_byte = 0;
