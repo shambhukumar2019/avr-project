@@ -17,7 +17,11 @@ volatile uint8_t time_in_second = 0,adc_read_flag = 0;
 volatile uint32_t adc_digital_value = 0;
 
 
-
+/**
+ * @brief intialize adc with given channel
+ * 
+ * @param channel select channel of adc to use from macros
+ */
 void adc_init(uint8_t channel)
 {
 	ADMUX = channel;		// ADC channel 0 
@@ -35,6 +39,12 @@ void adc_init(uint8_t channel)
 	TCCR1B = 0x0D;				//compare match mode with prescalar (Fosc / 1024)
 }
 
+
+/**
+ * @brief read in mV from selecterd channel
+ * 
+ * @return uint16_t milli volts value read
+ */
 uint16_t adc_read(void)
 {
 	//print_decimal(ADCW);
@@ -57,6 +67,11 @@ uint16_t adc_read(void)
 	}
 }
 
+
+/**
+ * @brief show battery status and percentage
+ * 
+ */
 void battery_status(void)
 {
 	volatile uint8_t bat_percent = 0;
@@ -79,6 +94,12 @@ void battery_status(void)
 	}
 }
 
+
+/**
+ * @brief calculate battery percentage
+ * 
+ * @return uint8_t return battery percent
+ */
 uint8_t adc_battery_percent(void)
 {
 	if (millivolt_value < MIN_VOLT_LIMIT)

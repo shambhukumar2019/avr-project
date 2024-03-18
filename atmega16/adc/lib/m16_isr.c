@@ -30,7 +30,10 @@ ISR(ADC_vect)
 }
 
 
-
+/**
+ * @brief executes when spi transfer completed
+ * 
+ */
 ISR(SPI_STC_vect)
 {
     spdr_rx_byte = SPDR;    // recieved data from SPI device
