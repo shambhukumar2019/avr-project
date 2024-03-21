@@ -17,6 +17,10 @@
 #define RX_TX_ACTIVE    ENABLE
 
 
+/**
+ * @brief initialize uart for 9600 baud, 8 bit format, interrupt based
+ * 
+ */
 void uart_init(void)
 {
     uint8_t ubrr_value = 0;

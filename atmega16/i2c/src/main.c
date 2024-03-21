@@ -15,24 +15,12 @@
 
 void main(void)
 {
-    uint16_t voltage = 0;
+    ENABLE_GLOBAL_INTERRUPT;
 
-    adc_init(ADC_CHANNEL); // ADC with atuo trigger on T1 compare match
-    uart_init();
+    uart_init();    // initialize UART
 
-    SET_GLOBAL_INTERRUPT;
-    
-    
     for(;;)
     {
-        voltage = adc_read();     // read adc every TIME_TO_GET_ADC_VOLT seconds
-
-        uart_send_string("\nVoltage => ");
-        uart_send_integer(millivolt_value);
-        uart_send_string(" mV");
-
-        battery_status();    // print percentage and status
-
-        _delay_ms(2000);
+        
     }
 }

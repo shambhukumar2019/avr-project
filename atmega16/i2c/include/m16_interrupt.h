@@ -78,13 +78,13 @@ typedef enum trigger_mode
  *          before any pending interrupt
  * 
  */
-#define SET_GLOBAL_INTERRUPT        sei()
+#define ENABLE_GLOBAL_INTERRUPT         sei()
 
 /**
  * @attention no any pending interrupt executed 
  * 
  */
-#define CLEAR_GLOBAL_INTERRUPT      cli()
+#define DISABLE_GLOBAL_INTERRUPT        cli()
 
 
 #define ENABLE_INTERRUPT(intr_reg,intr_bit)     SET_BIT(intr_reg,intr_bit)
