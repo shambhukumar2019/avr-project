@@ -1,11 +1,21 @@
-#include "timer.h"
+/**
+ * @file main.c
+ * @author your name (you@domain.com)
+ * @brief main driver code
+ * @version 0.1
+ * @date 2024-03-18
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
-extern uint16_t f1;
-extern uint16_t f2;
+#include "common.h"
+
+
 
 void main(void)
 {
-    gpio_port_mode(&PORTA,OUTPUT);
+    // gpio_port_mode(&PORTA,OUTPUT);
 
     GPIO_PULLUP_ON(PORTD,TIMER1_ICP_PIN);
     gpio_pin_mode(TIMER1_ICP_PIN,&PORTD,INPUT);
@@ -74,12 +84,12 @@ void main(void)
     PORTA = f>>8; */
 
     CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
-    config_interrupt(TIMER1_INPUT_CAPTURE_INTERRUPT,ENABLE,0);
+    ENABLE_INTERRUPT(TIMER_INTERRUPT_REG,T1_CAPTURE_INTERRUPT);
 
     SET_GLOBAL_INTERRUPT;
 
     for(;;)
     {
-        PORTA = f2>>8;
+        // PORTA = f2>>8;
     }
 }

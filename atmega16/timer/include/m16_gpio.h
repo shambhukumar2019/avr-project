@@ -8,12 +8,11 @@
  * @copyright Copyright (c) 2024
  * 
  */
-#ifndef M32_GPIO_H
-#define M32_GPIO_H
+#ifndef _GPIO_H_
+#define _GPIO_H_
+
 
 #include "common.h"
-#include<avr/io.h>
-#include "m16_interrupt.h"
 
 
 
@@ -75,7 +74,7 @@
 #define EXT_INTRRUPT_1_PIN          PD3
 #define TIMER1_OC_B_PIN             PD4
 #define TIMER1_OC_A_PIN             PD5    
-#define TIMER1_ICP_PIN               PD6
+#define TIMER1_ICP_PIN              PD6
 #define TIMER2_OC_PIN               PD7
 
 
@@ -93,8 +92,11 @@
 #define T1_INPUT_CAPTURE_FLAG           ICF1
 #define T2_OVERFLOW_FLAG                TOV2
 #define T2_COMPARE_FLAG                 OCF2
-#define UART_TCX_FLAG                   TXC
+#define UART_TXC_FLAG                   TXC
+#define UART_RXC_FLAG                   RXC
+#define UART_UDRE_FLAG                  UDRE
 #define ADC_FLAG                        ADIF
+#define SPI_FLAG                        SPIF
 #define COMPARATOR_FLAG                 ACI
 #define I2C_FLAG                        TWINT
 
@@ -108,19 +110,20 @@
 #define ADC_FLAGS_REG                   ADCSRA
 #define COMPARATOR_FLAGS_REG            ACSR
 #define I2C_FLAGS_REG                   TWCR
+#define SPI_FLAGS_REG                   SPSR
 
 
 /**
  * @brief set an output pin high for given port
  * 
  */
-#define GPIO_OUTPUT_HIGH(port,pin)      SET_BIT(port,pin) 
+#define GPIO_PIN_HIGH(port,pin)         SET_BIT(port,pin) 
 
 /**
  * @brief set an output pin low for given port
  * 
  */
-#define GPIO_OUTPUT_LOW(port,pin)       CLEAR_BIT(port,pin)
+#define GPIO_PIN_LOW(port,pin)          CLEAR_BIT(port,pin)
 
 /**
  * @brief toggle output pin for given port
@@ -128,7 +131,6 @@
  */
 #define GPIO_PIN_TOGGLE(port,pin)       TOGGLE_BIT(port,pin)
 
-#define GPIO_SET_OUTPUT(port,value)     (port = value)
 
 
 

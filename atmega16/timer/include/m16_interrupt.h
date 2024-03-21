@@ -9,22 +9,10 @@
  * 
  */
 
-#ifndef M16_INTERRUPT_H
-#define M16_INTERRUPT_H
+#ifndef _INTERRUPT_H_
+#define _INTERRUPT_H_
 
 #include "common.h"
-#include "avr/io.h"
-#include "m16_gpio.h"
-#include "avr/interrupt.h"
-
-#ifndef IOM_16_H
-#define IOM_16_H
-
-#include "avr/iom16.h"
-
-#endif
-
-
 
 
 
@@ -40,28 +28,36 @@
 #define EI1_R_EDGE          12U
 
 
+// interrupt bits
+#define    EXTERNAL_INTERRUPT_0                 INT0
+#define    EXTERNAL_INTERRUPT_1                 INT1
+#define    EXTERNAL_INTERRUPT_2                 INT2
+#define    T0_OVERFLOW_INTERRUPT                TOIE0
+#define    T0_COMPARE_INTERRUPT                 OCIE0
+#define    T1_OVERFLOW_INTERRUPT                TOIE1
+#define    T1_COMPARE_A_INTERRUPT               OCIE1A
+#define    T1_COMPARE_B_INTERRUPT               OCIE1B
+#define    T1_CAPTURE_INTERRUPT                 TICIE1
+#define    T2_OVERFLOW_INTERRUPT                TOIE2
+#define    T2_COMPARE_INTERRUPT                 OCIE2
+#define    UART_RX_INTERRUPT                    RXCIE
+#define    UART_TX_INTERRUPT                    TXCIE
+#define    UART_UDRE_INTERRUPT                  UDRIE
+#define    ADC_INTERRUPT                        ADIE
+#define    COMPARATOR_INTERRUPT                 ACIE
+#define    SPI_INTERRUPT                        SPIE
+#define    I2C_INTERRUPT                        TWIE
 
-typedef enum interrupt
-{
-    EXTERNAL_INTERRUPT_0,
-    EXTERNAL_INTERRUPT_1,
-    EXTERNAL_INTERRUPT_2,
-    TIMER0_OVERFLOW_INTERRUPT,
-    TIMER0_COMPARE_MATCH_INTERRUPT,
-    TIMER1_OVERFLOW_INTERRUPT,
-    TIMER1_COMPARE_MATCH_A_INTERRUPT,
-    TIMER1_COMPARE_MATCH_B_INTERRUPT,
-    TIMER1_INPUT_CAPTURE_INTERRUPT,
-    TIMER2_OVERFLOW_INTERRUPT,
-    TIMER2_COMPARE_MATCH_INTERRUPT,
-    UART_RXC_INTERRUPT,
-    UART_TXC_INTERRUPT,
-    UART_UDRE_INTERRUPT,
-    ADC_INTERRUPT,
-    COMPARATOR_INTERRUPT,
-    SPI_INTERRUPT,
-    I2C_INTERRUPT
-}interrupt;
+
+// interrupt registers
+#define TIMER_INTERRUPT_REG                     TIMSK
+#define USART_INTERRUPT_REG                     UCSRB
+#define EXT_INTERRUPT_REG                       GICR
+#define ADC_INTERRUPT_REG                       ADCSRA
+#define COMPARATOR_INTERRUPT_REG                ACSR
+#define SPI_CONTROL_REG                         SPCR
+#define I2C_INTERRUPT_REG                       TWCR
+
 
 
 typedef enum trigger_mode
@@ -91,41 +87,14 @@ typedef enum trigger_mode
 #define CLEAR_GLOBAL_INTERRUPT      cli()
 
 
-#define CLEAR_FLAG(reg,bit)         SET_BIT(reg,bit)
+#define ENABLE_INTERRUPT(intr_reg,intr_bit)     SET_BIT(intr_reg,intr_bit)
+#define DISABLE_INTERRUPT(intr_reg,intr_bit)    CLEAR_BIT(intr_reg,intr_bit)
 
 
-/**
- * @brief configure given interrupt
- * 
- * @param interrupt type of interrupt from enum "interrupt_type"
- * @param uint8_t ENABLE or DISABLE the interrupt
- * @param uint8_t LEVEL, RISING_EDGE, FALLING_EDGE (only for external interrupts)
- * 
- * @return void
- * 
- * 
- * @attention   SREG should be stored and restored on
- *              entering and exiting the ISR.
- * 
- * @attention   After ISR, cpu executes next instruction
- *              before any pending instruction
- * 
- * @attention   When an interrupt occurs, all interrupts are disabled.
- */
-void config_interrupt(interrupt,uint8_t,uint8_t);
+#define CLEAR_FLAG(reg,bit)                     SET_BIT(reg,bit)
 
 
-
-/**
- * @brief clear the flag of given interrupt
- * 
- * @param interrupt type of interrupt from enum "interrupt_type" to clear its flag
- * 
- * @return void
- * 
- * @attention uart RXC and UDRE are read only flags, auto cleared by isr
- */
-// void clear_interrupt_flag(interrupt);
+volatile uint8_t spi_isr_counter;
 
 
 #endif
