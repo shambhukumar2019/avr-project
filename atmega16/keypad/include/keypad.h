@@ -30,7 +30,7 @@
 #define KEYPAD_PIN      PINC
 
 
-uint8_t keypad_lookup[4][4];
+const uint8_t keypad_lookup[4][4];
 
 
 
