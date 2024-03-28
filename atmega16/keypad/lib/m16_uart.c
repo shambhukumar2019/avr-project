@@ -56,11 +56,8 @@ void uart_send_string(uint8_t* send_string)
 {
     clear_buffer(uart.uart_tx_buffer);
     string_copy(uart.uart_tx_buffer,send_string);
-	DISABLE_UART_RX_INTERRUPT;
 	ENABLE_UART_UDRE_INTERRUPT;
-	
-	// while(!uart.uart_tx_complete_flag);
-	// uart.uart_tx_complete_flag = 0;
+	DISABLE_UART_RX_INTERRUPT;
 	_delay_ms(100);	// delay needed to tranfer string
 }
 

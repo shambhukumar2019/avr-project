@@ -9,9 +9,51 @@
  * 
  */
 
-#include "m16_interrupt.h"
+#include "common.h"
 // #include "m16_uart.h"
 
+
+// counter to be used in SPI ISR
+volatile uint8_t spi_isr_counter = 0;
+
+
+//ADC interrupt when conversion completes
+ISR(ADC_vect)
+{
+	TIFR |= (1<<OCF1B);	//clear compare flag for next conversion to start
+	TCNT1 = 0;			//reset counter for next round
+	
+	//read ADC digital value
+	adc_digital_value = ADCW;	//in millivolts, step size => 4.88mV
+    // uart_send_integer(adc_digital_value);
+	adc_read_flag = 1;
+}
+
+
+/**
+ * @brief executes when spi transfer completed
+ * 
+ */
+ISR(SPI_STC_vect)
+{
+    spdr_rx_byte = SPDR;    // recieved data from SPI device
+
+    // enable "MCP3208_ADC_INTERRUPT" if using mcp3208 for ADC with interrupt
+    #if (MCP3208_ADC_INTERRUPT == ENABLE)
+    {
+        spi_isr_counter++;
+        if (spi_isr_counter == 2)
+        {
+            adc_high_byte = spdr_rx_byte;
+        }
+        else if(spi_isr_counter == 3)
+        {
+            adc_low_byte = spdr_rx_byte;
+            spi_isr_counter = 0;
+        }
+    }
+    #endif
+}
 
 ISR(INT0_vect)
 {
@@ -63,9 +105,8 @@ ISR(USART_UDRE_vect)
    UDR = uart.uart_tx_buffer[uart.uart_tx_index++];
    if (uart.uart_tx_buffer[uart.uart_tx_index] == '\0')
    {
-        uart.uart_tx_index = 0;
-        uart.uart_tx_complete_flag = 1;
         DISABLE_UART_UDRE_INTERRUPT;
+        uart.uart_tx_index = 0;
         ENABLE_UART_RX_INTERRUPT;
    }
    

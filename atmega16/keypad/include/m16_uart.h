@@ -50,8 +50,7 @@ typedef struct uart_memory
     uint8_t uart_buffer[UART_BUFFER_SIZE + 1];
     uint8_t uart_tx_index;
     uint8_t uart_rx_index;
-    uint8_t uart_rx_complete_flag       :1;
-    uint8_t uart_tx_complete_flag       :1;
+    uint8_t uart_rx_complete_flag;
 
 }uart_memory;
 uart_memory uart;

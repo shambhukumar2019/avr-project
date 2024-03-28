@@ -39,6 +39,7 @@
 
 #include "util/delay.h"
 
+//  NULL == '\0' == 0
 #define NULL        '\0'
 
 #define VCC         1U

@@ -34,5 +34,6 @@ void main(void)
         {
             uart_send_string(uart.uart_buffer);
         }
+        _delay_ms(1000);
     }
 }

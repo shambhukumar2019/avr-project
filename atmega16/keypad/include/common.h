@@ -22,6 +22,7 @@
 #include "m16_mcp3208.h"
 #include "m16_adc.h"
 #include "lcd_162.h"
+#include "keypad.h"
 
 
 #ifndef IOM_16_H

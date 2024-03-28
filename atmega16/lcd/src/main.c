@@ -15,24 +15,16 @@
 
 void main(void)
 {
-    uint16_t voltage = 0;
+    gpio_port_mode(LCD_PORT,OUTPUT);
+    gpio_port_mode(LCD_CRTL_PORT,OUTPUT);
 
-    adc_init(ADC_CHANNEL); // ADC with atuo trigger on T1 compare match
-    uart_init();
-
-    SET_GLOBAL_INTERRUPT;
+    lcd_init(); // initialize 16x2 LCD
     
     
+
     for(;;)
     {
-        voltage = adc_read();     // read adc every TIME_TO_GET_ADC_VOLT seconds
-
-        uart_send_string("\nVoltage => ");
-        uart_send_integer(millivolt_value);
-        uart_send_string(" mV");
-
-        battery_status();    // print percentage and status
-
-        _delay_ms(2000);
+        lcd_send_word("HELLO LCD");
+        _delay_ms(1000);
     }
 }
