@@ -1,0 +1,137 @@
+\hypertarget{m16__isr_8c}{}\doxysection{lib/m16\+\_\+isr.c File Reference}
+\label{m16__isr_8c}\index{lib/m16\_isr.c@{lib/m16\_isr.c}}
+
+
+define all ISR(interrupt sub-\/routines) in this file  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+Include dependency graph for m16\+\_\+isr.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__isr_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{m16__isr_8c_a05c2e5b588ced1cd7312f5b0edc5b295}{ISR}} (ADC\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_af9cad97352f5ba9bbd800446131125a6}{ISR}} (SPI\+\_\+\+STC\+\_\+vect)
+\begin{DoxyCompactList}\small\item\em executes when spi transfer completed \end{DoxyCompactList}\item 
+\mbox{\hyperlink{m16__isr_8c_afea150fcd685610cb9f7672fce361e53}{ISR}} (INT0\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_add2d7cdddfb682dcc0391e60cf42c7d6}{ISR}} (TIMER0\+\_\+\+OVF\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_ada481aa6f700b24e2f7cb2bbb6a0227a}{ISR}} (TIMER0\+\_\+\+COMP\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_ad39420cdd896dd12c68e36313139d0a5}{ISR}} (TIMER1\+\_\+\+COMPA\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_a5da59e05fa5ade4be7c7656aee78291a}{ISR}} (TIMER1\+\_\+\+CAPT\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_ad878deb12efde50ce23b8afa0cd310d1}{ISR}} (USART\+\_\+\+UDRE\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_a68f52df99eb21e6ef4cf3dbcf0527f97}{ISR}} (USART\+\_\+\+RXC\+\_\+vect)
+\item 
+\mbox{\hyperlink{m16__isr_8c_a04d3f94da90f7ac1b018f80f321e86de}{ISR}} (BADISR\+\_\+vect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{m16__isr_8c_a9134528c1b01dddc8bb6b5921d33ed4a}{spi\+\_\+isr\+\_\+counter}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+define all ISR(interrupt sub-\/routines) in this file 
+
+\begin{DoxyAuthor}{Author}
+shambhu kumar (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/01-\/27
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{m16__isr_8c_a05c2e5b588ced1cd7312f5b0edc5b295}\label{m16__isr_8c_a05c2e5b588ced1cd7312f5b0edc5b295}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{ADC\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_a04d3f94da90f7ac1b018f80f321e86de}\label{m16__isr_8c_a04d3f94da90f7ac1b018f80f321e86de}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{BADISR\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_afea150fcd685610cb9f7672fce361e53}\label{m16__isr_8c_afea150fcd685610cb9f7672fce361e53}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{INT0\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_af9cad97352f5ba9bbd800446131125a6}\label{m16__isr_8c_af9cad97352f5ba9bbd800446131125a6}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{SPI\+\_\+\+STC\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+executes when spi transfer completed 
+
+\mbox{\Hypertarget{m16__isr_8c_ada481aa6f700b24e2f7cb2bbb6a0227a}\label{m16__isr_8c_ada481aa6f700b24e2f7cb2bbb6a0227a}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER0\+\_\+\+COMP\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_add2d7cdddfb682dcc0391e60cf42c7d6}\label{m16__isr_8c_add2d7cdddfb682dcc0391e60cf42c7d6}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER0\+\_\+\+OVF\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_a5da59e05fa5ade4be7c7656aee78291a}\label{m16__isr_8c_a5da59e05fa5ade4be7c7656aee78291a}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER1\+\_\+\+CAPT\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_ad39420cdd896dd12c68e36313139d0a5}\label{m16__isr_8c_ad39420cdd896dd12c68e36313139d0a5}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{TIMER1\+\_\+\+COMPA\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_a68f52df99eb21e6ef4cf3dbcf0527f97}\label{m16__isr_8c_a68f52df99eb21e6ef4cf3dbcf0527f97}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{USART\+\_\+\+RXC\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__isr_8c_ad878deb12efde50ce23b8afa0cd310d1}\label{m16__isr_8c_ad878deb12efde50ce23b8afa0cd310d1}} 
+\index{m16\_isr.c@{m16\_isr.c}!ISR@{ISR}}
+\index{ISR@{ISR}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily ISR (\begin{DoxyParamCaption}\item[{USART\+\_\+\+UDRE\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{m16__isr_8c_a9134528c1b01dddc8bb6b5921d33ed4a}\label{m16__isr_8c_a9134528c1b01dddc8bb6b5921d33ed4a}} 
+\index{m16\_isr.c@{m16\_isr.c}!spi\_isr\_counter@{spi\_isr\_counter}}
+\index{spi\_isr\_counter@{spi\_isr\_counter}!m16\_isr.c@{m16\_isr.c}}
+\doxysubsubsection{\texorpdfstring{spi\_isr\_counter}{spi\_isr\_counter}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t spi\+\_\+isr\+\_\+counter = 0}
+

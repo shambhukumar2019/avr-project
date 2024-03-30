@@ -1,0 +1,72 @@
+\hypertarget{m16__gpio_8c}{}\doxysection{lib/m16\+\_\+gpio.c File Reference}
+\label{m16__gpio_8c}\index{lib/m16\_gpio.c@{lib/m16\_gpio.c}}
+{\ttfamily \#include \char`\"{}m16\+\_\+gpio.\+h\char`\"{}}\newline
+Include dependency graph for m16\+\_\+gpio.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__gpio_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{m16__gpio_8c_a58240caccc4898686249d1327a2d8472}{gpio\+\_\+pin\+\_\+mode}} (uint8\+\_\+t pin, volatile uint8\+\_\+t $\ast$port, uint8\+\_\+t io\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em define gpio\+\_\+mode() \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{m16__gpio_8c_afab145ed57f68c468d4bb6346d0fd4e7}{gpio\+\_\+port\+\_\+mode}} (volatile uint8\+\_\+t $\ast$port, uint8\+\_\+t io\+\_\+mode)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{m16__gpio_8c_a3dcf8ea7e45c581a807fe31467d72b53}{gpio\+\_\+read}} (uint8\+\_\+t pin\+\_\+number, volatile uint8\+\_\+t $\ast$pin)
+\begin{DoxyCompactList}\small\item\em define \mbox{\hyperlink{m16__gpio_8c_a3dcf8ea7e45c581a807fe31467d72b53}{gpio\+\_\+read()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{m16__gpio_8c_a58240caccc4898686249d1327a2d8472}\label{m16__gpio_8c_a58240caccc4898686249d1327a2d8472}} 
+\index{m16\_gpio.c@{m16\_gpio.c}!gpio\_pin\_mode@{gpio\_pin\_mode}}
+\index{gpio\_pin\_mode@{gpio\_pin\_mode}!m16\_gpio.c@{m16\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_pin\_mode()}{gpio\_pin\_mode()}}
+{\footnotesize\ttfamily void gpio\+\_\+pin\+\_\+mode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin,  }\item[{volatile uint8\+\_\+t $\ast$}]{port,  }\item[{uint8\+\_\+t}]{io\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+define gpio\+\_\+mode() 
+
+set given pin of a port as output
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & \\
+\hline
+{\em port} & \\
+\hline
+{\em io\+\_\+mode} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{m16__gpio_8c_afab145ed57f68c468d4bb6346d0fd4e7}\label{m16__gpio_8c_afab145ed57f68c468d4bb6346d0fd4e7}} 
+\index{m16\_gpio.c@{m16\_gpio.c}!gpio\_port\_mode@{gpio\_port\_mode}}
+\index{gpio\_port\_mode@{gpio\_port\_mode}!m16\_gpio.c@{m16\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_port\_mode()}{gpio\_port\_mode()}}
+{\footnotesize\ttfamily void gpio\+\_\+port\+\_\+mode (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{port,  }\item[{uint8\+\_\+t}]{io\+\_\+mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__gpio_8c_a3dcf8ea7e45c581a807fe31467d72b53}\label{m16__gpio_8c_a3dcf8ea7e45c581a807fe31467d72b53}} 
+\index{m16\_gpio.c@{m16\_gpio.c}!gpio\_read@{gpio\_read}}
+\index{gpio\_read@{gpio\_read}!m16\_gpio.c@{m16\_gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_read()}{gpio\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t gpio\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin\+\_\+number,  }\item[{volatile uint8\+\_\+t $\ast$}]{pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+define \mbox{\hyperlink{m16__gpio_8c_a3dcf8ea7e45c581a807fe31467d72b53}{gpio\+\_\+read()}} 
+
+read value of the pin of the port
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+\_\+number} & \\
+\hline
+{\em pin} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}

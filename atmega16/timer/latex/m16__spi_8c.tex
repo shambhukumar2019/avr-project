@@ -1,0 +1,67 @@
+\hypertarget{m16__spi_8c}{}\doxysection{lib/m16\+\_\+spi.c File Reference}
+\label{m16__spi_8c}\index{lib/m16\_spi.c@{lib/m16\_spi.c}}
+
+
+spi device drvier code  
+
+
+{\ttfamily \#include \char`\"{}m16\+\_\+spi.\+h\char`\"{}}\newline
+Include dependency graph for m16\+\_\+spi.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__spi_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{m16__spi_8c_a90f74fc04b079f76ea6a170092a9f34f}{spi\+\_\+init}} (uint8\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em initiallize spi for given mode of operation \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{m16__spi_8c_a9cc991aca34f3e54cee0cb27a04c9cb7}{spi\+\_\+send\+\_\+byte}} (uint8\+\_\+t byte)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+spi device drvier code 
+
+\begin{DoxyAuthor}{Author}
+your name (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/03-\/07
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{m16__spi_8c_a90f74fc04b079f76ea6a170092a9f34f}\label{m16__spi_8c_a90f74fc04b079f76ea6a170092a9f34f}} 
+\index{m16\_spi.c@{m16\_spi.c}!spi\_init@{spi\_init}}
+\index{spi\_init@{spi\_init}!m16\_spi.c@{m16\_spi.c}}
+\doxysubsubsection{\texorpdfstring{spi\_init()}{spi\_init()}}
+{\footnotesize\ttfamily void spi\+\_\+init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+initiallize spi for given mode of operation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & either MASTER\+\_\+\+MODE or SLAVE\+\_\+\+MODE (macros)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{m16__spi_8c_a9cc991aca34f3e54cee0cb27a04c9cb7}\label{m16__spi_8c_a9cc991aca34f3e54cee0cb27a04c9cb7}} 
+\index{m16\_spi.c@{m16\_spi.c}!spi\_send\_byte@{spi\_send\_byte}}
+\index{spi\_send\_byte@{spi\_send\_byte}!m16\_spi.c@{m16\_spi.c}}
+\doxysubsubsection{\texorpdfstring{spi\_send\_byte()}{spi\_send\_byte()}}
+{\footnotesize\ttfamily uint8\+\_\+t spi\+\_\+send\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+

@@ -1,0 +1,230 @@
+\hypertarget{common_8h}{}\doxysection{include/common.h File Reference}
+\label{common_8h}\index{include/common.h@{include/common.h}}
+
+
+header file containing all common declarations  
+
+
+{\ttfamily \#include \char`\"{}avr/io.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}m16\+\_\+gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}avr/interrupt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}m16\+\_\+interrupt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}m16\+\_\+uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}m16\+\_\+spi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}m16\+\_\+mcp3208.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}m16\+\_\+adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}avr/iom16.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util/delay.\+h\char`\"{}}\newline
+Include dependency graph for common.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{common_8h_ad21fa85ca6c4b815510de93692b48716}{IOM\+\_\+16\+\_\+H}}
+\item 
+\#define \mbox{\hyperlink{common_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~11059200\+UL
+\begin{DoxyCompactList}\small\item\em set clock frequency for CPU \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{common_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}~\textquotesingle{}\textbackslash{}0\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}~1U
+\item 
+\#define \mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}~0U
+\item 
+\#define \mbox{\hyperlink{common_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}}~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}
+\item 
+\#define \mbox{\hyperlink{common_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}
+\item 
+\#define \mbox{\hyperlink{common_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{HIGH}}~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}
+\item 
+\#define \mbox{\hyperlink{common_8h_a99496f7308834e8b220f7894efa0b6ab}{DISABLE}}~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}
+\item 
+\#define \mbox{\hyperlink{common_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}
+\item 
+\#define \mbox{\hyperlink{common_8h_ab811d8c6ff3a505312d3276590444289}{LOW}}~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}
+\item 
+\#define \mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(register,  bit)~(register $\vert$= (1$<$$<$bit))
+\item 
+\#define \mbox{\hyperlink{common_8h_a86b5bf690597fbb5465c56ca1eb1f317}{SET\+\_\+\+BYTE}}(register)~(register = 0x\+FF)
+\item 
+\#define \mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(register,  bit)~(register \&= $\sim$(1$<$$<$bit))
+\item 
+\#define \mbox{\hyperlink{common_8h_abadd21a6c0c13509d5a47c74e8abdf11}{CLEAR\+\_\+\+BYTE}}(register)~(register = 0x00)
+\item 
+\#define \mbox{\hyperlink{common_8h_a319f84216f2969de16f09049de7731b9}{TOGGLE\+\_\+\+BIT}}(register,  bit)~(register $^\wedge$= (1$<$$<$bit))
+\item 
+\#define \mbox{\hyperlink{common_8h_a70e4f412797244c4c852df408571091e}{HIGH\+\_\+\+NIBBLE}}(reg)~(reg \& ((uint8\+\_\+t)0x\+F0))
+\item 
+\#define \mbox{\hyperlink{common_8h_aca35c76ee85f2d44a6ccee96a4b63e25}{LOW\+\_\+\+NIBBLE}}(reg)~(reg \& ((uint8\+\_\+t)0x0F))
+\item 
+\#define \mbox{\hyperlink{common_8h_a7b5e8db8da20edbe3ce9c4f1552ce20c}{POLL\+\_\+\+BIT}}(reg,  bit)~(reg \& (1$<$$<$bit))
+\begin{DoxyCompactList}\small\item\em loop until bit in reg becomes 1 (test for bit in reg to become 1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_aaf6629432a7937f302baac07af74ea43}{spdr\+\_\+rx\+\_\+byte}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+header file containing all common declarations 
+
+\begin{DoxyAuthor}{Author}
+shambhu kumar (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/01-\/24
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{common_8h_a837b4076679beaad4f11dbe1ddbb6686}\label{common_8h_a837b4076679beaad4f11dbe1ddbb6686}} 
+\index{common.h@{common.h}!CLEAR\_BIT@{CLEAR\_BIT}}
+\index{CLEAR\_BIT@{CLEAR\_BIT}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_BIT}{CLEAR\_BIT}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{register,  }\item[{}]{bit }\end{DoxyParamCaption})~(register \&= $\sim$(1$<$$<$bit))}
+
+\mbox{\Hypertarget{common_8h_abadd21a6c0c13509d5a47c74e8abdf11}\label{common_8h_abadd21a6c0c13509d5a47c74e8abdf11}} 
+\index{common.h@{common.h}!CLEAR\_BYTE@{CLEAR\_BYTE}}
+\index{CLEAR\_BYTE@{CLEAR\_BYTE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_BYTE}{CLEAR\_BYTE}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+BYTE(\begin{DoxyParamCaption}\item[{}]{register }\end{DoxyParamCaption})~(register = 0x00)}
+
+\mbox{\Hypertarget{common_8h_a99496f7308834e8b220f7894efa0b6ab}\label{common_8h_a99496f7308834e8b220f7894efa0b6ab}} 
+\index{common.h@{common.h}!DISABLE@{DISABLE}}
+\index{DISABLE@{DISABLE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{DISABLE}{DISABLE}}
+{\footnotesize\ttfamily \#define DISABLE~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}}
+
+\mbox{\Hypertarget{common_8h_a514ad415fb6125ba296793df7d1a468a}\label{common_8h_a514ad415fb6125ba296793df7d1a468a}} 
+\index{common.h@{common.h}!ENABLE@{ENABLE}}
+\index{ENABLE@{ENABLE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE}{ENABLE}}
+{\footnotesize\ttfamily \#define ENABLE~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}}
+
+\mbox{\Hypertarget{common_8h_a43bafb28b29491ec7f871319b5a3b2f8}\label{common_8h_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\index{common.h@{common.h}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \#define F\+\_\+\+CPU~11059200\+UL}
+
+
+
+set clock frequency for CPU 
+
+\mbox{\Hypertarget{common_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{common_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\index{common.h@{common.h}!FALSE@{FALSE}}
+\index{FALSE@{FALSE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{FALSE}{FALSE}}
+{\footnotesize\ttfamily \#define FALSE~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}}
+
+\mbox{\Hypertarget{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}\label{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}} 
+\index{common.h@{common.h}!GND@{GND}}
+\index{GND@{GND}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{GND}{GND}}
+{\footnotesize\ttfamily \#define GND~0U}
+
+\mbox{\Hypertarget{common_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}\label{common_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}} 
+\index{common.h@{common.h}!HIGH@{HIGH}}
+\index{HIGH@{HIGH}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{HIGH}{HIGH}}
+{\footnotesize\ttfamily \#define HIGH~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}}
+
+\mbox{\Hypertarget{common_8h_a70e4f412797244c4c852df408571091e}\label{common_8h_a70e4f412797244c4c852df408571091e}} 
+\index{common.h@{common.h}!HIGH\_NIBBLE@{HIGH\_NIBBLE}}
+\index{HIGH\_NIBBLE@{HIGH\_NIBBLE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{HIGH\_NIBBLE}{HIGH\_NIBBLE}}
+{\footnotesize\ttfamily \#define HIGH\+\_\+\+NIBBLE(\begin{DoxyParamCaption}\item[{}]{reg }\end{DoxyParamCaption})~(reg \& ((uint8\+\_\+t)0x\+F0))}
+
+\mbox{\Hypertarget{common_8h_ad21fa85ca6c4b815510de93692b48716}\label{common_8h_ad21fa85ca6c4b815510de93692b48716}} 
+\index{common.h@{common.h}!IOM\_16\_H@{IOM\_16\_H}}
+\index{IOM\_16\_H@{IOM\_16\_H}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{IOM\_16\_H}{IOM\_16\_H}}
+{\footnotesize\ttfamily \#define IOM\+\_\+16\+\_\+H}
+
+\mbox{\Hypertarget{common_8h_ab811d8c6ff3a505312d3276590444289}\label{common_8h_ab811d8c6ff3a505312d3276590444289}} 
+\index{common.h@{common.h}!LOW@{LOW}}
+\index{LOW@{LOW}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{LOW}{LOW}}
+{\footnotesize\ttfamily \#define LOW~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}}
+
+\mbox{\Hypertarget{common_8h_aca35c76ee85f2d44a6ccee96a4b63e25}\label{common_8h_aca35c76ee85f2d44a6ccee96a4b63e25}} 
+\index{common.h@{common.h}!LOW\_NIBBLE@{LOW\_NIBBLE}}
+\index{LOW\_NIBBLE@{LOW\_NIBBLE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{LOW\_NIBBLE}{LOW\_NIBBLE}}
+{\footnotesize\ttfamily \#define LOW\+\_\+\+NIBBLE(\begin{DoxyParamCaption}\item[{}]{reg }\end{DoxyParamCaption})~(reg \& ((uint8\+\_\+t)0x0F))}
+
+\mbox{\Hypertarget{common_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}\label{common_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}} 
+\index{common.h@{common.h}!NULL@{NULL}}
+\index{NULL@{NULL}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{NULL}{NULL}}
+{\footnotesize\ttfamily \#define NULL~\textquotesingle{}\textbackslash{}0\textquotesingle{}}
+
+\mbox{\Hypertarget{common_8h_a7b5e8db8da20edbe3ce9c4f1552ce20c}\label{common_8h_a7b5e8db8da20edbe3ce9c4f1552ce20c}} 
+\index{common.h@{common.h}!POLL\_BIT@{POLL\_BIT}}
+\index{POLL\_BIT@{POLL\_BIT}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{POLL\_BIT}{POLL\_BIT}}
+{\footnotesize\ttfamily \#define POLL\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{reg,  }\item[{}]{bit }\end{DoxyParamCaption})~(reg \& (1$<$$<$bit))}
+
+
+
+loop until bit in reg becomes 1 (test for bit in reg to become 1) 
+
+\mbox{\Hypertarget{common_8h_abda1122beeb7b0ed9c00744c7783113c}\label{common_8h_abda1122beeb7b0ed9c00744c7783113c}} 
+\index{common.h@{common.h}!SET\_BIT@{SET\_BIT}}
+\index{SET\_BIT@{SET\_BIT}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{SET\_BIT}{SET\_BIT}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{register,  }\item[{}]{bit }\end{DoxyParamCaption})~(register $\vert$= (1$<$$<$bit))}
+
+\mbox{\Hypertarget{common_8h_a86b5bf690597fbb5465c56ca1eb1f317}\label{common_8h_a86b5bf690597fbb5465c56ca1eb1f317}} 
+\index{common.h@{common.h}!SET\_BYTE@{SET\_BYTE}}
+\index{SET\_BYTE@{SET\_BYTE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{SET\_BYTE}{SET\_BYTE}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+BYTE(\begin{DoxyParamCaption}\item[{}]{register }\end{DoxyParamCaption})~(register = 0x\+FF)}
+
+\mbox{\Hypertarget{common_8h_a319f84216f2969de16f09049de7731b9}\label{common_8h_a319f84216f2969de16f09049de7731b9}} 
+\index{common.h@{common.h}!TOGGLE\_BIT@{TOGGLE\_BIT}}
+\index{TOGGLE\_BIT@{TOGGLE\_BIT}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{TOGGLE\_BIT}{TOGGLE\_BIT}}
+{\footnotesize\ttfamily \#define TOGGLE\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{register,  }\item[{}]{bit }\end{DoxyParamCaption})~(register $^\wedge$= (1$<$$<$bit))}
+
+\mbox{\Hypertarget{common_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{common_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\index{common.h@{common.h}!TRUE@{TRUE}}
+\index{TRUE@{TRUE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{TRUE}{TRUE}}
+{\footnotesize\ttfamily \#define TRUE~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}}
+
+\mbox{\Hypertarget{common_8h_a122557a0293deb12253eb7a4dba4e4f6}\label{common_8h_a122557a0293deb12253eb7a4dba4e4f6}} 
+\index{common.h@{common.h}!VCC@{VCC}}
+\index{VCC@{VCC}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{VCC}{VCC}}
+{\footnotesize\ttfamily \#define VCC~1U}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{common_8h_aaf6629432a7937f302baac07af74ea43}\label{common_8h_aaf6629432a7937f302baac07af74ea43}} 
+\index{common.h@{common.h}!spdr\_rx\_byte@{spdr\_rx\_byte}}
+\index{spdr\_rx\_byte@{spdr\_rx\_byte}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{spdr\_rx\_byte}{spdr\_rx\_byte}}
+{\footnotesize\ttfamily uint8\+\_\+t spdr\+\_\+rx\+\_\+byte}
+
