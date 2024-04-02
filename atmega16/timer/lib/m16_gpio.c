@@ -14,11 +14,13 @@
 
 
 /**
- * @brief define gpio_mode() 
+ * @brief set given pin of a port as output/input
  * 
- * @param pin 
- * @param port 
- * @param io_mode 
+ * @param pin store pin number
+ * @param port store port address
+ * @param io_mode set i/o mode IN/OUT
+ * 
+ * @return void
  */
 void gpio_pin_mode(uint8_t pin,volatile uint8_t *port,uint8_t io_mode)
 {

@@ -21,6 +21,7 @@
 #include "m16_spi.h"
 #include "m16_mcp3208.h"
 #include "m16_adc.h"
+#include "m16_timer.h"
 
 
 #ifndef IOM_16_H

@@ -50,7 +50,7 @@
 #define EXT_T1_PIN                  PB1
 #define EXT_INTRRUPT_2_PIN          PB2
 #define COMPARATOR_POS_IN_PIN       PB2
-#define TIMER0_OC_PIN               PB3
+#define T0_OC_PIN                   PB3
 #define COMPARATOR_NEG_IN_PIN       PB3
 #define SPI_SS_PIN                  PB4
 #define SPI_MOSI_PIN                PB5
@@ -72,10 +72,10 @@
 #define TXD_PIN                     PD1
 #define EXT_INTRRUPT_0_PIN          PD2
 #define EXT_INTRRUPT_1_PIN          PD3
-#define TIMER1_OC_B_PIN             PD4
-#define TIMER1_OC_A_PIN             PD5    
-#define TIMER1_ICP_PIN              PD6
-#define TIMER2_OC_PIN               PD7
+#define T1_OC_B_PIN                 PD4
+#define T1_OC_A_PIN                 PD5    
+#define T1_ICP_PIN                  PD6
+#define T2_OC_PIN                   PD7
 
 
 
@@ -143,15 +143,6 @@
 */
 
 
-/**
- * @brief set given pin of a port as output
- * 
- * @param uint8_t store pin number
- * @param uint8_t store port address
- * @param uint8_t set i/o mode (IN/OUT)
- * 
- * @return void
- */
 void gpio_pin_mode(uint8_t,volatile uint8_t *,uint8_t);
 
 

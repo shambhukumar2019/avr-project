@@ -9,7 +9,7 @@
  * 
  */
 
-#include "common.h"
+#include "m16_interrupt.h"
 // #include "m16_uart.h"
 
 
@@ -62,6 +62,7 @@ ISR(INT0_vect)
 
 ISR(TIMER0_OVF_vect)
 {
+    CLEAR_FLAG(TIMER_FLAGS_REG,T0_OVERFLOW_FLAG);
     /* count++;
     if(count >= 50)
     {

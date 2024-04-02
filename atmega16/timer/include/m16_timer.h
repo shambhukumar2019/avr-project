@@ -16,6 +16,18 @@
 #include "common.h"
 
 
+typedef enum pwm_pin{
+    OC0_PIN,
+    OC1A_PIN,
+    OC1B_PIN,
+    OC2_PIN
+}pwm_pin;
+
+typedef enum pwm_freq{
+    FREQ_675,
+    FREQ_5400,
+    FREQ_43200,
+}pwm_freq;
 
 
 /// @brief polled delay in milliseconds
@@ -35,6 +47,15 @@ void us_delay(uint16_t);
 /// @param  dutycycle in percentage (1 - 100)
 /// @param  pin on which pwm generates
 void pwm(uint16_t,uint8_t,uint8_t);
+
+
+void pwm_oc0(pwm_freq ,uint8_t);
+
+void pwm_oc2(pwm_freq ,uint8_t);
+
+void pwm_oc1a(uint8_t ,uint8_t);
+
+void pwm_oc1b(uint8_t ,uint8_t);
 
 
 
