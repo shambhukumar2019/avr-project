@@ -24,7 +24,17 @@ typedef enum pwm_pin{
 }pwm_pin;
 
 typedef enum pwm_freq{
+    FREQ_100,
+    FREQ_200,
+    FREQ_300,
+    FREQ_400,
+    FREQ_500,
+    FREQ_600,
     FREQ_675,
+    FREQ_700,
+    FREQ_800,
+    FREQ_900,
+    FREQ_1000,
     FREQ_5400,
     FREQ_43200,
 }pwm_freq;
@@ -53,9 +63,9 @@ void pwm_oc0(pwm_freq ,uint8_t);
 
 void pwm_oc2(pwm_freq ,uint8_t);
 
-void pwm_oc1a(uint8_t ,uint8_t);
+void pwm_oc1a(pwm_freq ,uint8_t);
 
-void pwm_oc1b(uint8_t ,uint8_t);
+void pwm_oc1b(pwm_freq ,uint8_t);
 
 
 

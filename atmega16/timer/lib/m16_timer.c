@@ -63,7 +63,7 @@ void pwm(uint16_t freq,uint8_t dc,uint8_t oc_pin)
 
 void pwm_oc0(pwm_freq frequency,uint8_t dc)
 {
-    volatile uint8_t l_dc = 0;
+    volatile uint16_t l_dc = 0;
 
     l_dc = (25500U / dc);   // find OCR0 value for given duty cycle(dc)
 
@@ -98,7 +98,7 @@ void pwm_oc0(pwm_freq frequency,uint8_t dc)
 
 void pwm_oc2(pwm_freq frequency,uint8_t dc)
 {
-    volatile uint8_t l_dc = 0;
+    volatile uint16_t l_dc = 0;
 
     l_dc = (25500U / dc);   // find OCR2 value for given duty cycle(dc)
 
@@ -126,6 +126,186 @@ void pwm_oc2(pwm_freq frequency,uint8_t dc)
         CLEAR_FLAG(TIMER_FLAGS_REG,T0_OVERFLOW_FLAG);
         // clk/1 fast pwm mode clear OC2 on compare match and set at bottom
         TCCR2 = 0x69;   // fpwm = 43200Hz
+    }
+    #endif
+
+}
+
+
+void pwm_oc1a(pwm_freq frequency,uint8_t dc)
+{
+    gpio_pin_mode(T1_OC_A_PIN,&PORTD,OUTPUT); // for fast pwm generation OC1A pin
+    TCNT1 = 0;
+
+    #if (FREQ_100 == frequency)
+    {
+        ICR1 = 431U;
+        OCR1A = (431U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_200 == frequency)
+    {
+        ICR1 = 215U;
+        OCR1A = (215U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_300 == frequency)
+    {
+        ICR1 = 143U;
+        OCR1A = (143U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_400 == frequency)
+    {
+        ICR1 = 107U;
+        OCR1A = (107U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_500 == frequency)
+    {
+        ICR1 = 86U;
+        OCR1A = (86U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_600 == frequency)
+    {
+        ICR1 = 71U;
+        OCR1A = (71U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_700 == frequency)
+    {
+        ICR1 = 61U;
+        OCR1A = (61U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_800 == frequency)
+    {
+        ICR1 = 53U;
+        OCR1A = (53U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_900 == frequency)
+    {
+        ICR1 = 47U;
+        OCR1A = (47U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_1000 == frequency)
+    {
+        ICR1 = 43U;
+        OCR1A = (43U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+        TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #endif
+
+}
+
+
+void pwm_oc1b(pwm_freq frequency,uint8_t dc)
+{
+    gpio_pin_mode(T1_OC_B_PIN,&PORTD,OUTPUT); // for fast pwm generation OC1B pin
+    TCNT1 = 0;
+
+    #if (FREQ_100 == frequency)
+    {
+        OCR1A = 431U;
+        OCR1B = (431U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_200 == frequency)
+    {
+        OCR1A = 215U;
+        OCR1B = (215U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_300 == frequency)
+    {
+        OCR1A = 143U;
+        OCR1B = (143U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_400 == frequency)
+    {
+        OCR1A = 107U;
+        OCR1B = (107U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_500 == frequency)
+    {
+        OCR1A = 86U;
+        OCR1B = (86U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_600 == frequency)
+    {
+        OCR1A = 71U;
+        OCR1B = (71U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_700 == frequency)
+    {
+        OCR1A = 61U;
+        OCR1B = (61U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_800 == frequency)
+    {
+        OCR1A = 53U;
+        OCR1B = (53U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_900 == frequency)
+    {
+        OCR1A = 47U;
+        OCR1B = (47U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
+    }
+    #elif (FREQ_1000 == frequency)
+    {
+        OCR1A = 43U;
+        OCR1B = (43U * dc) / 100U;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_COMPARE_A_FLAG);
+        TCCR1A = 0x23;  // top = OCR1A, pwm on OC1B pin
+        TCCR1B = 0x1C;  // clk/256
     }
     #endif
 
