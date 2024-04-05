@@ -15,26 +15,17 @@
 
 void main(void)
 {
+    pwm_oc2(FREQ_43200,50); // generate 43200 Hz freq. pwm with 50 % DC on OC2 pin
+
     //  input capture mode
-    // GPIO_PULLUP_ON(PORTD,T1_ICP_PIN);
-    // gpio_pin_mode(T1_ICP_PIN,&PORTD,INPUT);
+    GPIO_PULLUP_ON(PORTD,T1_ICP_PIN);
+    gpio_pin_mode(T1_ICP_PIN,&PORTD,INPUT);
     
-    //clear oc1b on compare match and set on bottom, non inverting
-    // TCCR1A = 0;
-    // TCCR1B = 0x41;  // clk   icp on rising edge 
+    ENABLE_INPUT_CAPTURE;
     
+
     
-    gpio_pin_mode(T1_OC_A_PIN,&PORTD,OUTPUT);   // for fast pwm mode on oc1A pin
-    TCNT1 = 0;  // initialize timer 1
-    ICR1 = 431;  //100Hz, TOP value
-    OCR1A = 431;  // Duty cycle = 100%
-    CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
-    TCCR1A = 0x82;  // top = ICR1, pwm on OC1A pin
-    TCCR1B = 0x1C;  // clk/256
-    
-    
-    
-    /* uint16_t f = 0;
+    uint16_t f = 0;
 
     // measure frequency using ICP of timer 1
     while ((TIFR & (1<<ICF1)) == 0);
@@ -45,11 +36,15 @@ void main(void)
     f = ICR1 - f;
     // CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
     
-    PORTA = f>>8; */
+    SET_GLOBAL_INTERRUPT;
+    uart_init();
+
 
     for(;;)
     {
-        // PORTA = f2>>8;
+        uart_send_integer(f);
+        uart_send_byte('\n');
+        ms_delay(2000);
         
     }
 }

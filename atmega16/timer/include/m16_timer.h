@@ -16,6 +16,11 @@
 #include "common.h"
 
 
+#define ENABLE_INPUT_CAPTURE    {   TCCR1A = 0U;\
+                                    TCCR1B = 0x41;\
+                                }
+
+
 typedef enum pwm_pin{
     OC0_PIN,
     OC1A_PIN,
@@ -35,6 +40,7 @@ typedef enum pwm_freq{
     FREQ_800,
     FREQ_900,
     FREQ_1000,
+    FREQ_1350,
     FREQ_5400,
     FREQ_43200,
 }pwm_freq;
