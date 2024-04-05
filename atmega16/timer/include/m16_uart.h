@@ -62,7 +62,7 @@ void uart_send_string(uint8_t* );
 
 void uart_send_byte(uint8_t);
 
-void uart_send_integer(uint16_t);
+void uart_send_integer(uint32_t);
 
 // uint8_t* uart_receive_string(void);
 
@@ -70,7 +70,7 @@ void string_copy(uint8_t* ,uint8_t* );
 
 void clear_buffer(uint8_t* );
 
-void integer_to_string(uint16_t , uint8_t* );
+void integer_to_string(uint32_t , uint8_t* );
 
 void string_to_integer(uint8_t*,uint16_t);
 

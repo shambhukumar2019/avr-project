@@ -16,9 +16,14 @@
 #include "common.h"
 
 
-#define ENABLE_INPUT_CAPTURE    {   TCCR1A = 0U;\
-                                    TCCR1B = 0x41;\
+#define ENABLE_ICP_FALL_EDGE    {   TCCR1A = 0U;\
+                                    TCCR1B = 0x81;\
                                 }
+
+#define ENABLE_ICP_RISE_EDGE    {   TCCR1A = 0U;\
+                                    TCCR1B = 0xC1;\
+                                }
+
 
 
 typedef enum pwm_pin{

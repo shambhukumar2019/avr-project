@@ -70,9 +70,9 @@ void uart_send_byte(uint8_t byte)
     uart_send_string(character);
 }
 
-void uart_send_integer(uint16_t decimal)
+void uart_send_integer(uint32_t decimal)
 {
-    uint8_t local_string[6] = {0};
+    uint8_t local_string[8] = {0};
 
     integer_to_string(decimal,local_string);
 
@@ -100,10 +100,10 @@ void clear_buffer(uint8_t* buffer)
 	*buffer = 0;
 }
 
-void integer_to_string(uint16_t integer, uint8_t* string)
+void integer_to_string(uint32_t integer, uint8_t* string)
 {
 	uint8_t remainder = 0, index = 0, no_of_zeros = 0;
-	uint16_t result = 0, dividend = 0;
+	uint32_t result = 0, dividend = 0;
 	
 	dividend = integer;
 	

@@ -22,7 +22,7 @@ void ms_delay(uint16_t milli)
     {
         l_cnt += 1;
         TCNT0 = 0;
-        OCR0 = 43;  // for 1ms delay
+        OCR0 = 43U;  // for 1ms delay
         CLEAR_FLAG(TIMER_FLAGS_REG,T0_COMPARE_FLAG);
         TCCR0 = 0x0C;   //ctc mode clk/256
         while (POLL_BIT(TIMER_FLAGS_REG,T0_COMPARE_FLAG) == 0);
@@ -65,34 +65,41 @@ void pwm_oc0(pwm_freq frequency,uint8_t dc)
 {
     volatile uint16_t l_dc = 0;
 
-    l_dc = (255U * dc) / 100;   // find OCR0 value for given duty cycle(dc)
+    l_dc = (255U * dc) / 100U;   // find OCR2 value for given duty cycle(dc)
 
     /// on OC0 pin
-    gpio_pin_mode(T0_OC_PIN,&PORTB,OUTPUT); // for fast pwm generation OC0 pin
+    gpio_pin_mode(T0_OC_PIN,&PORTB,OUTPUT); // for fast pwm generation OC2 pin
     TCNT0 = 0;
 
-    #if (FREQ_675 == frequency)
+    OCR0 = l_dc;
+    CLEAR_FLAG(TIMER_FLAGS_REG,T0_OVERFLOW_FLAG);
+
+    switch(frequency)
     {
-        OCR0 = l_dc;
-        CLEAR_FLAG(TIMER_FLAGS_REG,T0_OVERFLOW_FLAG);
-        // clk/64 fast pwm mode clear OC0 on compare match and set at bottom
-        TCCR0 = 0x6B;   // fpwm = 675Hz
+        case FREQ_675:
+        {
+            // clk/64 fast pwm mode clear OC0 on compare match and set at bottom
+            TCCR0 = 0x6B;   // fpwm = 675Hz
+            break;
+        }
+        case FREQ_5400:
+        {
+            // clk/8 fast pwm mode clear OC0 on compare match and set at bottom
+            TCCR0 = 0x6A;   // fpwm = 5400Hz
+            break;
+        }
+        case FREQ_43200:
+        {
+            // clk/1 fast pwm mode clear OC0 on compare match and set at bottom
+            TCCR0 = 0x69;   // fpwm = 43200Hz
+            break;
+        }
+        default:
+        {
+            //  error code
+            break;
+        }
     }
-    #elif (FREQ_5400 == frequency)
-    {
-        OCR0 = l_dc;
-        CLEAR_FLAG(TIMER_FLAGS_REG,T0_OVERFLOW_FLAG);
-        // clk/8 fast pwm mode clear OC0 on compare match and set at bottom
-        TCCR0 = 0x6A;   // fpwm = 5400Hz
-    }
-    #elif (FREQ_43200 == frequency)
-    {
-        OCR0 = l_dc;
-        CLEAR_FLAG(TIMER_FLAGS_REG,T0_OVERFLOW_FLAG);
-        // clk/1 fast pwm mode clear OC0 on compare match and set at bottom
-        TCCR0 = 0x69;   // fpwm = 43200Hz
-    }
-    #endif
 
 }
 
@@ -106,7 +113,7 @@ void pwm_oc2(pwm_freq frequency,uint8_t dc)
     gpio_pin_mode(T2_OC_PIN,&PORTD,OUTPUT); // for fast pwm generation OC2 pin
     TCNT2 = 0;
 
-    OCR2 = (uint8_t)l_dc;
+    OCR2 = l_dc;
     CLEAR_FLAG(TIMER_FLAGS_REG,T2_OVERFLOW_FLAG);
 
     switch(frequency)
