@@ -24,6 +24,10 @@
                                     TCCR1B = 0xC1;\
                                 }
 
+#define DISABLE_ICP             {   TCCR1A = 0U;\
+                                    TCCR1B = 0U;\
+                                }
+
 
 
 typedef enum pwm_pin{
@@ -62,12 +66,6 @@ void ms_delay(uint16_t);
 void us_delay(uint16_t);
 
 
-
-/// @brief generate pwm on pre-defined OC0, 0C1A, OC1B, OC2 pins
-/// @param  frequency in kHz
-/// @param  dutycycle in percentage (1 - 100)
-/// @param  pin on which pwm generates
-void pwm(uint16_t,uint8_t,uint8_t);
 
 
 void pwm_oc0(pwm_freq ,uint8_t);
