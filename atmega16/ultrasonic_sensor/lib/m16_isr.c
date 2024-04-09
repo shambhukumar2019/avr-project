@@ -79,6 +79,11 @@ ISR(TIMER0_COMP_vect)
     //OCR0 = 250;
 }
 
+ISR(TIMER1_OVF_vect)
+{
+    overflow_counter += 1;
+}
+
 ISR(TIMER1_COMPA_vect)
 {
       

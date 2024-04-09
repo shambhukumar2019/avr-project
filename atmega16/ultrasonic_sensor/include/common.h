@@ -22,6 +22,7 @@
 #include "m16_mcp3208.h"
 #include "m16_adc.h"
 #include "m16_timer.h"
+#include "ultrasonic_sensor.h"
 
 
 
@@ -78,7 +79,7 @@
 
 
 uint8_t spdr_rx_byte;
-
+volatile uint8_t overflow_counter;
 
 
 #endif
