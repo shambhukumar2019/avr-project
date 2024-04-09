@@ -1,0 +1,420 @@
+\hypertarget{m16__interrupt_8h}{}\doxysection{include/m16\+\_\+interrupt.h File Reference}
+\label{m16__interrupt_8h}\index{include/m16\_interrupt.h@{include/m16\_interrupt.h}}
+
+
+interrupt device driver header file  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+Include dependency graph for m16\+\_\+interrupt.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__interrupt_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__interrupt_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a5e808319bbfad92ddea5d7f9f43dcc74}{EI01\+\_\+\+LOW\+\_\+\+LEVEL}}~0U
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a958110cfca4f5b76c124849b74182475}{EI0\+\_\+\+ANY\+\_\+\+LOGIC}}~1U
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_acae261df71cb63601736802f2fdbc912}{EI0\+\_\+\+F\+\_\+\+EDGE}}~2U
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a9dc18ddcbb51cba350bb12ff49c495f3}{EI0\+\_\+\+R\+\_\+\+EDGE}}~3U
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ad4ede6c3b51720fba1010635c8ae192c}{EI1\+\_\+\+ANY\+\_\+\+LOGIC}}~4U
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ab35b843966cee5cd7bf00014346ce61b}{EI1\+\_\+\+F\+\_\+\+EDGE}}~8U
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a2af4cceeb93ad2c4c10af9c8bce09cd3}{EI1\+\_\+\+R\+\_\+\+EDGE}}~12U
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a43c70f6e35eed662cb472f6e1ac17748}{EXTERNAL\+\_\+\+INTERRUPT\+\_\+0}}~INT0
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_abd495765bbd9ebdeb0e995dc8b98049c}{EXTERNAL\+\_\+\+INTERRUPT\+\_\+1}}~INT1
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a7822fb6b7035c1067e4e621743fa60e1}{EXTERNAL\+\_\+\+INTERRUPT\+\_\+2}}~INT2
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_aab30d6eeb1ef02aa2806c3618c57c0b6}{T0\+\_\+\+OVERFLOW\+\_\+\+INTERRUPT}}~TOIE0
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_abd03dada11b715f6eac2f557b34f9fda}{T0\+\_\+\+COMPARE\+\_\+\+INTERRUPT}}~OCIE0
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a9f6df0a9e2b2a57810efdc82ce587e55}{T1\+\_\+\+OVERFLOW\+\_\+\+INTERRUPT}}~TOIE1
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a28282f89cbff455c787eb05239845a95}{T1\+\_\+\+COMPARE\+\_\+\+A\+\_\+\+INTERRUPT}}~OCIE1A
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ab5faa8657de5b3cada4ee56f9409627a}{T1\+\_\+\+COMPARE\+\_\+\+B\+\_\+\+INTERRUPT}}~OCIE1B
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a98c4da4792ca38bce66f267f4e1a6a2a}{T1\+\_\+\+CAPTURE\+\_\+\+INTERRUPT}}~TICIE1
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_aac4ab4bedf1cebe380260f1eba20e159}{T2\+\_\+\+OVERFLOW\+\_\+\+INTERRUPT}}~TOIE2
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a67826bf5fc7af66f99fc4606b8929dd4}{T2\+\_\+\+COMPARE\+\_\+\+INTERRUPT}}~OCIE2
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a491a6f10719927ef3d8ae7f25c4fc67d}{UART\+\_\+\+RX\+\_\+\+INTERRUPT}}~RXCIE
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a720a4ae9a13da014b968c3188e8f9e33}{UART\+\_\+\+TX\+\_\+\+INTERRUPT}}~TXCIE
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ace93b6adfe122134cb1687dcbc381f1b}{UART\+\_\+\+UDRE\+\_\+\+INTERRUPT}}~UDRIE
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a15db99adf6875b00aa8ef320ad247f95}{ADC\+\_\+\+INTERRUPT}}~ADIE
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a77d03e46bbbb1218e75d461aff12c5e0}{COMPARATOR\+\_\+\+INTERRUPT}}~ACIE
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_abcc154757b25dda166dce9045be9ab84}{SPI\+\_\+\+INTERRUPT}}~SPIE
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ab6732fa51d5fc76aaf8830b8746fd9e0}{I2\+C\+\_\+\+INTERRUPT}}~TWIE
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a2571ca01d23a4a072f086420b3ce2aca}{TIMER\+\_\+\+INTERRUPT\+\_\+\+REG}}~TIMSK
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a0c8c015ec9fdbde41203bf68228d70f0}{USART\+\_\+\+INTERRUPT\+\_\+\+REG}}~UCSRB
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ab5bcaa4d8b1227b266b8b35400537472}{EXT\+\_\+\+INTERRUPT\+\_\+\+REG}}~GICR
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ad8e0dc5ad6e44841aaa55845ad04ad9f}{ADC\+\_\+\+INTERRUPT\+\_\+\+REG}}~ADCSRA
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a5289a82933a9a012b8f7c624ed90dee1}{COMPARATOR\+\_\+\+INTERRUPT\+\_\+\+REG}}~ACSR
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_ac20c34e07484971a18a665a03b9ce760}{SPI\+\_\+\+CONTROL\+\_\+\+REG}}~SPCR
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a1e52cb510c5cb86e7140eaa5c4f21042}{I2\+C\+\_\+\+INTERRUPT\+\_\+\+REG}}~TWCR
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}{SET\+\_\+\+GLOBAL\+\_\+\+INTERRUPT}}~sei()
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}{CLEAR\+\_\+\+GLOBAL\+\_\+\+INTERRUPT}}~cli()
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a7d2e937f5bc85ae45507c9414631e5ce}{ENABLE\+\_\+\+INTERRUPT}}(intr\+\_\+reg,  intr\+\_\+bit)~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(intr\+\_\+reg,intr\+\_\+bit)
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a83a7733cd506b76365523e355ffb9639}{DISABLE\+\_\+\+INTERRUPT}}(intr\+\_\+reg,  intr\+\_\+bit)~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(intr\+\_\+reg,intr\+\_\+bit)
+\item 
+\#define \mbox{\hyperlink{m16__interrupt_8h_a25dd1ce6f86462f3064bb3a3248d2cbf}{CLEAR\+\_\+\+FLAG}}(reg,  bit)~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(reg,bit)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}{trigger\+\_\+mode}} \mbox{\hyperlink{m16__interrupt_8h_a74a2f2940749bea9b0b0c2e9ab4ed4eb}{trigger\+\_\+mode}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}{trigger\+\_\+mode}} \{ \newline
+\mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+, \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ab211cf14477a0a8c8a2d7a6c56d7a3ae}{LOW\+\_\+\+LEVEL}}
+, \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712a86445853271053ed37f404b9ca4fa434}{RISING\+\_\+\+EDGE}}
+, \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ab88c132109a78c131815f270b8bef045}{FALLING\+\_\+\+EDGE}}
+, \newline
+\mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712a6c0e9a26245e0a910d51fbb63b24092d}{ANY\+\_\+\+LOGIC\+\_\+\+CHANGE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{m16__interrupt_8h_a9134528c1b01dddc8bb6b5921d33ed4a}{spi\+\_\+isr\+\_\+counter}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+interrupt device driver header file 
+
+\begin{DoxyAuthor}{Author}
+shambhu kumar (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/01-\/21
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{m16__interrupt_8h_a15db99adf6875b00aa8ef320ad247f95}\label{m16__interrupt_8h_a15db99adf6875b00aa8ef320ad247f95}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!ADC\_INTERRUPT@{ADC\_INTERRUPT}}
+\index{ADC\_INTERRUPT@{ADC\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_INTERRUPT}{ADC\_INTERRUPT}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+INTERRUPT~ADIE}
+
+\mbox{\Hypertarget{m16__interrupt_8h_ad8e0dc5ad6e44841aaa55845ad04ad9f}\label{m16__interrupt_8h_ad8e0dc5ad6e44841aaa55845ad04ad9f}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!ADC\_INTERRUPT\_REG@{ADC\_INTERRUPT\_REG}}
+\index{ADC\_INTERRUPT\_REG@{ADC\_INTERRUPT\_REG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_INTERRUPT\_REG}{ADC\_INTERRUPT\_REG}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+INTERRUPT\+\_\+\+REG~ADCSRA}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a25dd1ce6f86462f3064bb3a3248d2cbf}\label{m16__interrupt_8h_a25dd1ce6f86462f3064bb3a3248d2cbf}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!CLEAR\_FLAG@{CLEAR\_FLAG}}
+\index{CLEAR\_FLAG@{CLEAR\_FLAG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_FLAG}{CLEAR\_FLAG}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+FLAG(\begin{DoxyParamCaption}\item[{}]{reg,  }\item[{}]{bit }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(reg,bit)}
+
+\mbox{\Hypertarget{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}\label{m16__interrupt_8h_acfa8623e6ad7bdc66bfd6c9b9ac4c1d6}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!CLEAR\_GLOBAL\_INTERRUPT@{CLEAR\_GLOBAL\_INTERRUPT}}
+\index{CLEAR\_GLOBAL\_INTERRUPT@{CLEAR\_GLOBAL\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_GLOBAL\_INTERRUPT}{CLEAR\_GLOBAL\_INTERRUPT}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+GLOBAL\+\_\+\+INTERRUPT~cli()}
+
+\begin{DoxyAttention}{Attention}
+no any pending interrupt executed 
+\end{DoxyAttention}
+\mbox{\Hypertarget{m16__interrupt_8h_a77d03e46bbbb1218e75d461aff12c5e0}\label{m16__interrupt_8h_a77d03e46bbbb1218e75d461aff12c5e0}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!COMPARATOR\_INTERRUPT@{COMPARATOR\_INTERRUPT}}
+\index{COMPARATOR\_INTERRUPT@{COMPARATOR\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{COMPARATOR\_INTERRUPT}{COMPARATOR\_INTERRUPT}}
+{\footnotesize\ttfamily \#define COMPARATOR\+\_\+\+INTERRUPT~ACIE}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a5289a82933a9a012b8f7c624ed90dee1}\label{m16__interrupt_8h_a5289a82933a9a012b8f7c624ed90dee1}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!COMPARATOR\_INTERRUPT\_REG@{COMPARATOR\_INTERRUPT\_REG}}
+\index{COMPARATOR\_INTERRUPT\_REG@{COMPARATOR\_INTERRUPT\_REG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{COMPARATOR\_INTERRUPT\_REG}{COMPARATOR\_INTERRUPT\_REG}}
+{\footnotesize\ttfamily \#define COMPARATOR\+\_\+\+INTERRUPT\+\_\+\+REG~ACSR}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a83a7733cd506b76365523e355ffb9639}\label{m16__interrupt_8h_a83a7733cd506b76365523e355ffb9639}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!DISABLE\_INTERRUPT@{DISABLE\_INTERRUPT}}
+\index{DISABLE\_INTERRUPT@{DISABLE\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{DISABLE\_INTERRUPT}{DISABLE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define DISABLE\+\_\+\+INTERRUPT(\begin{DoxyParamCaption}\item[{}]{intr\+\_\+reg,  }\item[{}]{intr\+\_\+bit }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(intr\+\_\+reg,intr\+\_\+bit)}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a5e808319bbfad92ddea5d7f9f43dcc74}\label{m16__interrupt_8h_a5e808319bbfad92ddea5d7f9f43dcc74}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EI01\_LOW\_LEVEL@{EI01\_LOW\_LEVEL}}
+\index{EI01\_LOW\_LEVEL@{EI01\_LOW\_LEVEL}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EI01\_LOW\_LEVEL}{EI01\_LOW\_LEVEL}}
+{\footnotesize\ttfamily \#define EI01\+\_\+\+LOW\+\_\+\+LEVEL~0U}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a958110cfca4f5b76c124849b74182475}\label{m16__interrupt_8h_a958110cfca4f5b76c124849b74182475}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EI0\_ANY\_LOGIC@{EI0\_ANY\_LOGIC}}
+\index{EI0\_ANY\_LOGIC@{EI0\_ANY\_LOGIC}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EI0\_ANY\_LOGIC}{EI0\_ANY\_LOGIC}}
+{\footnotesize\ttfamily \#define EI0\+\_\+\+ANY\+\_\+\+LOGIC~1U}
+
+\mbox{\Hypertarget{m16__interrupt_8h_acae261df71cb63601736802f2fdbc912}\label{m16__interrupt_8h_acae261df71cb63601736802f2fdbc912}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EI0\_F\_EDGE@{EI0\_F\_EDGE}}
+\index{EI0\_F\_EDGE@{EI0\_F\_EDGE}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EI0\_F\_EDGE}{EI0\_F\_EDGE}}
+{\footnotesize\ttfamily \#define EI0\+\_\+\+F\+\_\+\+EDGE~2U}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a9dc18ddcbb51cba350bb12ff49c495f3}\label{m16__interrupt_8h_a9dc18ddcbb51cba350bb12ff49c495f3}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EI0\_R\_EDGE@{EI0\_R\_EDGE}}
+\index{EI0\_R\_EDGE@{EI0\_R\_EDGE}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EI0\_R\_EDGE}{EI0\_R\_EDGE}}
+{\footnotesize\ttfamily \#define EI0\+\_\+\+R\+\_\+\+EDGE~3U}
+
+\mbox{\Hypertarget{m16__interrupt_8h_ad4ede6c3b51720fba1010635c8ae192c}\label{m16__interrupt_8h_ad4ede6c3b51720fba1010635c8ae192c}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EI1\_ANY\_LOGIC@{EI1\_ANY\_LOGIC}}
+\index{EI1\_ANY\_LOGIC@{EI1\_ANY\_LOGIC}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EI1\_ANY\_LOGIC}{EI1\_ANY\_LOGIC}}
+{\footnotesize\ttfamily \#define EI1\+\_\+\+ANY\+\_\+\+LOGIC~4U}
+
+\mbox{\Hypertarget{m16__interrupt_8h_ab35b843966cee5cd7bf00014346ce61b}\label{m16__interrupt_8h_ab35b843966cee5cd7bf00014346ce61b}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EI1\_F\_EDGE@{EI1\_F\_EDGE}}
+\index{EI1\_F\_EDGE@{EI1\_F\_EDGE}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EI1\_F\_EDGE}{EI1\_F\_EDGE}}
+{\footnotesize\ttfamily \#define EI1\+\_\+\+F\+\_\+\+EDGE~8U}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a2af4cceeb93ad2c4c10af9c8bce09cd3}\label{m16__interrupt_8h_a2af4cceeb93ad2c4c10af9c8bce09cd3}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EI1\_R\_EDGE@{EI1\_R\_EDGE}}
+\index{EI1\_R\_EDGE@{EI1\_R\_EDGE}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EI1\_R\_EDGE}{EI1\_R\_EDGE}}
+{\footnotesize\ttfamily \#define EI1\+\_\+\+R\+\_\+\+EDGE~12U}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a7d2e937f5bc85ae45507c9414631e5ce}\label{m16__interrupt_8h_a7d2e937f5bc85ae45507c9414631e5ce}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!ENABLE\_INTERRUPT@{ENABLE\_INTERRUPT}}
+\index{ENABLE\_INTERRUPT@{ENABLE\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_INTERRUPT}{ENABLE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define ENABLE\+\_\+\+INTERRUPT(\begin{DoxyParamCaption}\item[{}]{intr\+\_\+reg,  }\item[{}]{intr\+\_\+bit }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(intr\+\_\+reg,intr\+\_\+bit)}
+
+\mbox{\Hypertarget{m16__interrupt_8h_ab5bcaa4d8b1227b266b8b35400537472}\label{m16__interrupt_8h_ab5bcaa4d8b1227b266b8b35400537472}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EXT\_INTERRUPT\_REG@{EXT\_INTERRUPT\_REG}}
+\index{EXT\_INTERRUPT\_REG@{EXT\_INTERRUPT\_REG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INTERRUPT\_REG}{EXT\_INTERRUPT\_REG}}
+{\footnotesize\ttfamily \#define EXT\+\_\+\+INTERRUPT\+\_\+\+REG~GICR}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a43c70f6e35eed662cb472f6e1ac17748}\label{m16__interrupt_8h_a43c70f6e35eed662cb472f6e1ac17748}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EXTERNAL\_INTERRUPT\_0@{EXTERNAL\_INTERRUPT\_0}}
+\index{EXTERNAL\_INTERRUPT\_0@{EXTERNAL\_INTERRUPT\_0}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EXTERNAL\_INTERRUPT\_0}{EXTERNAL\_INTERRUPT\_0}}
+{\footnotesize\ttfamily \#define EXTERNAL\+\_\+\+INTERRUPT\+\_\+0~INT0}
+
+\mbox{\Hypertarget{m16__interrupt_8h_abd495765bbd9ebdeb0e995dc8b98049c}\label{m16__interrupt_8h_abd495765bbd9ebdeb0e995dc8b98049c}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EXTERNAL\_INTERRUPT\_1@{EXTERNAL\_INTERRUPT\_1}}
+\index{EXTERNAL\_INTERRUPT\_1@{EXTERNAL\_INTERRUPT\_1}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EXTERNAL\_INTERRUPT\_1}{EXTERNAL\_INTERRUPT\_1}}
+{\footnotesize\ttfamily \#define EXTERNAL\+\_\+\+INTERRUPT\+\_\+1~INT1}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a7822fb6b7035c1067e4e621743fa60e1}\label{m16__interrupt_8h_a7822fb6b7035c1067e4e621743fa60e1}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!EXTERNAL\_INTERRUPT\_2@{EXTERNAL\_INTERRUPT\_2}}
+\index{EXTERNAL\_INTERRUPT\_2@{EXTERNAL\_INTERRUPT\_2}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{EXTERNAL\_INTERRUPT\_2}{EXTERNAL\_INTERRUPT\_2}}
+{\footnotesize\ttfamily \#define EXTERNAL\+\_\+\+INTERRUPT\+\_\+2~INT2}
+
+\mbox{\Hypertarget{m16__interrupt_8h_ab6732fa51d5fc76aaf8830b8746fd9e0}\label{m16__interrupt_8h_ab6732fa51d5fc76aaf8830b8746fd9e0}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!I2C\_INTERRUPT@{I2C\_INTERRUPT}}
+\index{I2C\_INTERRUPT@{I2C\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_INTERRUPT}{I2C\_INTERRUPT}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+INTERRUPT~TWIE}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a1e52cb510c5cb86e7140eaa5c4f21042}\label{m16__interrupt_8h_a1e52cb510c5cb86e7140eaa5c4f21042}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!I2C\_INTERRUPT\_REG@{I2C\_INTERRUPT\_REG}}
+\index{I2C\_INTERRUPT\_REG@{I2C\_INTERRUPT\_REG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_INTERRUPT\_REG}{I2C\_INTERRUPT\_REG}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+INTERRUPT\+\_\+\+REG~TWCR}
+
+\mbox{\Hypertarget{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}\label{m16__interrupt_8h_af92cdec268239db48e291ef0bfb61ece}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!SET\_GLOBAL\_INTERRUPT@{SET\_GLOBAL\_INTERRUPT}}
+\index{SET\_GLOBAL\_INTERRUPT@{SET\_GLOBAL\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{SET\_GLOBAL\_INTERRUPT}{SET\_GLOBAL\_INTERRUPT}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+GLOBAL\+\_\+\+INTERRUPT~sei()}
+
+\begin{DoxyAttention}{Attention}
+instructions after this is executed before any pending interrupt 
+\end{DoxyAttention}
+\mbox{\Hypertarget{m16__interrupt_8h_ac20c34e07484971a18a665a03b9ce760}\label{m16__interrupt_8h_ac20c34e07484971a18a665a03b9ce760}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!SPI\_CONTROL\_REG@{SPI\_CONTROL\_REG}}
+\index{SPI\_CONTROL\_REG@{SPI\_CONTROL\_REG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CONTROL\_REG}{SPI\_CONTROL\_REG}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+CONTROL\+\_\+\+REG~SPCR}
+
+\mbox{\Hypertarget{m16__interrupt_8h_abcc154757b25dda166dce9045be9ab84}\label{m16__interrupt_8h_abcc154757b25dda166dce9045be9ab84}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!SPI\_INTERRUPT@{SPI\_INTERRUPT}}
+\index{SPI\_INTERRUPT@{SPI\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_INTERRUPT}{SPI\_INTERRUPT}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+INTERRUPT~SPIE}
+
+\mbox{\Hypertarget{m16__interrupt_8h_abd03dada11b715f6eac2f557b34f9fda}\label{m16__interrupt_8h_abd03dada11b715f6eac2f557b34f9fda}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T0\_COMPARE\_INTERRUPT@{T0\_COMPARE\_INTERRUPT}}
+\index{T0\_COMPARE\_INTERRUPT@{T0\_COMPARE\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T0\_COMPARE\_INTERRUPT}{T0\_COMPARE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T0\+\_\+\+COMPARE\+\_\+\+INTERRUPT~OCIE0}
+
+\mbox{\Hypertarget{m16__interrupt_8h_aab30d6eeb1ef02aa2806c3618c57c0b6}\label{m16__interrupt_8h_aab30d6eeb1ef02aa2806c3618c57c0b6}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T0\_OVERFLOW\_INTERRUPT@{T0\_OVERFLOW\_INTERRUPT}}
+\index{T0\_OVERFLOW\_INTERRUPT@{T0\_OVERFLOW\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T0\_OVERFLOW\_INTERRUPT}{T0\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T0\+\_\+\+OVERFLOW\+\_\+\+INTERRUPT~TOIE0}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a98c4da4792ca38bce66f267f4e1a6a2a}\label{m16__interrupt_8h_a98c4da4792ca38bce66f267f4e1a6a2a}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T1\_CAPTURE\_INTERRUPT@{T1\_CAPTURE\_INTERRUPT}}
+\index{T1\_CAPTURE\_INTERRUPT@{T1\_CAPTURE\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T1\_CAPTURE\_INTERRUPT}{T1\_CAPTURE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+CAPTURE\+\_\+\+INTERRUPT~TICIE1}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a28282f89cbff455c787eb05239845a95}\label{m16__interrupt_8h_a28282f89cbff455c787eb05239845a95}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T1\_COMPARE\_A\_INTERRUPT@{T1\_COMPARE\_A\_INTERRUPT}}
+\index{T1\_COMPARE\_A\_INTERRUPT@{T1\_COMPARE\_A\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T1\_COMPARE\_A\_INTERRUPT}{T1\_COMPARE\_A\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+COMPARE\+\_\+\+A\+\_\+\+INTERRUPT~OCIE1A}
+
+\mbox{\Hypertarget{m16__interrupt_8h_ab5faa8657de5b3cada4ee56f9409627a}\label{m16__interrupt_8h_ab5faa8657de5b3cada4ee56f9409627a}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T1\_COMPARE\_B\_INTERRUPT@{T1\_COMPARE\_B\_INTERRUPT}}
+\index{T1\_COMPARE\_B\_INTERRUPT@{T1\_COMPARE\_B\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T1\_COMPARE\_B\_INTERRUPT}{T1\_COMPARE\_B\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+COMPARE\+\_\+\+B\+\_\+\+INTERRUPT~OCIE1B}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a9f6df0a9e2b2a57810efdc82ce587e55}\label{m16__interrupt_8h_a9f6df0a9e2b2a57810efdc82ce587e55}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T1\_OVERFLOW\_INTERRUPT@{T1\_OVERFLOW\_INTERRUPT}}
+\index{T1\_OVERFLOW\_INTERRUPT@{T1\_OVERFLOW\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T1\_OVERFLOW\_INTERRUPT}{T1\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+OVERFLOW\+\_\+\+INTERRUPT~TOIE1}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a67826bf5fc7af66f99fc4606b8929dd4}\label{m16__interrupt_8h_a67826bf5fc7af66f99fc4606b8929dd4}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T2\_COMPARE\_INTERRUPT@{T2\_COMPARE\_INTERRUPT}}
+\index{T2\_COMPARE\_INTERRUPT@{T2\_COMPARE\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T2\_COMPARE\_INTERRUPT}{T2\_COMPARE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T2\+\_\+\+COMPARE\+\_\+\+INTERRUPT~OCIE2}
+
+\mbox{\Hypertarget{m16__interrupt_8h_aac4ab4bedf1cebe380260f1eba20e159}\label{m16__interrupt_8h_aac4ab4bedf1cebe380260f1eba20e159}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!T2\_OVERFLOW\_INTERRUPT@{T2\_OVERFLOW\_INTERRUPT}}
+\index{T2\_OVERFLOW\_INTERRUPT@{T2\_OVERFLOW\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{T2\_OVERFLOW\_INTERRUPT}{T2\_OVERFLOW\_INTERRUPT}}
+{\footnotesize\ttfamily \#define T2\+\_\+\+OVERFLOW\+\_\+\+INTERRUPT~TOIE2}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a2571ca01d23a4a072f086420b3ce2aca}\label{m16__interrupt_8h_a2571ca01d23a4a072f086420b3ce2aca}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!TIMER\_INTERRUPT\_REG@{TIMER\_INTERRUPT\_REG}}
+\index{TIMER\_INTERRUPT\_REG@{TIMER\_INTERRUPT\_REG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_INTERRUPT\_REG}{TIMER\_INTERRUPT\_REG}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+INTERRUPT\+\_\+\+REG~TIMSK}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a491a6f10719927ef3d8ae7f25c4fc67d}\label{m16__interrupt_8h_a491a6f10719927ef3d8ae7f25c4fc67d}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!UART\_RX\_INTERRUPT@{UART\_RX\_INTERRUPT}}
+\index{UART\_RX\_INTERRUPT@{UART\_RX\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{UART\_RX\_INTERRUPT}{UART\_RX\_INTERRUPT}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+RX\+\_\+\+INTERRUPT~RXCIE}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a720a4ae9a13da014b968c3188e8f9e33}\label{m16__interrupt_8h_a720a4ae9a13da014b968c3188e8f9e33}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!UART\_TX\_INTERRUPT@{UART\_TX\_INTERRUPT}}
+\index{UART\_TX\_INTERRUPT@{UART\_TX\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{UART\_TX\_INTERRUPT}{UART\_TX\_INTERRUPT}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+TX\+\_\+\+INTERRUPT~TXCIE}
+
+\mbox{\Hypertarget{m16__interrupt_8h_ace93b6adfe122134cb1687dcbc381f1b}\label{m16__interrupt_8h_ace93b6adfe122134cb1687dcbc381f1b}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!UART\_UDRE\_INTERRUPT@{UART\_UDRE\_INTERRUPT}}
+\index{UART\_UDRE\_INTERRUPT@{UART\_UDRE\_INTERRUPT}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{UART\_UDRE\_INTERRUPT}{UART\_UDRE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+UDRE\+\_\+\+INTERRUPT~UDRIE}
+
+\mbox{\Hypertarget{m16__interrupt_8h_a0c8c015ec9fdbde41203bf68228d70f0}\label{m16__interrupt_8h_a0c8c015ec9fdbde41203bf68228d70f0}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!USART\_INTERRUPT\_REG@{USART\_INTERRUPT\_REG}}
+\index{USART\_INTERRUPT\_REG@{USART\_INTERRUPT\_REG}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{USART\_INTERRUPT\_REG}{USART\_INTERRUPT\_REG}}
+{\footnotesize\ttfamily \#define USART\+\_\+\+INTERRUPT\+\_\+\+REG~UCSRB}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{m16__interrupt_8h_a74a2f2940749bea9b0b0c2e9ab4ed4eb}\label{m16__interrupt_8h_a74a2f2940749bea9b0b0c2e9ab4ed4eb}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!trigger\_mode@{trigger\_mode}}
+\index{trigger\_mode@{trigger\_mode}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{trigger\_mode}{trigger\_mode}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}{trigger\+\_\+mode}} \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}{trigger\+\_\+mode}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}\label{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!trigger\_mode@{trigger\_mode}}
+\index{trigger\_mode@{trigger\_mode}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{trigger\_mode}{trigger\_mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712}{trigger\+\_\+mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!m16\_interrupt.h@{m16\_interrupt.h}}\index{m16\_interrupt.h@{m16\_interrupt.h}!NONE@{NONE}}}\mbox{\Hypertarget{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ac157bdf0b85a40d2619cbc8bc1ae5fe2}\label{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ac157bdf0b85a40d2619cbc8bc1ae5fe2}} 
+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOW\_LEVEL@{LOW\_LEVEL}!m16\_interrupt.h@{m16\_interrupt.h}}\index{m16\_interrupt.h@{m16\_interrupt.h}!LOW\_LEVEL@{LOW\_LEVEL}}}\mbox{\Hypertarget{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ab211cf14477a0a8c8a2d7a6c56d7a3ae}\label{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ab211cf14477a0a8c8a2d7a6c56d7a3ae}} 
+LOW\+\_\+\+LEVEL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RISING\_EDGE@{RISING\_EDGE}!m16\_interrupt.h@{m16\_interrupt.h}}\index{m16\_interrupt.h@{m16\_interrupt.h}!RISING\_EDGE@{RISING\_EDGE}}}\mbox{\Hypertarget{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712a86445853271053ed37f404b9ca4fa434}\label{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712a86445853271053ed37f404b9ca4fa434}} 
+RISING\+\_\+\+EDGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FALLING\_EDGE@{FALLING\_EDGE}!m16\_interrupt.h@{m16\_interrupt.h}}\index{m16\_interrupt.h@{m16\_interrupt.h}!FALLING\_EDGE@{FALLING\_EDGE}}}\mbox{\Hypertarget{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ab88c132109a78c131815f270b8bef045}\label{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712ab88c132109a78c131815f270b8bef045}} 
+FALLING\+\_\+\+EDGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ANY\_LOGIC\_CHANGE@{ANY\_LOGIC\_CHANGE}!m16\_interrupt.h@{m16\_interrupt.h}}\index{m16\_interrupt.h@{m16\_interrupt.h}!ANY\_LOGIC\_CHANGE@{ANY\_LOGIC\_CHANGE}}}\mbox{\Hypertarget{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712a6c0e9a26245e0a910d51fbb63b24092d}\label{m16__interrupt_8h_a6a3ccfcf43caf6fed8b584bd16d37712a6c0e9a26245e0a910d51fbb63b24092d}} 
+ANY\+\_\+\+LOGIC\+\_\+\+CHANGE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{m16__interrupt_8h_a9134528c1b01dddc8bb6b5921d33ed4a}\label{m16__interrupt_8h_a9134528c1b01dddc8bb6b5921d33ed4a}} 
+\index{m16\_interrupt.h@{m16\_interrupt.h}!spi\_isr\_counter@{spi\_isr\_counter}}
+\index{spi\_isr\_counter@{spi\_isr\_counter}!m16\_interrupt.h@{m16\_interrupt.h}}
+\doxysubsubsection{\texorpdfstring{spi\_isr\_counter}{spi\_isr\_counter}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t spi\+\_\+isr\+\_\+counter}
+

@@ -1,0 +1,163 @@
+\hypertarget{m16__timer_8h}{}\doxysection{include/m16\+\_\+timer.h File Reference}
+\label{m16__timer_8h}\index{include/m16\_timer.h@{include/m16\_timer.h}}
+
+
+timer device driver header file  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+Include dependency graph for m16\+\_\+timer.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__timer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{m16__timer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{m16__timer_8h_af421bdab1c0fe5d13bd4984a22ce6c2d}{ms\+\_\+delay}} (uint16\+\_\+t)
+\begin{DoxyCompactList}\small\item\em polled delay in milliseconds \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{m16__timer_8h_af0c064d55440d2c58d083399cfc89cfd}{us\+\_\+delay}} (uint16\+\_\+t)
+\begin{DoxyCompactList}\small\item\em polled delay in microseconds \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{m16__timer_8h_a4c19cb7a6a286886e7a2856c91567b5d}{pwm}} (uint16\+\_\+t, uint8\+\_\+t, uint8\+\_\+t)
+\begin{DoxyCompactList}\small\item\em generate pwm on pre-\/defined OC0, 0C1A, OC1B, OC2 pins \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{m16__timer_8h_a017b3b8774c662c91debe1214f74b7d3}{config\+\_\+timer}} (uint8\+\_\+t, uint8\+\_\+t, uint16\+\_\+t)
+\begin{DoxyCompactList}\small\item\em configure any timer in any mode for a given time using interrupt \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{m16__timer_8h_ae41ec435aba68f6deccc05e9c5d67c1f}{measure\+\_\+frequency}} (void)
+\begin{DoxyCompactList}\small\item\em measure input signal frequency on ICP pin \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{m16__timer_8h_a2111600bd01a95fe7c8a83a614c67a6d}{measure\+\_\+dutycycle}} (void)
+\begin{DoxyCompactList}\small\item\em measure input signal duty cycle on ICP pin \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+timer device driver header file 
+
+\begin{DoxyAuthor}{Author}
+shambhu kumar (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/03-\/30
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{m16__timer_8h_a017b3b8774c662c91debe1214f74b7d3}\label{m16__timer_8h_a017b3b8774c662c91debe1214f74b7d3}} 
+\index{m16\_timer.h@{m16\_timer.h}!config\_timer@{config\_timer}}
+\index{config\_timer@{config\_timer}!m16\_timer.h@{m16\_timer.h}}
+\doxysubsubsection{\texorpdfstring{config\_timer()}{config\_timer()}}
+{\footnotesize\ttfamily void config\+\_\+timer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer,  }\item[{uint8\+\_\+t}]{oper\+\_\+mode,  }\item[{uint16\+\_\+t}]{delay }\end{DoxyParamCaption})}
+
+
+
+configure any timer in any mode for a given time using interrupt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & \\
+\hline
+{\em mode} & of timer \\
+\hline
+{\em delay} & value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{m16__timer_8h_a2111600bd01a95fe7c8a83a614c67a6d}\label{m16__timer_8h_a2111600bd01a95fe7c8a83a614c67a6d}} 
+\index{m16\_timer.h@{m16\_timer.h}!measure\_dutycycle@{measure\_dutycycle}}
+\index{measure\_dutycycle@{measure\_dutycycle}!m16\_timer.h@{m16\_timer.h}}
+\doxysubsubsection{\texorpdfstring{measure\_dutycycle()}{measure\_dutycycle()}}
+{\footnotesize\ttfamily uint8\+\_\+t measure\+\_\+dutycycle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+measure input signal duty cycle on ICP pin 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+measured dutycycle in percentage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{m16__timer_8h_ae41ec435aba68f6deccc05e9c5d67c1f}\label{m16__timer_8h_ae41ec435aba68f6deccc05e9c5d67c1f}} 
+\index{m16\_timer.h@{m16\_timer.h}!measure\_frequency@{measure\_frequency}}
+\index{measure\_frequency@{measure\_frequency}!m16\_timer.h@{m16\_timer.h}}
+\doxysubsubsection{\texorpdfstring{measure\_frequency()}{measure\_frequency()}}
+{\footnotesize\ttfamily uint16\+\_\+t measure\+\_\+frequency (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+measure input signal frequency on ICP pin 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+measured frequency in k\+Hz 
+\end{DoxyReturn}
+\mbox{\Hypertarget{m16__timer_8h_af421bdab1c0fe5d13bd4984a22ce6c2d}\label{m16__timer_8h_af421bdab1c0fe5d13bd4984a22ce6c2d}} 
+\index{m16\_timer.h@{m16\_timer.h}!ms\_delay@{ms\_delay}}
+\index{ms\_delay@{ms\_delay}!m16\_timer.h@{m16\_timer.h}}
+\doxysubsubsection{\texorpdfstring{ms\_delay()}{ms\_delay()}}
+{\footnotesize\ttfamily void ms\+\_\+delay (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{milli }\end{DoxyParamCaption})}
+
+
+
+polled delay in milliseconds 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & in milliseconds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{m16__timer_8h_a4c19cb7a6a286886e7a2856c91567b5d}\label{m16__timer_8h_a4c19cb7a6a286886e7a2856c91567b5d}} 
+\index{m16\_timer.h@{m16\_timer.h}!pwm@{pwm}}
+\index{pwm@{pwm}!m16\_timer.h@{m16\_timer.h}}
+\doxysubsubsection{\texorpdfstring{pwm()}{pwm()}}
+{\footnotesize\ttfamily void pwm (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{freq,  }\item[{uint8\+\_\+t}]{dc,  }\item[{uint8\+\_\+t}]{oc\+\_\+pin }\end{DoxyParamCaption})}
+
+
+
+generate pwm on pre-\/defined OC0, 0C1A, OC1B, OC2 pins 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequency} & in k\+Hz \\
+\hline
+{\em dutycycle} & in percentage (1 -\/ 100) \\
+\hline
+{\em pin} & on which pwm generates \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{m16__timer_8h_af0c064d55440d2c58d083399cfc89cfd}\label{m16__timer_8h_af0c064d55440d2c58d083399cfc89cfd}} 
+\index{m16\_timer.h@{m16\_timer.h}!us\_delay@{us\_delay}}
+\index{us\_delay@{us\_delay}!m16\_timer.h@{m16\_timer.h}}
+\doxysubsubsection{\texorpdfstring{us\_delay()}{us\_delay()}}
+{\footnotesize\ttfamily void us\+\_\+delay (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{micro }\end{DoxyParamCaption})}
+
+
+
+polled delay in microseconds 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & in microseconds \\
+\hline
+\end{DoxyParams}

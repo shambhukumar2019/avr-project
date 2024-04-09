@@ -1,0 +1,702 @@
+\hypertarget{m16__gpio_8h}{}\doxysection{include/m16\+\_\+gpio.h File Reference}
+\label{m16__gpio_8h}\index{include/m16\_gpio.h@{include/m16\_gpio.h}}
+
+
+atmega32 gpio header file for m32\+\_\+gpio.\+c  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+Include dependency graph for m16\+\_\+gpio.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__gpio_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__gpio_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a1bb283bd7893b9855e2f23013891fc82}{INPUT}}~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}
+\begin{DoxyCompactList}\small\item\em IN -\/$>$ make a pin as input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a61a3c9a18380aafb6e430e79bf596557}{OUTPUT}}~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}
+\begin{DoxyCompactList}\small\item\em OUT -\/$>$ make a pin as output. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a221afe7744fa176c6ecdb9a7a30b690d}{GPIO\+\_\+\+GLOBAL\+\_\+\+PULLUP\+\_\+\+ENABLE}}~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(SFIOR,PUD)
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_af7570590d35b350fdf0f3d28eb373c8e}{GPIO\+\_\+\+GLOBAL\+\_\+\+PULLUP\+\_\+\+DISABLE}}~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(SFIOR,PUD)
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a0176b7bed348db32ebc47930f4607330}{GPIO\+\_\+\+PULLUP\+\_\+\+ON}}(port,  pin)~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(port,pin)
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_acce8ef6ddef605982b00c269920cfe56}{GPIO\+\_\+\+PULLUP\+\_\+\+OFF}}(port,  pin)~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(port,pin)
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a209539b6b0e7fe09559dc67b62acb94d}{ADC0\+\_\+\+PIN}}~PA0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a3f7482ad6495b9f8f69d9bb916aae854}{ADC1\+\_\+\+PIN}}~PA1
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_afb2f4f2a136b1a0dd1f1926defbae195}{ADC2\+\_\+\+PIN}}~PA2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a505837e2819dff70f176624930702756}{ADC3\+\_\+\+PIN}}~PA3
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a8a984183012e82dffc496e28b7caec32}{ADC4\+\_\+\+PIN}}~PA4
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a3cf2faf05db17fc145bc68a6116a6850}{ADC5\+\_\+\+PIN}}~PA5
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a718050cad8e71a42d2fe076de3109701}{ADC6\+\_\+\+PIN}}~PA6
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a6bb0890cfe5efb60ead3b04e3b3a26ea}{ADC7\+\_\+\+PIN}}~PA7
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a99286f5dd5ab3f0a5ccbd65aa221f9bf}{USART\+\_\+\+EXT\+\_\+\+CLK\+\_\+\+IO\+\_\+\+PIN}}~PB0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a3ee1ff2ee686dde5f6f84169c556c600}{EXT\+\_\+\+T0\+\_\+\+PIN}}~PB0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a0e5623e5823aa9015682893f36a1e309}{EXT\+\_\+\+T1\+\_\+\+PIN}}~PB1
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a8d07134065b220b97a854ff036dea94d}{EXT\+\_\+\+INTRRUPT\+\_\+2\+\_\+\+PIN}}~PB2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_aba388fe8f8ed4d4430100457e0fae00c}{COMPARATOR\+\_\+\+POS\+\_\+\+IN\+\_\+\+PIN}}~PB2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_af6e5175443c7da21fe80046ed132fd5a}{TIMER0\+\_\+\+OC\+\_\+\+PIN}}~PB3
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a0b95a43ec2e5b989401b7dfe1625bdc9}{COMPARATOR\+\_\+\+NEG\+\_\+\+IN\+\_\+\+PIN}}~PB3
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a003fbe87aad5106aed3802d794580bbf}{SPI\+\_\+\+SS\+\_\+\+PIN}}~PB4
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a67d2c0b6e0ecbd0351958756e4830172}{SPI\+\_\+\+MOSI\+\_\+\+PIN}}~PB5
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a315722498711fce1e1aa6ea6654385cf}{SPI\+\_\+\+MISO\+\_\+\+PIN}}~PB6
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_aee89f642bb559e12db93e9f412ea185e}{SPI\+\_\+\+SCK\+\_\+\+PIN}}~PB7
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a0e4e08bab2fb484136d18b067bef372c}{I2\+C\+\_\+\+SCL\+\_\+\+PIN}}~PC0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a2cade698267beb86ccaa38c14d35ab0f}{I2\+C\+\_\+\+SDA\+\_\+\+PIN}}~PC1
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a7c0601d1fef043699008544eaac4e4e8}{JTAG\+\_\+\+TEST\+\_\+\+CLK\+\_\+\+PIN}}~PC2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a14a932aed96bb0f21fd914cab1e37922}{JTAG\+\_\+\+TEST\+\_\+\+MODE\+\_\+\+SEL\+\_\+\+PIN}}~PC3
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a7ff9f523e33496ae166a10c913edefb5}{JTAG\+\_\+\+TEST\+\_\+\+DATA\+\_\+\+OUT\+\_\+\+PIN}}~PC4
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_acdb3a0363492bd940c25cf07225097a1}{JTAG\+\_\+\+TEST\+\_\+\+DATA\+\_\+\+IN\+\_\+\+PIN}}~PC5
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_af0b4ba0042452d7efc515587c1916a31}{TIMER\+\_\+\+OSC\+\_\+1\+\_\+\+PIN}}~PC6
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_ab271a5f0e94cd4f3675833e9cd8fb68e}{TIMER\+\_\+\+OSC\+\_\+2\+\_\+\+PIN}}~PC7
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_adc7d6fe2220359137dc87ba264524f96}{RXD\+\_\+\+PIN}}~PD0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a271a735bd865e77e0d27b09e5fd958f2}{TXD\+\_\+\+PIN}}~PD1
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a46e0805778fb06a999b836ac909fa1bc}{EXT\+\_\+\+INTRRUPT\+\_\+0\+\_\+\+PIN}}~PD2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a825e68e836dada343e02c4c2e32b3465}{EXT\+\_\+\+INTRRUPT\+\_\+1\+\_\+\+PIN}}~PD3
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a0ea045a6a7fc181049c5f93bffd9e067}{TIMER1\+\_\+\+OC\+\_\+\+B\+\_\+\+PIN}}~PD4
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a95d77601459b27eecc56952fb754533c}{TIMER1\+\_\+\+OC\+\_\+\+A\+\_\+\+PIN}}~PD5
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_aa50fd19370120bce9f60de4694e31d1a}{TIMER1\+\_\+\+ICP\+\_\+\+PIN}}~PD6
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a40a61a844553f8130706fa622d326b35}{TIMER2\+\_\+\+OC\+\_\+\+PIN}}~PD7
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a5b64933cadb4b05dcd701ee6dddaaa9a}{EI0\+\_\+\+FLAG}}~INTF0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a9f6e8b9a366b7c3dc3d863e16dc0aa5d}{EI1\+\_\+\+FLAG}}~INTF1
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_ac7e4a67eade7ca347223bd2f3e4d6937}{EI2\+\_\+\+FLAG}}~INTF2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a1c3bccdc3c9bceb810bbf91a52aa7c28}{T0\+\_\+\+OVERFLOW\+\_\+\+FLAG}}~TOV0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a7e7f13c3c201240167cd728883e533e2}{T0\+\_\+\+COMPARE\+\_\+\+FLAG}}~OCF0
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_aac5d6a4e8e7a5b98acc1bd72d29f6ae6}{T1\+\_\+\+OVERFLOW\+\_\+\+FLAG}}~TOV1
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a667b4023c1a25e1a6c4cbd9e5cbf84e1}{T1\+\_\+\+COMPARE\+\_\+\+A\+\_\+\+FLAG}}~OCF1A
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_ad5e1d5e8a67a32097370b6d8f35d9184}{T1\+\_\+\+COMPARE\+\_\+\+B\+\_\+\+FLAG}}~OCF1B
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a85f7af24bb489ec0c27207b0d729d827}{T1\+\_\+\+INPUT\+\_\+\+CAPTURE\+\_\+\+FLAG}}~ICF1
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_aba77e2eacfeaf46a06726114094bf958}{T2\+\_\+\+OVERFLOW\+\_\+\+FLAG}}~TOV2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a292d6500756fb6b57b22aaafa50e2df4}{T2\+\_\+\+COMPARE\+\_\+\+FLAG}}~OCF2
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a761f753d3a8ec9debb70e27c8f5d776d}{UART\+\_\+\+TXC\+\_\+\+FLAG}}~TXC
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a5603ae8c287a97d0bc02117e16a1a80d}{UART\+\_\+\+RXC\+\_\+\+FLAG}}~RXC
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a1a9b011827c12f35aaa8bcb80fd09036}{UART\+\_\+\+UDRE\+\_\+\+FLAG}}~UDRE
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_aa3e38b0a51d403274135606971be3185}{ADC\+\_\+\+FLAG}}~ADIF
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_ad8dda86b1a7b6f4700d93545f8799d29}{SPI\+\_\+\+FLAG}}~SPIF
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_afe4bb3b8ba06bede239d938bf37c1746}{COMPARATOR\+\_\+\+FLAG}}~ACI
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_afdbeab304605dcee7ace0775267c0c38}{I2\+C\+\_\+\+FLAG}}~TWINT
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_aa3e0bb6c6df3475c23905036ec231da7}{EI\+\_\+\+FLAGS\+\_\+\+REG}}~GIFR
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a583b6585a743756118af55aa803b9e32}{TIMER\+\_\+\+FLAGS\+\_\+\+REG}}~TIFR
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_adf2f9ef631d9bef4c7ae9b621fbf247b}{UART\+\_\+\+FLAGS\+\_\+\+REG}}~UCSRA
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a2f1d404712c93285429a0a25eeb16399}{ADC\+\_\+\+FLAGS\+\_\+\+REG}}~ADCSRA
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a6a647ddc33ea068bd097f91ae7832da0}{COMPARATOR\+\_\+\+FLAGS\+\_\+\+REG}}~ACSR
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a02ed69801dee9cea76dea6f4c98f1fc6}{I2\+C\+\_\+\+FLAGS\+\_\+\+REG}}~TWCR
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a8a8461b8020fabd4505b88c84a8711bb}{SPI\+\_\+\+FLAGS\+\_\+\+REG}}~SPSR
+\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a93418e5e90907fa74ab45c71c02a26bc}{GPIO\+\_\+\+PIN\+\_\+\+HIGH}}(port,  pin)~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(port,pin)
+\begin{DoxyCompactList}\small\item\em set an output pin high for given port \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_ad96fd70badb8d8903e38fad7e8649139}{GPIO\+\_\+\+PIN\+\_\+\+LOW}}(port,  pin)~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(port,pin)
+\begin{DoxyCompactList}\small\item\em set an output pin low for given port \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{m16__gpio_8h_a435ccdb70197a94a53df7b39989dab37}{GPIO\+\_\+\+PIN\+\_\+\+TOGGLE}}(port,  pin)~\mbox{\hyperlink{common_8h_a319f84216f2969de16f09049de7731b9}{TOGGLE\+\_\+\+BIT}}(port,pin)
+\begin{DoxyCompactList}\small\item\em toggle output pin for given port \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{m16__gpio_8h_a0842a618bb51ea1f92c02bd4cb8c94d7}{gpio\+\_\+pin\+\_\+mode}} (uint8\+\_\+t, volatile uint8\+\_\+t $\ast$, uint8\+\_\+t)
+\begin{DoxyCompactList}\small\item\em set given pin of a port as output \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{m16__gpio_8h_ae53a7f17a25f49e9d20ecaab53aa51fd}{gpio\+\_\+port\+\_\+mode}} (volatile uint8\+\_\+t $\ast$, uint8\+\_\+t)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{m16__gpio_8h_a0cf28028948d54d1ede15f708bb7259f}{gpio\+\_\+read}} (uint8\+\_\+t, volatile uint8\+\_\+t $\ast$)
+\begin{DoxyCompactList}\small\item\em read value of the pin of the port \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+atmega32 gpio header file for m32\+\_\+gpio.\+c 
+
+\begin{DoxyAuthor}{Author}
+shambhu kumar (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/01-\/27
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{m16__gpio_8h_a209539b6b0e7fe09559dc67b62acb94d}\label{m16__gpio_8h_a209539b6b0e7fe09559dc67b62acb94d}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC0\_PIN@{ADC0\_PIN}}
+\index{ADC0\_PIN@{ADC0\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC0\_PIN}{ADC0\_PIN}}
+{\footnotesize\ttfamily \#define ADC0\+\_\+\+PIN~PA0}
+
+\mbox{\Hypertarget{m16__gpio_8h_a3f7482ad6495b9f8f69d9bb916aae854}\label{m16__gpio_8h_a3f7482ad6495b9f8f69d9bb916aae854}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC1\_PIN@{ADC1\_PIN}}
+\index{ADC1\_PIN@{ADC1\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC1\_PIN}{ADC1\_PIN}}
+{\footnotesize\ttfamily \#define ADC1\+\_\+\+PIN~PA1}
+
+\mbox{\Hypertarget{m16__gpio_8h_afb2f4f2a136b1a0dd1f1926defbae195}\label{m16__gpio_8h_afb2f4f2a136b1a0dd1f1926defbae195}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC2\_PIN@{ADC2\_PIN}}
+\index{ADC2\_PIN@{ADC2\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC2\_PIN}{ADC2\_PIN}}
+{\footnotesize\ttfamily \#define ADC2\+\_\+\+PIN~PA2}
+
+\mbox{\Hypertarget{m16__gpio_8h_a505837e2819dff70f176624930702756}\label{m16__gpio_8h_a505837e2819dff70f176624930702756}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC3\_PIN@{ADC3\_PIN}}
+\index{ADC3\_PIN@{ADC3\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC3\_PIN}{ADC3\_PIN}}
+{\footnotesize\ttfamily \#define ADC3\+\_\+\+PIN~PA3}
+
+\mbox{\Hypertarget{m16__gpio_8h_a8a984183012e82dffc496e28b7caec32}\label{m16__gpio_8h_a8a984183012e82dffc496e28b7caec32}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC4\_PIN@{ADC4\_PIN}}
+\index{ADC4\_PIN@{ADC4\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC4\_PIN}{ADC4\_PIN}}
+{\footnotesize\ttfamily \#define ADC4\+\_\+\+PIN~PA4}
+
+\mbox{\Hypertarget{m16__gpio_8h_a3cf2faf05db17fc145bc68a6116a6850}\label{m16__gpio_8h_a3cf2faf05db17fc145bc68a6116a6850}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC5\_PIN@{ADC5\_PIN}}
+\index{ADC5\_PIN@{ADC5\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC5\_PIN}{ADC5\_PIN}}
+{\footnotesize\ttfamily \#define ADC5\+\_\+\+PIN~PA5}
+
+\mbox{\Hypertarget{m16__gpio_8h_a718050cad8e71a42d2fe076de3109701}\label{m16__gpio_8h_a718050cad8e71a42d2fe076de3109701}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC6\_PIN@{ADC6\_PIN}}
+\index{ADC6\_PIN@{ADC6\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC6\_PIN}{ADC6\_PIN}}
+{\footnotesize\ttfamily \#define ADC6\+\_\+\+PIN~PA6}
+
+\mbox{\Hypertarget{m16__gpio_8h_a6bb0890cfe5efb60ead3b04e3b3a26ea}\label{m16__gpio_8h_a6bb0890cfe5efb60ead3b04e3b3a26ea}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC7\_PIN@{ADC7\_PIN}}
+\index{ADC7\_PIN@{ADC7\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC7\_PIN}{ADC7\_PIN}}
+{\footnotesize\ttfamily \#define ADC7\+\_\+\+PIN~PA7}
+
+\mbox{\Hypertarget{m16__gpio_8h_aa3e38b0a51d403274135606971be3185}\label{m16__gpio_8h_aa3e38b0a51d403274135606971be3185}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC\_FLAG@{ADC\_FLAG}}
+\index{ADC\_FLAG@{ADC\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_FLAG}{ADC\_FLAG}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+FLAG~ADIF}
+
+\mbox{\Hypertarget{m16__gpio_8h_a2f1d404712c93285429a0a25eeb16399}\label{m16__gpio_8h_a2f1d404712c93285429a0a25eeb16399}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!ADC\_FLAGS\_REG@{ADC\_FLAGS\_REG}}
+\index{ADC\_FLAGS\_REG@{ADC\_FLAGS\_REG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_FLAGS\_REG}{ADC\_FLAGS\_REG}}
+{\footnotesize\ttfamily \#define ADC\+\_\+\+FLAGS\+\_\+\+REG~ADCSRA}
+
+\mbox{\Hypertarget{m16__gpio_8h_afe4bb3b8ba06bede239d938bf37c1746}\label{m16__gpio_8h_afe4bb3b8ba06bede239d938bf37c1746}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!COMPARATOR\_FLAG@{COMPARATOR\_FLAG}}
+\index{COMPARATOR\_FLAG@{COMPARATOR\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{COMPARATOR\_FLAG}{COMPARATOR\_FLAG}}
+{\footnotesize\ttfamily \#define COMPARATOR\+\_\+\+FLAG~ACI}
+
+\mbox{\Hypertarget{m16__gpio_8h_a6a647ddc33ea068bd097f91ae7832da0}\label{m16__gpio_8h_a6a647ddc33ea068bd097f91ae7832da0}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!COMPARATOR\_FLAGS\_REG@{COMPARATOR\_FLAGS\_REG}}
+\index{COMPARATOR\_FLAGS\_REG@{COMPARATOR\_FLAGS\_REG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{COMPARATOR\_FLAGS\_REG}{COMPARATOR\_FLAGS\_REG}}
+{\footnotesize\ttfamily \#define COMPARATOR\+\_\+\+FLAGS\+\_\+\+REG~ACSR}
+
+\mbox{\Hypertarget{m16__gpio_8h_a0b95a43ec2e5b989401b7dfe1625bdc9}\label{m16__gpio_8h_a0b95a43ec2e5b989401b7dfe1625bdc9}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!COMPARATOR\_NEG\_IN\_PIN@{COMPARATOR\_NEG\_IN\_PIN}}
+\index{COMPARATOR\_NEG\_IN\_PIN@{COMPARATOR\_NEG\_IN\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{COMPARATOR\_NEG\_IN\_PIN}{COMPARATOR\_NEG\_IN\_PIN}}
+{\footnotesize\ttfamily \#define COMPARATOR\+\_\+\+NEG\+\_\+\+IN\+\_\+\+PIN~PB3}
+
+\mbox{\Hypertarget{m16__gpio_8h_aba388fe8f8ed4d4430100457e0fae00c}\label{m16__gpio_8h_aba388fe8f8ed4d4430100457e0fae00c}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!COMPARATOR\_POS\_IN\_PIN@{COMPARATOR\_POS\_IN\_PIN}}
+\index{COMPARATOR\_POS\_IN\_PIN@{COMPARATOR\_POS\_IN\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{COMPARATOR\_POS\_IN\_PIN}{COMPARATOR\_POS\_IN\_PIN}}
+{\footnotesize\ttfamily \#define COMPARATOR\+\_\+\+POS\+\_\+\+IN\+\_\+\+PIN~PB2}
+
+\mbox{\Hypertarget{m16__gpio_8h_a5b64933cadb4b05dcd701ee6dddaaa9a}\label{m16__gpio_8h_a5b64933cadb4b05dcd701ee6dddaaa9a}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EI0\_FLAG@{EI0\_FLAG}}
+\index{EI0\_FLAG@{EI0\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EI0\_FLAG}{EI0\_FLAG}}
+{\footnotesize\ttfamily \#define EI0\+\_\+\+FLAG~INTF0}
+
+\mbox{\Hypertarget{m16__gpio_8h_a9f6e8b9a366b7c3dc3d863e16dc0aa5d}\label{m16__gpio_8h_a9f6e8b9a366b7c3dc3d863e16dc0aa5d}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EI1\_FLAG@{EI1\_FLAG}}
+\index{EI1\_FLAG@{EI1\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EI1\_FLAG}{EI1\_FLAG}}
+{\footnotesize\ttfamily \#define EI1\+\_\+\+FLAG~INTF1}
+
+\mbox{\Hypertarget{m16__gpio_8h_ac7e4a67eade7ca347223bd2f3e4d6937}\label{m16__gpio_8h_ac7e4a67eade7ca347223bd2f3e4d6937}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EI2\_FLAG@{EI2\_FLAG}}
+\index{EI2\_FLAG@{EI2\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EI2\_FLAG}{EI2\_FLAG}}
+{\footnotesize\ttfamily \#define EI2\+\_\+\+FLAG~INTF2}
+
+\mbox{\Hypertarget{m16__gpio_8h_aa3e0bb6c6df3475c23905036ec231da7}\label{m16__gpio_8h_aa3e0bb6c6df3475c23905036ec231da7}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EI\_FLAGS\_REG@{EI\_FLAGS\_REG}}
+\index{EI\_FLAGS\_REG@{EI\_FLAGS\_REG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EI\_FLAGS\_REG}{EI\_FLAGS\_REG}}
+{\footnotesize\ttfamily \#define EI\+\_\+\+FLAGS\+\_\+\+REG~GIFR}
+
+\mbox{\Hypertarget{m16__gpio_8h_a46e0805778fb06a999b836ac909fa1bc}\label{m16__gpio_8h_a46e0805778fb06a999b836ac909fa1bc}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EXT\_INTRRUPT\_0\_PIN@{EXT\_INTRRUPT\_0\_PIN}}
+\index{EXT\_INTRRUPT\_0\_PIN@{EXT\_INTRRUPT\_0\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INTRRUPT\_0\_PIN}{EXT\_INTRRUPT\_0\_PIN}}
+{\footnotesize\ttfamily \#define EXT\+\_\+\+INTRRUPT\+\_\+0\+\_\+\+PIN~PD2}
+
+\mbox{\Hypertarget{m16__gpio_8h_a825e68e836dada343e02c4c2e32b3465}\label{m16__gpio_8h_a825e68e836dada343e02c4c2e32b3465}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EXT\_INTRRUPT\_1\_PIN@{EXT\_INTRRUPT\_1\_PIN}}
+\index{EXT\_INTRRUPT\_1\_PIN@{EXT\_INTRRUPT\_1\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INTRRUPT\_1\_PIN}{EXT\_INTRRUPT\_1\_PIN}}
+{\footnotesize\ttfamily \#define EXT\+\_\+\+INTRRUPT\+\_\+1\+\_\+\+PIN~PD3}
+
+\mbox{\Hypertarget{m16__gpio_8h_a8d07134065b220b97a854ff036dea94d}\label{m16__gpio_8h_a8d07134065b220b97a854ff036dea94d}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EXT\_INTRRUPT\_2\_PIN@{EXT\_INTRRUPT\_2\_PIN}}
+\index{EXT\_INTRRUPT\_2\_PIN@{EXT\_INTRRUPT\_2\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_INTRRUPT\_2\_PIN}{EXT\_INTRRUPT\_2\_PIN}}
+{\footnotesize\ttfamily \#define EXT\+\_\+\+INTRRUPT\+\_\+2\+\_\+\+PIN~PB2}
+
+\mbox{\Hypertarget{m16__gpio_8h_a3ee1ff2ee686dde5f6f84169c556c600}\label{m16__gpio_8h_a3ee1ff2ee686dde5f6f84169c556c600}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EXT\_T0\_PIN@{EXT\_T0\_PIN}}
+\index{EXT\_T0\_PIN@{EXT\_T0\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_T0\_PIN}{EXT\_T0\_PIN}}
+{\footnotesize\ttfamily \#define EXT\+\_\+\+T0\+\_\+\+PIN~PB0}
+
+\mbox{\Hypertarget{m16__gpio_8h_a0e5623e5823aa9015682893f36a1e309}\label{m16__gpio_8h_a0e5623e5823aa9015682893f36a1e309}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!EXT\_T1\_PIN@{EXT\_T1\_PIN}}
+\index{EXT\_T1\_PIN@{EXT\_T1\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{EXT\_T1\_PIN}{EXT\_T1\_PIN}}
+{\footnotesize\ttfamily \#define EXT\+\_\+\+T1\+\_\+\+PIN~PB1}
+
+\mbox{\Hypertarget{m16__gpio_8h_af7570590d35b350fdf0f3d28eb373c8e}\label{m16__gpio_8h_af7570590d35b350fdf0f3d28eb373c8e}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!GPIO\_GLOBAL\_PULLUP\_DISABLE@{GPIO\_GLOBAL\_PULLUP\_DISABLE}}
+\index{GPIO\_GLOBAL\_PULLUP\_DISABLE@{GPIO\_GLOBAL\_PULLUP\_DISABLE}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_GLOBAL\_PULLUP\_DISABLE}{GPIO\_GLOBAL\_PULLUP\_DISABLE}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+GLOBAL\+\_\+\+PULLUP\+\_\+\+DISABLE~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(SFIOR,PUD)}
+
+\mbox{\Hypertarget{m16__gpio_8h_a221afe7744fa176c6ecdb9a7a30b690d}\label{m16__gpio_8h_a221afe7744fa176c6ecdb9a7a30b690d}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!GPIO\_GLOBAL\_PULLUP\_ENABLE@{GPIO\_GLOBAL\_PULLUP\_ENABLE}}
+\index{GPIO\_GLOBAL\_PULLUP\_ENABLE@{GPIO\_GLOBAL\_PULLUP\_ENABLE}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_GLOBAL\_PULLUP\_ENABLE}{GPIO\_GLOBAL\_PULLUP\_ENABLE}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+GLOBAL\+\_\+\+PULLUP\+\_\+\+ENABLE~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(SFIOR,PUD)}
+
+\mbox{\Hypertarget{m16__gpio_8h_a93418e5e90907fa74ab45c71c02a26bc}\label{m16__gpio_8h_a93418e5e90907fa74ab45c71c02a26bc}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!GPIO\_PIN\_HIGH@{GPIO\_PIN\_HIGH}}
+\index{GPIO\_PIN\_HIGH@{GPIO\_PIN\_HIGH}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_HIGH}{GPIO\_PIN\_HIGH}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+PIN\+\_\+\+HIGH(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{pin }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(port,pin)}
+
+
+
+set an output pin high for given port 
+
+\mbox{\Hypertarget{m16__gpio_8h_ad96fd70badb8d8903e38fad7e8649139}\label{m16__gpio_8h_ad96fd70badb8d8903e38fad7e8649139}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!GPIO\_PIN\_LOW@{GPIO\_PIN\_LOW}}
+\index{GPIO\_PIN\_LOW@{GPIO\_PIN\_LOW}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_LOW}{GPIO\_PIN\_LOW}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+PIN\+\_\+\+LOW(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{pin }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(port,pin)}
+
+
+
+set an output pin low for given port 
+
+\mbox{\Hypertarget{m16__gpio_8h_a435ccdb70197a94a53df7b39989dab37}\label{m16__gpio_8h_a435ccdb70197a94a53df7b39989dab37}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!GPIO\_PIN\_TOGGLE@{GPIO\_PIN\_TOGGLE}}
+\index{GPIO\_PIN\_TOGGLE@{GPIO\_PIN\_TOGGLE}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PIN\_TOGGLE}{GPIO\_PIN\_TOGGLE}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+PIN\+\_\+\+TOGGLE(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{pin }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_a319f84216f2969de16f09049de7731b9}{TOGGLE\+\_\+\+BIT}}(port,pin)}
+
+
+
+toggle output pin for given port 
+
+\mbox{\Hypertarget{m16__gpio_8h_acce8ef6ddef605982b00c269920cfe56}\label{m16__gpio_8h_acce8ef6ddef605982b00c269920cfe56}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!GPIO\_PULLUP\_OFF@{GPIO\_PULLUP\_OFF}}
+\index{GPIO\_PULLUP\_OFF@{GPIO\_PULLUP\_OFF}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PULLUP\_OFF}{GPIO\_PULLUP\_OFF}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+PULLUP\+\_\+\+OFF(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{pin }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_a837b4076679beaad4f11dbe1ddbb6686}{CLEAR\+\_\+\+BIT}}(port,pin)}
+
+\mbox{\Hypertarget{m16__gpio_8h_a0176b7bed348db32ebc47930f4607330}\label{m16__gpio_8h_a0176b7bed348db32ebc47930f4607330}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!GPIO\_PULLUP\_ON@{GPIO\_PULLUP\_ON}}
+\index{GPIO\_PULLUP\_ON@{GPIO\_PULLUP\_ON}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PULLUP\_ON}{GPIO\_PULLUP\_ON}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+PULLUP\+\_\+\+ON(\begin{DoxyParamCaption}\item[{}]{port,  }\item[{}]{pin }\end{DoxyParamCaption})~\mbox{\hyperlink{common_8h_abda1122beeb7b0ed9c00744c7783113c}{SET\+\_\+\+BIT}}(port,pin)}
+
+\mbox{\Hypertarget{m16__gpio_8h_afdbeab304605dcee7ace0775267c0c38}\label{m16__gpio_8h_afdbeab304605dcee7ace0775267c0c38}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!I2C\_FLAG@{I2C\_FLAG}}
+\index{I2C\_FLAG@{I2C\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_FLAG}{I2C\_FLAG}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+FLAG~TWINT}
+
+\mbox{\Hypertarget{m16__gpio_8h_a02ed69801dee9cea76dea6f4c98f1fc6}\label{m16__gpio_8h_a02ed69801dee9cea76dea6f4c98f1fc6}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!I2C\_FLAGS\_REG@{I2C\_FLAGS\_REG}}
+\index{I2C\_FLAGS\_REG@{I2C\_FLAGS\_REG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_FLAGS\_REG}{I2C\_FLAGS\_REG}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+FLAGS\+\_\+\+REG~TWCR}
+
+\mbox{\Hypertarget{m16__gpio_8h_a0e4e08bab2fb484136d18b067bef372c}\label{m16__gpio_8h_a0e4e08bab2fb484136d18b067bef372c}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!I2C\_SCL\_PIN@{I2C\_SCL\_PIN}}
+\index{I2C\_SCL\_PIN@{I2C\_SCL\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL\_PIN}{I2C\_SCL\_PIN}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SCL\+\_\+\+PIN~PC0}
+
+\mbox{\Hypertarget{m16__gpio_8h_a2cade698267beb86ccaa38c14d35ab0f}\label{m16__gpio_8h_a2cade698267beb86ccaa38c14d35ab0f}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!I2C\_SDA\_PIN@{I2C\_SDA\_PIN}}
+\index{I2C\_SDA\_PIN@{I2C\_SDA\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA\_PIN}{I2C\_SDA\_PIN}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SDA\+\_\+\+PIN~PC1}
+
+\mbox{\Hypertarget{m16__gpio_8h_a1bb283bd7893b9855e2f23013891fc82}\label{m16__gpio_8h_a1bb283bd7893b9855e2f23013891fc82}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!INPUT@{INPUT}}
+\index{INPUT@{INPUT}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{INPUT}{INPUT}}
+{\footnotesize\ttfamily \#define INPUT~\mbox{\hyperlink{common_8h_a2c058e9d24bb65c1a6ad2d439b2976ab}{GND}}}
+
+
+
+IN -\/$>$ make a pin as input. 
+
+\mbox{\Hypertarget{m16__gpio_8h_a7c0601d1fef043699008544eaac4e4e8}\label{m16__gpio_8h_a7c0601d1fef043699008544eaac4e4e8}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!JTAG\_TEST\_CLK\_PIN@{JTAG\_TEST\_CLK\_PIN}}
+\index{JTAG\_TEST\_CLK\_PIN@{JTAG\_TEST\_CLK\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{JTAG\_TEST\_CLK\_PIN}{JTAG\_TEST\_CLK\_PIN}}
+{\footnotesize\ttfamily \#define JTAG\+\_\+\+TEST\+\_\+\+CLK\+\_\+\+PIN~PC2}
+
+\mbox{\Hypertarget{m16__gpio_8h_acdb3a0363492bd940c25cf07225097a1}\label{m16__gpio_8h_acdb3a0363492bd940c25cf07225097a1}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!JTAG\_TEST\_DATA\_IN\_PIN@{JTAG\_TEST\_DATA\_IN\_PIN}}
+\index{JTAG\_TEST\_DATA\_IN\_PIN@{JTAG\_TEST\_DATA\_IN\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{JTAG\_TEST\_DATA\_IN\_PIN}{JTAG\_TEST\_DATA\_IN\_PIN}}
+{\footnotesize\ttfamily \#define JTAG\+\_\+\+TEST\+\_\+\+DATA\+\_\+\+IN\+\_\+\+PIN~PC5}
+
+\mbox{\Hypertarget{m16__gpio_8h_a7ff9f523e33496ae166a10c913edefb5}\label{m16__gpio_8h_a7ff9f523e33496ae166a10c913edefb5}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!JTAG\_TEST\_DATA\_OUT\_PIN@{JTAG\_TEST\_DATA\_OUT\_PIN}}
+\index{JTAG\_TEST\_DATA\_OUT\_PIN@{JTAG\_TEST\_DATA\_OUT\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{JTAG\_TEST\_DATA\_OUT\_PIN}{JTAG\_TEST\_DATA\_OUT\_PIN}}
+{\footnotesize\ttfamily \#define JTAG\+\_\+\+TEST\+\_\+\+DATA\+\_\+\+OUT\+\_\+\+PIN~PC4}
+
+\mbox{\Hypertarget{m16__gpio_8h_a14a932aed96bb0f21fd914cab1e37922}\label{m16__gpio_8h_a14a932aed96bb0f21fd914cab1e37922}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!JTAG\_TEST\_MODE\_SEL\_PIN@{JTAG\_TEST\_MODE\_SEL\_PIN}}
+\index{JTAG\_TEST\_MODE\_SEL\_PIN@{JTAG\_TEST\_MODE\_SEL\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{JTAG\_TEST\_MODE\_SEL\_PIN}{JTAG\_TEST\_MODE\_SEL\_PIN}}
+{\footnotesize\ttfamily \#define JTAG\+\_\+\+TEST\+\_\+\+MODE\+\_\+\+SEL\+\_\+\+PIN~PC3}
+
+\mbox{\Hypertarget{m16__gpio_8h_a61a3c9a18380aafb6e430e79bf596557}\label{m16__gpio_8h_a61a3c9a18380aafb6e430e79bf596557}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!OUTPUT@{OUTPUT}}
+\index{OUTPUT@{OUTPUT}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{OUTPUT}{OUTPUT}}
+{\footnotesize\ttfamily \#define OUTPUT~\mbox{\hyperlink{common_8h_a122557a0293deb12253eb7a4dba4e4f6}{VCC}}}
+
+
+
+OUT -\/$>$ make a pin as output. 
+
+\mbox{\Hypertarget{m16__gpio_8h_adc7d6fe2220359137dc87ba264524f96}\label{m16__gpio_8h_adc7d6fe2220359137dc87ba264524f96}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!RXD\_PIN@{RXD\_PIN}}
+\index{RXD\_PIN@{RXD\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{RXD\_PIN}{RXD\_PIN}}
+{\footnotesize\ttfamily \#define RXD\+\_\+\+PIN~PD0}
+
+\mbox{\Hypertarget{m16__gpio_8h_ad8dda86b1a7b6f4700d93545f8799d29}\label{m16__gpio_8h_ad8dda86b1a7b6f4700d93545f8799d29}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!SPI\_FLAG@{SPI\_FLAG}}
+\index{SPI\_FLAG@{SPI\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_FLAG}{SPI\_FLAG}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+FLAG~SPIF}
+
+\mbox{\Hypertarget{m16__gpio_8h_a8a8461b8020fabd4505b88c84a8711bb}\label{m16__gpio_8h_a8a8461b8020fabd4505b88c84a8711bb}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!SPI\_FLAGS\_REG@{SPI\_FLAGS\_REG}}
+\index{SPI\_FLAGS\_REG@{SPI\_FLAGS\_REG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_FLAGS\_REG}{SPI\_FLAGS\_REG}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+FLAGS\+\_\+\+REG~SPSR}
+
+\mbox{\Hypertarget{m16__gpio_8h_a315722498711fce1e1aa6ea6654385cf}\label{m16__gpio_8h_a315722498711fce1e1aa6ea6654385cf}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!SPI\_MISO\_PIN@{SPI\_MISO\_PIN}}
+\index{SPI\_MISO\_PIN@{SPI\_MISO\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_MISO\_PIN}{SPI\_MISO\_PIN}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+MISO\+\_\+\+PIN~PB6}
+
+\mbox{\Hypertarget{m16__gpio_8h_a67d2c0b6e0ecbd0351958756e4830172}\label{m16__gpio_8h_a67d2c0b6e0ecbd0351958756e4830172}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!SPI\_MOSI\_PIN@{SPI\_MOSI\_PIN}}
+\index{SPI\_MOSI\_PIN@{SPI\_MOSI\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_MOSI\_PIN}{SPI\_MOSI\_PIN}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+MOSI\+\_\+\+PIN~PB5}
+
+\mbox{\Hypertarget{m16__gpio_8h_aee89f642bb559e12db93e9f412ea185e}\label{m16__gpio_8h_aee89f642bb559e12db93e9f412ea185e}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!SPI\_SCK\_PIN@{SPI\_SCK\_PIN}}
+\index{SPI\_SCK\_PIN@{SPI\_SCK\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SCK\_PIN}{SPI\_SCK\_PIN}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+SCK\+\_\+\+PIN~PB7}
+
+\mbox{\Hypertarget{m16__gpio_8h_a003fbe87aad5106aed3802d794580bbf}\label{m16__gpio_8h_a003fbe87aad5106aed3802d794580bbf}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!SPI\_SS\_PIN@{SPI\_SS\_PIN}}
+\index{SPI\_SS\_PIN@{SPI\_SS\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SS\_PIN}{SPI\_SS\_PIN}}
+{\footnotesize\ttfamily \#define SPI\+\_\+\+SS\+\_\+\+PIN~PB4}
+
+\mbox{\Hypertarget{m16__gpio_8h_a7e7f13c3c201240167cd728883e533e2}\label{m16__gpio_8h_a7e7f13c3c201240167cd728883e533e2}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T0\_COMPARE\_FLAG@{T0\_COMPARE\_FLAG}}
+\index{T0\_COMPARE\_FLAG@{T0\_COMPARE\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T0\_COMPARE\_FLAG}{T0\_COMPARE\_FLAG}}
+{\footnotesize\ttfamily \#define T0\+\_\+\+COMPARE\+\_\+\+FLAG~OCF0}
+
+\mbox{\Hypertarget{m16__gpio_8h_a1c3bccdc3c9bceb810bbf91a52aa7c28}\label{m16__gpio_8h_a1c3bccdc3c9bceb810bbf91a52aa7c28}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T0\_OVERFLOW\_FLAG@{T0\_OVERFLOW\_FLAG}}
+\index{T0\_OVERFLOW\_FLAG@{T0\_OVERFLOW\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T0\_OVERFLOW\_FLAG}{T0\_OVERFLOW\_FLAG}}
+{\footnotesize\ttfamily \#define T0\+\_\+\+OVERFLOW\+\_\+\+FLAG~TOV0}
+
+\mbox{\Hypertarget{m16__gpio_8h_a667b4023c1a25e1a6c4cbd9e5cbf84e1}\label{m16__gpio_8h_a667b4023c1a25e1a6c4cbd9e5cbf84e1}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T1\_COMPARE\_A\_FLAG@{T1\_COMPARE\_A\_FLAG}}
+\index{T1\_COMPARE\_A\_FLAG@{T1\_COMPARE\_A\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T1\_COMPARE\_A\_FLAG}{T1\_COMPARE\_A\_FLAG}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+COMPARE\+\_\+\+A\+\_\+\+FLAG~OCF1A}
+
+\mbox{\Hypertarget{m16__gpio_8h_ad5e1d5e8a67a32097370b6d8f35d9184}\label{m16__gpio_8h_ad5e1d5e8a67a32097370b6d8f35d9184}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T1\_COMPARE\_B\_FLAG@{T1\_COMPARE\_B\_FLAG}}
+\index{T1\_COMPARE\_B\_FLAG@{T1\_COMPARE\_B\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T1\_COMPARE\_B\_FLAG}{T1\_COMPARE\_B\_FLAG}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+COMPARE\+\_\+\+B\+\_\+\+FLAG~OCF1B}
+
+\mbox{\Hypertarget{m16__gpio_8h_a85f7af24bb489ec0c27207b0d729d827}\label{m16__gpio_8h_a85f7af24bb489ec0c27207b0d729d827}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T1\_INPUT\_CAPTURE\_FLAG@{T1\_INPUT\_CAPTURE\_FLAG}}
+\index{T1\_INPUT\_CAPTURE\_FLAG@{T1\_INPUT\_CAPTURE\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T1\_INPUT\_CAPTURE\_FLAG}{T1\_INPUT\_CAPTURE\_FLAG}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+INPUT\+\_\+\+CAPTURE\+\_\+\+FLAG~ICF1}
+
+\mbox{\Hypertarget{m16__gpio_8h_aac5d6a4e8e7a5b98acc1bd72d29f6ae6}\label{m16__gpio_8h_aac5d6a4e8e7a5b98acc1bd72d29f6ae6}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T1\_OVERFLOW\_FLAG@{T1\_OVERFLOW\_FLAG}}
+\index{T1\_OVERFLOW\_FLAG@{T1\_OVERFLOW\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T1\_OVERFLOW\_FLAG}{T1\_OVERFLOW\_FLAG}}
+{\footnotesize\ttfamily \#define T1\+\_\+\+OVERFLOW\+\_\+\+FLAG~TOV1}
+
+\mbox{\Hypertarget{m16__gpio_8h_a292d6500756fb6b57b22aaafa50e2df4}\label{m16__gpio_8h_a292d6500756fb6b57b22aaafa50e2df4}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T2\_COMPARE\_FLAG@{T2\_COMPARE\_FLAG}}
+\index{T2\_COMPARE\_FLAG@{T2\_COMPARE\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T2\_COMPARE\_FLAG}{T2\_COMPARE\_FLAG}}
+{\footnotesize\ttfamily \#define T2\+\_\+\+COMPARE\+\_\+\+FLAG~OCF2}
+
+\mbox{\Hypertarget{m16__gpio_8h_aba77e2eacfeaf46a06726114094bf958}\label{m16__gpio_8h_aba77e2eacfeaf46a06726114094bf958}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!T2\_OVERFLOW\_FLAG@{T2\_OVERFLOW\_FLAG}}
+\index{T2\_OVERFLOW\_FLAG@{T2\_OVERFLOW\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{T2\_OVERFLOW\_FLAG}{T2\_OVERFLOW\_FLAG}}
+{\footnotesize\ttfamily \#define T2\+\_\+\+OVERFLOW\+\_\+\+FLAG~TOV2}
+
+\mbox{\Hypertarget{m16__gpio_8h_af6e5175443c7da21fe80046ed132fd5a}\label{m16__gpio_8h_af6e5175443c7da21fe80046ed132fd5a}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER0\_OC\_PIN@{TIMER0\_OC\_PIN}}
+\index{TIMER0\_OC\_PIN@{TIMER0\_OC\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER0\_OC\_PIN}{TIMER0\_OC\_PIN}}
+{\footnotesize\ttfamily \#define TIMER0\+\_\+\+OC\+\_\+\+PIN~PB3}
+
+\mbox{\Hypertarget{m16__gpio_8h_aa50fd19370120bce9f60de4694e31d1a}\label{m16__gpio_8h_aa50fd19370120bce9f60de4694e31d1a}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER1\_ICP\_PIN@{TIMER1\_ICP\_PIN}}
+\index{TIMER1\_ICP\_PIN@{TIMER1\_ICP\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_ICP\_PIN}{TIMER1\_ICP\_PIN}}
+{\footnotesize\ttfamily \#define TIMER1\+\_\+\+ICP\+\_\+\+PIN~PD6}
+
+\mbox{\Hypertarget{m16__gpio_8h_a95d77601459b27eecc56952fb754533c}\label{m16__gpio_8h_a95d77601459b27eecc56952fb754533c}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER1\_OC\_A\_PIN@{TIMER1\_OC\_A\_PIN}}
+\index{TIMER1\_OC\_A\_PIN@{TIMER1\_OC\_A\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_OC\_A\_PIN}{TIMER1\_OC\_A\_PIN}}
+{\footnotesize\ttfamily \#define TIMER1\+\_\+\+OC\+\_\+\+A\+\_\+\+PIN~PD5}
+
+\mbox{\Hypertarget{m16__gpio_8h_a0ea045a6a7fc181049c5f93bffd9e067}\label{m16__gpio_8h_a0ea045a6a7fc181049c5f93bffd9e067}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER1\_OC\_B\_PIN@{TIMER1\_OC\_B\_PIN}}
+\index{TIMER1\_OC\_B\_PIN@{TIMER1\_OC\_B\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER1\_OC\_B\_PIN}{TIMER1\_OC\_B\_PIN}}
+{\footnotesize\ttfamily \#define TIMER1\+\_\+\+OC\+\_\+\+B\+\_\+\+PIN~PD4}
+
+\mbox{\Hypertarget{m16__gpio_8h_a40a61a844553f8130706fa622d326b35}\label{m16__gpio_8h_a40a61a844553f8130706fa622d326b35}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER2\_OC\_PIN@{TIMER2\_OC\_PIN}}
+\index{TIMER2\_OC\_PIN@{TIMER2\_OC\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2\_OC\_PIN}{TIMER2\_OC\_PIN}}
+{\footnotesize\ttfamily \#define TIMER2\+\_\+\+OC\+\_\+\+PIN~PD7}
+
+\mbox{\Hypertarget{m16__gpio_8h_a583b6585a743756118af55aa803b9e32}\label{m16__gpio_8h_a583b6585a743756118af55aa803b9e32}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER\_FLAGS\_REG@{TIMER\_FLAGS\_REG}}
+\index{TIMER\_FLAGS\_REG@{TIMER\_FLAGS\_REG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_FLAGS\_REG}{TIMER\_FLAGS\_REG}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+FLAGS\+\_\+\+REG~TIFR}
+
+\mbox{\Hypertarget{m16__gpio_8h_af0b4ba0042452d7efc515587c1916a31}\label{m16__gpio_8h_af0b4ba0042452d7efc515587c1916a31}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER\_OSC\_1\_PIN@{TIMER\_OSC\_1\_PIN}}
+\index{TIMER\_OSC\_1\_PIN@{TIMER\_OSC\_1\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_OSC\_1\_PIN}{TIMER\_OSC\_1\_PIN}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+OSC\+\_\+1\+\_\+\+PIN~PC6}
+
+\mbox{\Hypertarget{m16__gpio_8h_ab271a5f0e94cd4f3675833e9cd8fb68e}\label{m16__gpio_8h_ab271a5f0e94cd4f3675833e9cd8fb68e}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TIMER\_OSC\_2\_PIN@{TIMER\_OSC\_2\_PIN}}
+\index{TIMER\_OSC\_2\_PIN@{TIMER\_OSC\_2\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_OSC\_2\_PIN}{TIMER\_OSC\_2\_PIN}}
+{\footnotesize\ttfamily \#define TIMER\+\_\+\+OSC\+\_\+2\+\_\+\+PIN~PC7}
+
+\mbox{\Hypertarget{m16__gpio_8h_a271a735bd865e77e0d27b09e5fd958f2}\label{m16__gpio_8h_a271a735bd865e77e0d27b09e5fd958f2}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!TXD\_PIN@{TXD\_PIN}}
+\index{TXD\_PIN@{TXD\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{TXD\_PIN}{TXD\_PIN}}
+{\footnotesize\ttfamily \#define TXD\+\_\+\+PIN~PD1}
+
+\mbox{\Hypertarget{m16__gpio_8h_adf2f9ef631d9bef4c7ae9b621fbf247b}\label{m16__gpio_8h_adf2f9ef631d9bef4c7ae9b621fbf247b}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!UART\_FLAGS\_REG@{UART\_FLAGS\_REG}}
+\index{UART\_FLAGS\_REG@{UART\_FLAGS\_REG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{UART\_FLAGS\_REG}{UART\_FLAGS\_REG}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+FLAGS\+\_\+\+REG~UCSRA}
+
+\mbox{\Hypertarget{m16__gpio_8h_a5603ae8c287a97d0bc02117e16a1a80d}\label{m16__gpio_8h_a5603ae8c287a97d0bc02117e16a1a80d}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!UART\_RXC\_FLAG@{UART\_RXC\_FLAG}}
+\index{UART\_RXC\_FLAG@{UART\_RXC\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{UART\_RXC\_FLAG}{UART\_RXC\_FLAG}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+RXC\+\_\+\+FLAG~RXC}
+
+\mbox{\Hypertarget{m16__gpio_8h_a761f753d3a8ec9debb70e27c8f5d776d}\label{m16__gpio_8h_a761f753d3a8ec9debb70e27c8f5d776d}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!UART\_TXC\_FLAG@{UART\_TXC\_FLAG}}
+\index{UART\_TXC\_FLAG@{UART\_TXC\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{UART\_TXC\_FLAG}{UART\_TXC\_FLAG}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+TXC\+\_\+\+FLAG~TXC}
+
+\mbox{\Hypertarget{m16__gpio_8h_a1a9b011827c12f35aaa8bcb80fd09036}\label{m16__gpio_8h_a1a9b011827c12f35aaa8bcb80fd09036}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!UART\_UDRE\_FLAG@{UART\_UDRE\_FLAG}}
+\index{UART\_UDRE\_FLAG@{UART\_UDRE\_FLAG}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{UART\_UDRE\_FLAG}{UART\_UDRE\_FLAG}}
+{\footnotesize\ttfamily \#define UART\+\_\+\+UDRE\+\_\+\+FLAG~UDRE}
+
+\mbox{\Hypertarget{m16__gpio_8h_a99286f5dd5ab3f0a5ccbd65aa221f9bf}\label{m16__gpio_8h_a99286f5dd5ab3f0a5ccbd65aa221f9bf}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!USART\_EXT\_CLK\_IO\_PIN@{USART\_EXT\_CLK\_IO\_PIN}}
+\index{USART\_EXT\_CLK\_IO\_PIN@{USART\_EXT\_CLK\_IO\_PIN}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{USART\_EXT\_CLK\_IO\_PIN}{USART\_EXT\_CLK\_IO\_PIN}}
+{\footnotesize\ttfamily \#define USART\+\_\+\+EXT\+\_\+\+CLK\+\_\+\+IO\+\_\+\+PIN~PB0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{m16__gpio_8h_a0842a618bb51ea1f92c02bd4cb8c94d7}\label{m16__gpio_8h_a0842a618bb51ea1f92c02bd4cb8c94d7}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!gpio\_pin\_mode@{gpio\_pin\_mode}}
+\index{gpio\_pin\_mode@{gpio\_pin\_mode}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{gpio\_pin\_mode()}{gpio\_pin\_mode()}}
+{\footnotesize\ttfamily void gpio\+\_\+pin\+\_\+mode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin,  }\item[{volatile uint8\+\_\+t $\ast$}]{port,  }\item[{uint8\+\_\+t}]{io\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+set given pin of a port as output 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8\+\_\+t} & store pin number \\
+\hline
+{\em uint8\+\_\+t} & store port address \\
+\hline
+{\em uint8\+\_\+t} & set i/o mode (IN/\+OUT)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+set given pin of a port as output
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & \\
+\hline
+{\em port} & \\
+\hline
+{\em io\+\_\+mode} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{m16__gpio_8h_ae53a7f17a25f49e9d20ecaab53aa51fd}\label{m16__gpio_8h_ae53a7f17a25f49e9d20ecaab53aa51fd}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!gpio\_port\_mode@{gpio\_port\_mode}}
+\index{gpio\_port\_mode@{gpio\_port\_mode}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{gpio\_port\_mode()}{gpio\_port\_mode()}}
+{\footnotesize\ttfamily void gpio\+\_\+port\+\_\+mode (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{port,  }\item[{uint8\+\_\+t}]{io\+\_\+mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{m16__gpio_8h_a0cf28028948d54d1ede15f708bb7259f}\label{m16__gpio_8h_a0cf28028948d54d1ede15f708bb7259f}} 
+\index{m16\_gpio.h@{m16\_gpio.h}!gpio\_read@{gpio\_read}}
+\index{gpio\_read@{gpio\_read}!m16\_gpio.h@{m16\_gpio.h}}
+\doxysubsubsection{\texorpdfstring{gpio\_read()}{gpio\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t gpio\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin\+\_\+number,  }\item[{volatile uint8\+\_\+t $\ast$}]{pin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+read value of the pin of the port 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8\+\_\+t} & set the pin number \\
+\hline
+{\em uint8\+\_\+t} & set the pin address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+volatile uint8\+\_\+t pin value (VCC/\+GND)
+\end{DoxyReturn}
+read value of the pin of the port
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+\_\+number} & \\
+\hline
+{\em pin} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}

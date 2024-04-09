@@ -1,0 +1,83 @@
+\hypertarget{m16__mcp3208_8c}{}\doxysection{lib/m16\+\_\+mcp3208.c File Reference}
+\label{m16__mcp3208_8c}\index{lib/m16\_mcp3208.c@{lib/m16\_mcp3208.c}}
+{\ttfamily \#include \char`\"{}m16\+\_\+mcp3208.\+h\char`\"{}}\newline
+Include dependency graph for m16\+\_\+mcp3208.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{m16__mcp3208_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{m16__mcp3208_8c_a7157a95f0e43bdc49e3496c124520bb4}{adc\+\_\+init\+\_\+mcp3208}} (void)
+\begin{DoxyCompactList}\small\item\em intialize mcp3208 ADC \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{m16__mcp3208_8c_a515ae37e97646bb977c330243fbc8248}{read\+\_\+millivolt\+\_\+mcp3208}} (uint8\+\_\+t adc\+\_\+channel)
+\begin{DoxyCompactList}\small\item\em read and convert digital value into milli volts value from given channel \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{m16__mcp3208_8c_af8c882cc06221f2f9fd57a985d386f58}{adc\+\_\+value\+\_\+mcp3208}} = 0
+\begin{DoxyCompactList}\small\item\em store digital value from mcp3208 adc read GLOBALLY \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{m16__mcp3208_8c_a63cf7df9cb65efa687c7bfc76d8306b6}{adc\+\_\+high\+\_\+byte}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{m16__mcp3208_8c_a12410876e508c734bc903fb7e910a1c1}{adc\+\_\+low\+\_\+byte}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{m16__mcp3208_8c_a7157a95f0e43bdc49e3496c124520bb4}\label{m16__mcp3208_8c_a7157a95f0e43bdc49e3496c124520bb4}} 
+\index{m16\_mcp3208.c@{m16\_mcp3208.c}!adc\_init\_mcp3208@{adc\_init\_mcp3208}}
+\index{adc\_init\_mcp3208@{adc\_init\_mcp3208}!m16\_mcp3208.c@{m16\_mcp3208.c}}
+\doxysubsubsection{\texorpdfstring{adc\_init\_mcp3208()}{adc\_init\_mcp3208()}}
+{\footnotesize\ttfamily void adc\+\_\+init\+\_\+mcp3208 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+intialize mcp3208 ADC 
+
+\mbox{\Hypertarget{m16__mcp3208_8c_a515ae37e97646bb977c330243fbc8248}\label{m16__mcp3208_8c_a515ae37e97646bb977c330243fbc8248}} 
+\index{m16\_mcp3208.c@{m16\_mcp3208.c}!read\_millivolt\_mcp3208@{read\_millivolt\_mcp3208}}
+\index{read\_millivolt\_mcp3208@{read\_millivolt\_mcp3208}!m16\_mcp3208.c@{m16\_mcp3208.c}}
+\doxysubsubsection{\texorpdfstring{read\_millivolt\_mcp3208()}{read\_millivolt\_mcp3208()}}
+{\footnotesize\ttfamily uint16\+\_\+t read\+\_\+millivolt\+\_\+mcp3208 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{adc\+\_\+channel }\end{DoxyParamCaption})}
+
+
+
+read and convert digital value into milli volts value from given channel 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adc\+\_\+channel} & read voltage from channel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t milli volts value 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{m16__mcp3208_8c_a63cf7df9cb65efa687c7bfc76d8306b6}\label{m16__mcp3208_8c_a63cf7df9cb65efa687c7bfc76d8306b6}} 
+\index{m16\_mcp3208.c@{m16\_mcp3208.c}!adc\_high\_byte@{adc\_high\_byte}}
+\index{adc\_high\_byte@{adc\_high\_byte}!m16\_mcp3208.c@{m16\_mcp3208.c}}
+\doxysubsubsection{\texorpdfstring{adc\_high\_byte}{adc\_high\_byte}}
+{\footnotesize\ttfamily uint8\+\_\+t adc\+\_\+high\+\_\+byte = 0}
+
+\mbox{\Hypertarget{m16__mcp3208_8c_a12410876e508c734bc903fb7e910a1c1}\label{m16__mcp3208_8c_a12410876e508c734bc903fb7e910a1c1}} 
+\index{m16\_mcp3208.c@{m16\_mcp3208.c}!adc\_low\_byte@{adc\_low\_byte}}
+\index{adc\_low\_byte@{adc\_low\_byte}!m16\_mcp3208.c@{m16\_mcp3208.c}}
+\doxysubsubsection{\texorpdfstring{adc\_low\_byte}{adc\_low\_byte}}
+{\footnotesize\ttfamily uint8\+\_\+t adc\+\_\+low\+\_\+byte = 0}
+
+\mbox{\Hypertarget{m16__mcp3208_8c_af8c882cc06221f2f9fd57a985d386f58}\label{m16__mcp3208_8c_af8c882cc06221f2f9fd57a985d386f58}} 
+\index{m16\_mcp3208.c@{m16\_mcp3208.c}!adc\_value\_mcp3208@{adc\_value\_mcp3208}}
+\index{adc\_value\_mcp3208@{adc\_value\_mcp3208}!m16\_mcp3208.c@{m16\_mcp3208.c}}
+\doxysubsubsection{\texorpdfstring{adc\_value\_mcp3208}{adc\_value\_mcp3208}}
+{\footnotesize\ttfamily uint16\+\_\+t adc\+\_\+value\+\_\+mcp3208 = 0}
+
+
+
+store digital value from mcp3208 adc read GLOBALLY 
+
