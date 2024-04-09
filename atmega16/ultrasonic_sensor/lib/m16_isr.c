@@ -79,6 +79,8 @@ ISR(TIMER0_COMP_vect)
     //OCR0 = 250;
 }
 
+/// @brief using for ultrasonic sensor
+/// @param  overflow interrupt 
 ISR(TIMER1_OVF_vect)
 {
     overflow_counter += 1;
