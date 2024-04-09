@@ -15,24 +15,45 @@
 
 void main(void)
 {
-    pwm_oc2(FREQ_1350,50);
-    
+    gpio_pin_mode(PD7,&PORTD,OUTPUT);
+    volatile uint32_t l_icp_cnt_1 = 0;
+
     SET_GLOBAL_INTERRUPT;
     uart_init();
 
-    uint16_t freq = 0;
-    uint8_t dc = 0;
-
     for(;;)
     {
-        freq = measure_frequency();
-        dc = measure_dutycycle();
-        
-        uart_send_string("frequency: ");
-        uart_send_integer(freq);
-        uart_send_string("\nduty cycle: ");
-        uart_send_integer(dc);
-        uart_send_string("%\n");
-        ms_delay(5000);
+        GPIO_PIN_HIGH(PORTD,PD7);
+        _delay_us(20);
+        GPIO_PIN_LOW(PORTD,PD7);
+
+        gpio_pin_mode(T1_ICP_PIN,&PORTD,INPUT);
+
+        // measure duty cycle using ICP of timer 1
+        ENABLE_ICP_RISE_EDGE;
+
+        //  get 1st timestamp of rising edge 
+        while ((TIFR & (1<<ICF1)) == 0);
+        l_icp_cnt_1 = ICR1;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+
+        ENABLE_ICP_FALL_EDGE;
+
+        //  get 1st timestamp of falling edge 
+        while ((TIFR & (1<<ICF1)) == 0);
+        l_icp_cnt_1 = ICR1 - l_icp_cnt_1;
+        CLEAR_FLAG(TIMER_FLAGS_REG,T1_INPUT_CAPTURE_FLAG);
+
+        DISABLE_ICP;
+
+        // uart_send_integer(l_icp_cnt_1);
+        // uart_send_byte('\n');
+
+        l_icp_cnt_1 = (16U * l_icp_cnt_1) / 1000U;
+
+        uart_send_string("distance = ");
+        uart_send_integer(l_icp_cnt_1 + 5);
+        uart_send_string(" mm\n");
+        ms_delay(2000);
     }
 }
