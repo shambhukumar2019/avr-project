@@ -41,43 +41,45 @@ void adc_init(void)
  * 
  * @return uint16_t milli volts value read
  */
-uint16_t adc_read(uint8_t cnt)
+uint8_t adc_read(uint8_t cnt)
 {
 	if (adc_read_flag == 1)
 	{
 		adc_read_flag = 0;
 		//total_milli_volt = ((adc_digital_value * ADC_STEP_SIZE) / 100U);
-		adc_digital_value /= 49;
+		//adc_digital_value /= 49U;
 		
 		if(cnt == 1)
 		{
 			//uart_send_string("h2 ");
 			SET_ADC_CHANNEL(0);
+			adc_digital_value /= 93U;	// (0 - 10), 5 -> 150 -> 1.5ms for servo
 			// format it for servo motor pwm value to send over nrf
-			adc_digital_value = 5 * adc_digital_value + 100;
+			adc_digital_value = 10U * adc_digital_value + 100U;
 		}
 		else if(cnt == 2)
 		{
 			//uart_send_string("h3 ");
 			SET_ADC_CHANNEL(1);
-			
+			adc_digital_value /= 49U;
 			//format for dc motor pwm to control speed
 			if(adc_digital_value <= 10)
 			{
 				adc_front_move_flag = 0;
-				adc_digital_value = 100 - (adc_digital_value * 10);
+				adc_digital_value = 100U - (adc_digital_value * 10U);
 			}
-			else if(adc_digital_value > 10)
+			else if(adc_digital_value > 10U)
 			{
 				adc_front_move_flag = 1;
-				adc_digital_value = (adc_digital_value * 10) - 100;
+				adc_digital_value = (adc_digital_value * 10U) - 100U;
 			}
 		}
 		ADCSRA |= (1<<ADSC);	//start conversion
+		//ADC0 for dc Motor, ADC1 for servo motor
+		return (uint8_t)adc_digital_value;
 	}
+	return 0;
 	
-	//ADC0 for dc Motor, ADC1 for servo motor
-	return adc_digital_value;
 }
 
 
