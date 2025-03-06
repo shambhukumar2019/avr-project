@@ -1,7 +1,0 @@
-<map id="include/m16_interrupt.h" name="include/m16_interrupt.h">
-<area shape="rect" id="node1" title="interrupt device driver header file" alt="" coords="15,5,193,32"/>
-<area shape="rect" id="node2" href="$common_8h.html" title="header file containing all common declarations" alt="" coords="5,155,96,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="138,155,209,181"/>
-<area shape="rect" id="node4" href="$m16__gpio_8h.html" title="atmega32 gpio header file for m32_gpio.c" alt="" coords="55,80,153,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="228,80,343,107"/>
-</map>

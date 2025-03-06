@@ -1,9 +1,0 @@
-<map id="src/main.c" name="src/main.c">
-<area shape="rect" id="node1" title="driver file for interrupt library" alt="" coords="257,5,346,32"/>
-<area shape="rect" id="node2" href="$m16__interrupt_8h.html" title="interrupt device driver header file" alt="" coords="137,80,263,107"/>
-<area shape="rect" id="node5" href="$m16__gpio_8h.html" title="atmega32 gpio header file for m32_gpio.c" alt="" coords="245,155,344,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="339,80,432,107"/>
-<area shape="rect" id="node3" href="$common_8h.html" title="header file containing all common declarations" alt="" coords="241,229,332,256"/>
-<area shape="rect" id="node4" title=" " alt="" coords="138,229,209,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,155,120,181"/>
-</map>

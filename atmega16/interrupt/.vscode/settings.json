@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "interrupt.h": "c"
-    },
-    "C_Cpp.default.compilerPath": "/usr/bin/avr-gcc"
-}

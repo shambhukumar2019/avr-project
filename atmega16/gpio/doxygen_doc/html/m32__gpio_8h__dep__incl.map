@@ -1,5 +1,0 @@
-<map id="include/m32_gpio.h" name="include/m32_gpio.h">
-<area shape="rect" id="node1" title="atmega32 gpio header file for m32_gpio.c" alt="" coords="53,5,203,32"/>
-<area shape="rect" id="node2" href="$m32__gpio_8c.html" title="source file for atmega32 gpio operations" alt="" coords="5,80,123,107"/>
-<area shape="rect" id="node3" href="$main_8c.html" title="driver code for gpio library" alt="" coords="147,80,237,107"/>
-</map>
